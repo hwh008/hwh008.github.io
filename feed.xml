@@ -5,6 +5,43 @@
     <link href="_site/feed.xml" />
     <id>_site/feed.xml</id>
     <entry>
+        <title type="html"><![CDATA[动手画画超简单]]></title>
+        <link href="game-art/draw-by-hand.html"/>
+        <published>2013-08-10T16:00:00.000Z</published>
+        <updated>2013-08-10T16:00:00.000Z</updated>
+        <id>game-art/draw-by-hand.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>看过<a href="http://hwh008.github.io/game-art/draw5days.html">五天学会绘画</a>后，就到了实际动手画画的阶段。<br>我先是使用铅笔和纸，我觉得拿着笔最能天马行空。在纸上勾勒轮廓，然后打明暗，实际的练习效果不好：</p>
+<ol>
+<li>没什么基础，线条画不利索，误差大，全图显得很丑陋</li>
+<li>基本线条画不好，橡皮涂改较多，麻烦</li>
+<li>没有别的颜色，就铅笔是那种灰灰的颜色</li>
+</ol>
+<p>总之用铅笔在纸上画画，没有做出稍微能看的作品，提升我的一些信心。</p>
+<h2 id="在软件上学画画">在软件上学画画</h2><p>我最先尝试的是用ipad画画，怎么说也是触屏，感觉比用鼠标更能天马行空一些。我画了一个我刚喝完的百事可乐瓶。<br><img src="./res/2013-08-03-baishi.jpg" alt="p1"><br>手指画的最大局限是，手指太粗，又不透明，按下去细细的线条常常没有落在预想的位置上。</p>
+<p>鉴于手指画不好控制线条的落点，我又用鼠标在<em>PAINT.NET</em>上画了一幅，在<em>花瓣</em>上看到的房子。<br><img src="./res/house1.png" alt="p2"><br>控制精确，比百事可乐略强，不过鼠标的确不能天马行空，所以很多屋顶的曲线装饰我没能勾勒出来，而且长期按住鼠标左键画画，右手真的很累。</p>
+<p>为了改进这种绘画体验，我有两个选择，为ipad买一支<strong>Jot Pro超细笔</strong>，或者买一个电脑的美术手绘板。Jot Pro淘宝卖180，手绘板的基本价格好像要从300起吧，图便宜我买了Jot Pro。如果有ipad，那么Jot Pro让你在笔头下看到自己的线条，这个是手绘板比不来的。另一面，虽然Jot Pro的准确度比手指头高很多，可能还是无法与手绘板相比。不管怎么说，我很满意买了Jot Pro。</p>
+<p>我拿着Jot Pro在ipad上画画，同时还利用软件学画画，这是什么意思呢？这里介绍一下<strong>麦思涂鸦</strong>，ipad上的一款涂鸦软件，<em>36kr</em>介绍新项目的时候提过，特色有两点：</p>
+<ol>
+<li>绘画作品可上传涂鸦社区，artist互相交流，SNS。</li>
+<li>可以观摩其他人的绘画作品，并能重放作品的绘画流程。</li>
+</ol>
+<p>作品区有很多精选作品，人气作品，所有作品都能播放绘画流程，有什么比看着很棒的作品从无到有的过程更能学习到如何画画呢，看别人如何打草图，看别人如何下笔，看别人如何打色，好比名师言传身受，我诚意推荐此款软件。</p>
+<hr>
+<p>我在<strong>麦思涂鸦</strong>的第二个作品是一个头，本来是想画全身，没打草图就感觉难度太高了。<br><em>两个小时</em><br><img src="./res/13-8-11-head.jpg" alt="head"></p>
+<hr>
+<p>第三个作品是一个宝箱，宝箱上的钉子没有画出来，懒了。<br><em>两个小时</em><br><img src="./res/13-8-11-box.jpg" alt="box"></p>
+<hr>
+<p>第四个作品是海底场景，本来左侧也有几块石头的，可是我画这个的时候，可能因为笔画数目太多了，<strong>麦思涂鸦</strong>崩溃了很多次，导致我右上石头的很多叶子都没有保存下来，心灰意冷，就留下了这么个半成品。<br><em>六小时</em>
+<img src="./res/13-8-11-sea.jpg" alt="sea"></p>
+<hr>
+<p>第五个作品画了一只小猪，这种图<a href="http://hwh008.github.io/game-art/begin-inkscape.html">inkscape复制起来特别容易的</a>。<br><em>两个小时</em>
+<img src="./res/13-8-11-pig.jpg" alt="pig"></p>
+<hr>
+<p>到目前为止，右脑画画模式渐入佳境，会渐渐尝试临摹更多复杂的物体和场景，直到有一天可以临摹脑内的想象之物。<br>一万小时，扣除12个小时，还剩<em>9988</em>个小时。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[读《五天学会绘画》]]></title>
         <link href="game-art/draw5days.html"/>
         <published>2013-08-05T16:00:00.000Z</published>
