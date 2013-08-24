@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>叫我abc</title>
     <link href="./" rel="self" />
-    <link href="_site/feed.xml" />
-    <id>_site/feed.xml</id>
+    <link href="./" />
+    <id>./</id>
     <entry>
         <title type="html"><![CDATA[动手画画超简单]]></title>
         <link href="game-art/draw-by-hand.html"/>
