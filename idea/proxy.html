@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.4.6">
+    <meta name="theme" content="one 0.1">
+    <title>付费翻过一堵墙</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="叫我abc" />
+    <link rel="stylesheet" href="../static/one.css" />
+    <link rel="stylesheet" href="../static/syntax.css" />
+  </head>
+  <body>
+    <div class="navigation" role="navigation">
+      <div class="container">
+        <a class="home" href="../">叫我abc</a>
+        <div class="menu">
+          <a href="/life">生活</a>
+          <a href="/idea">好主意</a>
+          <a href="/game-art">游戏美术</a>
+          <a href="/about.html">About</a>
+          <a href="http://note.sdo.com/u/huangwenhai">笔记</a>
+        </div>
+      </div>
+    </div>
+    <div class="document">
+<div class="hentry">
+  <h1 class="entry-title">付费翻过一堵墙</h1>
+  <div class="entry-meta">
+    <time class="updated" datetime="2013-08-26T16:00:00.000Z">2013-08-27</time>
+  </div>
+  <div class="entry-content"><p>标题稍微含蓄点，大概的意思是想做一个收费的正向代理。这不是什么新鲜事了，大家可能都有买过ssh服务，或者VPN，免费的也用过GoAgent，不过我想做的不是这种的。<br>从我最近见识的一个付费服务说起吧，这个服务通过让用户的浏览器加载<a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%90%86%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE">pac</a>文件，连接到公网IP的代理服务器解决问题，我付费用了两个月，觉得这种方式比较平易近人，这是什么意思呢：</p>
+<blockquote>
+<p>有那么一波用户，现在肯定还不明白所谓的ssh,VPN什么的，然后你让他装个客户端，再用也许听都没听过的现代浏览器下载一个插件，所有东西还要设置一番才能妥妥的上网，这用户肯定打游戏去了。<br>另外就是价格，能比其他的付费服务便宜很多。</p>
+</blockquote>
+<p>这个付费服务很好，但是有些瑕疵：</p>
+<ol>
+<li>没有编辑用户个人pac的人性化接口，有特殊需求的基本都是靠群里说着加上的。</li>
+<li>基于squid，认证容易过期，可调整不多，据反映性能压力也很大，老板总说要提价。</li>
+</ol>
+<p>我的想法就是改进这两点，特别是第二点。方案是通过nodejs做面向用户的正向代理，这样可以在代码里做很多提升用户认证体验的工作，全面的定制性完爆squid，性能还不清楚。然后nodejs把用户请求转发给反向代理Varnish，做一个页面缓存层，最后由反向代理再去访问另一个简单高效的正向代理软件。<br>这个结构很啰嗦，但是要定制性的话，nodejs的代码越靠前越能准确判断用户，减少用户认证成本。此外如果不用缓存的话，是可以割掉Varnish后面一段的。</p>
+<p>最后说下我付费用过的这个服务可能的成绩，群里应该有300个付费用户吧，一人一月10块钱，自己算算。另外这个东西是不可能做大的，贵国的情形你懂，用户越多出问题的时候抱怨越剧烈。所以，<strong>招呼个两三百用户，每月挣点零花钱就得了</strong>。</p>
+<hr>
+<p>接下来我准备动手做一个，顺便征几个早期测试用户，免费服务哦，有意的留个记号吧:-D</p>
+<blockquote>
+<p>Written with <a href="http://benweet.github.io/stackedit/">StackEdit</a>.</p>
+</blockquote>
+</div>
+</div>
+ <a href='http://me.alipay.com/hwh008'>pay me or like me<img src='/m.png' /> </a>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hwh008"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.4.6</p>
+    </div>
+    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
+    <div class="github"><a class="github-link" href="https://github.com/hwh008">Fork me on GitHub</a></div>
+  </body>
+</html>
