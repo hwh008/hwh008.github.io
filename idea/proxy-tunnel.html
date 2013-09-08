@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.4.6">
+    <meta name="theme" content="one 0.1">
+    <title>快乐上网0.1</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="叫我abc" />
+    <link rel="stylesheet" href="../static/one.css" />
+    <link rel="stylesheet" href="../static/syntax.css" />
+  </head>
+  <body>
+    <div class="navigation" role="navigation">
+      <div class="container">
+        <a class="home" href="../">叫我abc</a>
+        <div class="menu">
+          <a href="/life">生活</a>
+          <a href="/idea">好主意</a>
+          <a href="/game-art">游戏美术</a>
+          <a href="/about.html">About</a>
+          <a href="http://note.sdo.com/u/huangwenhai">笔记</a>
+        </div>
+      </div>
+    </div>
+    <div class="document">
+<div class="hentry">
+  <h1 class="entry-title">快乐上网0.1</h1>
+  <div class="entry-meta">
+    <time class="updated" datetime="2013-09-07T16:00:00.000Z">2013-09-08</time>
+  </div>
+  <div class="entry-content"><p>完成度很低，暂不公开，只发放给一些天使用户测试。</p>
+<h2 id="免费的东西是有成本的">免费的东西是有成本的</h2><p><a href="http://hwh008.github.io/idea/proxy.html">做代理的点子</a>在得到网友的支持后，我就开始动手实现了。最开始，我所懂的只是大概知道，用个代理软件，就可以让其他不能上网的机器上网了，其他的可以说一窍不通。<br>我要做的是一个减轻用户验证频率的代理，需要对代理软件能做极大的自定义调整。一开始相中Varnish，觉得他的调整范围还是蛮大的，但是发现他是反向代理后，决定还是从完全的代理代码入手。<br>我从github搜索了几个基于nodejs的代理软件，在nodejs各个版本之间如此“稳定一致”的情况下，很多代码要么做修改，要么修改了也只能运行在某个特定版本下。<br>总算筛选出能用的代码后，摸索其中的代理实现原理也曲曲折折。http的代理基本好说，看到的实现大体是解析用户发来的request，然后新建request请求数据，把结果返回给用户。https的代理就麻烦了，竟然是同http代理一个做法，冒充了主机，这导致了CA证书的信任问题。证书这种高端的东西，是甩给用户看的吗？<br>还好我是有参考的，我看到别人提供的服务并没有提醒证书问题，这个问题应该有办法避免的。我又试用了其他代码，有一份代码在做https代理的时候，没有出现证书问题，原理很简单，老老实实做转发，不要冒充。<br>到此，代理实现原理基本摸索算完成，然后在这上面开发了简单的认证控制。</p>
+<h2 id="隧道是自由">隧道是自由</h2><p>以前总是通过境外ssh的动态端口模式上网，所以花20刀入了个linode，结果发现，即使我不是向facebook主机请求facebook数据，GFW仍旧会毫不犹疑的干掉连接。只好在42区再入个60块的国内VPS，用户请求先交给国内VPS，然后通过ssh隧道安全送到linode。<br>不得不说，这里面成本太高了，一个月成本接近200。幸运的是，在我和天使用户的一些邮件往来中，特别感谢iamtaylover，我了解到HE提供免费的隧道服务，使我得以摘掉linode的成本。即使隧道收费，费用也应该比入手linodeVPS便宜。</p>
+<hr>
+<h2 id="我学到什么">我学到什么</h2><ol>
+<li>代理服务器的实现原理和细节，理所当然的。</li>
+<li>买便宜够用的VPS。VPS的提供商和广告太多，骗子也太多。linode很贵，但是真是一分钱一分货，业务大的还是建议选linode。</li>
+<li>iptables，NAT，route，以前重来不想的，真是用到就会了</li>
+</ol>
+<hr>
+<blockquote>
+<p>Written with <a href="http://benweet.github.io/stackedit/">StackEdit</a>.</p>
+</blockquote>
+</div>
+</div>
+ <a href='http://me.alipay.com/hwh008'>pay me or like me<img src='/m.png' /> </a>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hwh008"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.4.6</p>
+    </div>
+    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
+    <div class="github"><a class="github-link" href="https://github.com/hwh008">Fork me on GitHub</a></div>
+  </body>
+</html>
