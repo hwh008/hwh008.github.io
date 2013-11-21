@@ -5,6 +5,41 @@
     <link href="./" />
     <id>./</id>
     <entry>
+        <title type="html"><![CDATA[创业就是卖出去]]></title>
+        <link href="idea/marketing.html"/>
+        <published>2013-11-20T16:00:00.000Z</published>
+        <updated>2013-11-20T16:00:00.000Z</updated>
+        <id>idea/marketing.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>我做了两个月<a href="http://ppt99.sinaapp.com/">快乐上网</a>的回顾。</p>
+<p>这个项目不太上台面，但是所经历的，和现在许多真正创业的朋友所经历的并没有多少区别，是我一笔重要的经验。</p>
+<p>说下现状，业余，运营成本100/月，截至目前为止收入30。</p>
+<h2 id="首先，你要有心灵鸡汤">首先，你要有心灵鸡汤</h2><p>这是我第一次尝试去做技术以外的事情，经历各种初级错误，入不敷出的运营。</p>
+<ul>
+<li>《黑客与画家》，财富是提供别人需要的东西；</li>
+<li>《重来》，随时可以行动；</li>
+<li>《精益创业》，听取反馈，不要浪费成本；</li>
+</ul>
+<p>一个idea要落到地面的第一步是有产品，并且这个产品有人需要。我更喜欢的一句话是</p>
+<blockquote>
+<p>虽然我们是卖钻孔机的，但实际上我们的用户只是需要墙上有个孔。</p>
+</blockquote>
+<p>有了idea，就行动作出产品，有了产品接着行动获得用户，有了用户就尽量取得用户的反馈，并依据修改。在这过程中，最重要的事情就是不要浪费成本。</p>
+<p>自从做快乐上网，我开始注意其他创业者的消息，特别是个人创业者。一个idea做不好可能有多方面的原因，但是过早的高额硬件成本，会严重挫伤士气。每个月花的越少，就能坚持越长时间，有更多的次数根据用户的意见转型新的尝试。</p>
+<p>每个月花的越少，越容易从一点点的用户收入中获得收支平衡，以后即使放弃了，也能让项目自我运行下去。</p>
+<p>所以我把网站放在了几乎免费的SAE上，域名也无所谓，只在代理服务器上投入成本。</p>
+<p>有了决定，趁热打铁，马上将产品粗糙的开发出来，然后一边推广一边改进。不要害怕太粗糙被嘲笑，一个是用户基本没有，另一个是有人肯笑你好反省哪里做错了。</p>
+<p>接下来将按以下几块交叉说明：</p>
+<ol>
+<li><a href="/idea/marketing-web.html">网站改进</a></li>
+<li><a href="/idea/marketing-how.html">推广操作</a></li>
+<li><a href="/idea/marketing-data.html">数据统计</a></li>
+<li><a href="/idea/marketing-proxy.html">业务改进</a></li>
+<li><a href="/idea/marketing-seo.html">SEO规划</a></li>
+</ol>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[快乐上网0.1]]></title>
         <link href="idea/proxy-tunnel.html"/>
         <published>2013-09-07T16:00:00.000Z</published>
