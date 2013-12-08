@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.5.0">
+    <meta name="theme" content="one 0.1">
+    <title>unity4.3的2d技术要点</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="叫我abc" />
+    <link rel="stylesheet" href="../static/one.css" />
+    <link rel="stylesheet" href="../static/syntax.css" />
+  </head>
+  <body>
+    <div class="navigation" role="navigation">
+      <div class="container">
+        <a class="home" href="../">叫我abc</a>
+        <div class="menu">
+          <a href="/log">生活</a>
+          <a href="/idea">好主意</a>
+          <a href="/game-art">独立游戏</a>
+          <a href="/about.html">About</a>
+          <a href="http://note.sdo.com/u/huangwenhai">笔记</a>
+        </div>
+      </div>
+    </div>
+    <div class="document">
+<div class="hentry">
+  <h1 class="entry-title">unity4.3的2d技术要点</h1>
+  <div class="entry-meta">
+    <time class="updated" datetime="2013-12-08T16:00:00.000Z">2013-12-09</time>
+  </div>
+  <div class="entry-content"><p>unity4.3的2d，是在3d中用正交投影实现的。投影不是重点，重点是增加了2d的物理组件，提供2d的碰撞和物理支持。</p>
+<h2 id="场景分层">场景分层</h2><p>2d的场景构建讲究分层，不同的对象分布到不同的层中，方便管理。</p>
+<p>一般说来分5层</p>
+<ol>
+<li>静态背景层。静态的远景，然后云，水，雾气等可以做一个缓慢的循环动画。</li>
+<li>动态背景子物体。飞鸟，小动物，小植物等偶尔出现的对象，但是不和游戏交互。</li>
+<li>静态前景层。和游戏发生实际交互的地面，墙和物体，是实际的关卡内容。这些物体一般要设定碰撞多边形和物理材质。</li>
+<li>游戏对象层。玩家，怪物等活物。</li>
+<li>UI层。界面和粒子等。</li>
+</ol>
+<p>要快速做原型，主要是集中力量做操作逻辑，前景层，游戏对象逻辑和粒子表现。</p>
+<h2 id="动画技术">动画技术</h2><p><strong>骨骼动画编辑器</strong></p>
+<p>unity4.3内置了2d骨骼动画编辑器，所谓骨骼动画就是子部件的移动缩放和旋转。内置的编辑器可以所见即所得的编辑角色的各种动画。</p>
+<p>原始的精灵动画，也作为骨骼动画的一种特殊表现形式出现。</p>
+<p><strong>动画融合</strong></p>
+<p>为不同的两个动画同时播放提供基于权重的融合支持，比如一边跑一边开枪，可以是跑和开枪两个动画的融合。</p>
+<p><strong>动画切换状态机</strong></p>
+<p>以前从一个动画向下一个动画切换的时候，需要用代码详细控制。unity4.3内置动画状态编辑器，让动画切换规则可见，并且定义了一些基本的切换规则，可以无需代码实现动画的自动切换。</p>
+<p>至于需要代码控制的切换，只需调用<code>SetTrigger</code>。</p>
+<h2 id="其他">其他</h2><p><strong>UI控件</strong></p>
+<p>GUITexture和GUIText</p>
+<p><strong>声音</strong></p>
+<p>AudioSource</p>
+<p><strong>线程</strong></p>
+<p>过一阵再做一件事情，可以用<code>SetDelay</code>，也可以用<code>StartCoroutine</code>。</p>
+<p><strong>时间控制</strong></p>
+<p>Time.timeScale</p>
+<hr>
+<p>相比之下，cocos2dx显得落后很多。落后的原因，我觉得差不多是两块：收益和技术。</p>
+<p>感觉cocos2dx做引擎没能挣什么钱，靠的是前台的游戏养活。收益不足的话，怎么补充人员开发更丰富的工具呢。光靠开源代码，是没法和unity这种工具抗衡的。</p>
+<p>另一块是技术。现有的开发者技术很强，但是收益不足的话，无法吸引更多技术强力的开发者进来，为cocos2dx提供更强的动力。</p>
+</div>
+</div>
+ <a href='http://me.alipay.com/hwh008'>pay me or like me<img src='/m.png' /> </a>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hwh008"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.0</p>
+    </div>
+    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
+    <div class="github"><a class="github-link" href="https://github.com/hwh008">Fork me on GitHub</a></div>
+  </body>
+</html>
