@@ -5,6 +5,34 @@
     <link href="./" />
     <id>./</id>
     <entry>
+        <title type="html"><![CDATA[内存分配释放跟踪]]></title>
+        <link href="idea/memtrace.html"/>
+        <published>2014-02-27T16:00:00.000Z</published>
+        <updated>2014-02-27T16:00:00.000Z</updated>
+        <id>idea/memtrace.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>当程序出现类似内存泄露等内存不稳定的问题时，若无法从代码审核角度发现问题，则考虑跟踪内存的分配和释放。</p>
+<p>从跟踪的数据中得到程序内存的使用分布情况，以及退出时没有释放的内存，可以推断出程序内存开销的热点，以及内存泄露位置，执行相应的改进。</p>
+<h2 id="常规跟踪方法">常规跟踪方法</h2><p>linux下有跟踪内存泄露的工具，但工具操作和数据解读的不习惯，以及DIY内存跟踪的轻易性，实际的使用效果并不理想。</p>
+<p>常规的跟踪方法一般是重载<code>operator new</code> <code>operator delete</code> ，使重载参数中包含文件名和行号，这样new/delete分配时会传递分配的文件位置。</p>
+<p>在<code>operator new</code>实现中，为每块请求的内存多分配出一个item结构，item结构中记录这次分配的大小和文件位置。</p>
+<p>等到<code>operator delete</code>回收内存时，将指针偏移一个item结构的位置，就能读到item中的信息。</p>
+<p>通过统计所有的item信息，得出内存使用分布，以及泄露的内存。</p>
+<blockquote>
+<p><strong>常规跟踪方法的限制</strong>
+<em>因为定义的 <code>operator new</code> <code>operator delete</code> 比标准方法增加了参数，需要定义new宏，并将new宏包含在每一个源文件中。</em></p>
+</blockquote>
+<h2 id="优化出新的跟踪方法">优化出新的跟踪方法</h2><p>新的方法仍然基于重载<code>operator new</code> <code>operator delete</code>，但是重载标准方法，不增加参数。那么如何记录每次分配的大小和文件位置呢？</p>
+<p>我们预先定义好一个item元素的哈希表，key是一个整数。在 <code>operator new</code> 的实现里，调用系统接口 <code>backtrace</code> 获得分配内存的调用堆栈，计算这些堆栈的哈希key，然后将这些堆栈数据保存到哈希表的item元素中。调用堆栈等价于文件位置。</p>
+<p>我们依旧需要为每块请求的内存多分配一个指针，指向item元素，以便在<code>operator delete</code> 的时候，修改item信息。</p>
+<p>我们分析内存分布和泄露之前，需要取得程序的core。导出item信息中的堆栈值之后，通过在gdb中执行以下指令：
+<code>info line * addr</code>
+获得每个堆栈的代码文件位置。<em>addr</em> 是堆栈值。</p>
+<p>gdb调试时，新方法比常规方法计算量更小，也更容易汇总和分类。也不需要被每个源文件包含，并能影响到每个静态库模块 <em>(动态库尚未确认)</em>。</p>
+<p>此外，还可以应用的 <code>malloc_hook</code> 上，需要注意的是hook分配时，不能为每块请求的内存额外分配，管理方式与new不同，易引起崩溃。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[unity4.3的2d技术要点]]></title>
         <link href="game-art/unity4.3.html"/>
         <published>2013-12-08T16:00:00.000Z</published>
