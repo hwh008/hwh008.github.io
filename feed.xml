@@ -5,6 +5,49 @@
     <link href="./" />
     <id>./</id>
     <entry>
+        <title type="html"><![CDATA[游戏的自动化测试]]></title>
+        <link href="idea/game-autotest.html"/>
+        <published>2014-04-05T16:00:00.000Z</published>
+        <updated>2014-04-05T16:00:00.000Z</updated>
+        <id>idea/game-autotest.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>作为一个懒惰的程序员，要自动化一切，包括游戏测试。</p>
+<p>游戏是一个复杂的CS系统，本身的数据流是二进制的，不像网页那样的文本制好解析；画面和UI是基于DX的，也就不能用一些测试通用窗口控件的工具去测试游戏。</p>
+<p>我尝试过一些从各方面借鉴的做法。</p>
+<p><strong>单元测试</strong></p>
+<p>很多年以前，我在寻仙项目上尝试了单元测试。基本借鉴了《修改代码的艺术》一书，<a href="http://www.cppblog.com/darkdestiny/archive/2008/01/11/41001.html">对C++进行单元测试</a>。C++不同于脚本语言的动态性，mock的时候需要花费较多的精力，但进行单元测试是可行的。</p>
+<p>我对服务器部分的一个组队模块部署了单元测试，但是接口和模块功能变化太频繁，很快就不再维护了。</p>
+<p><strong>协议测试</strong></p>
+<p>再一次的考虑自动化测试是在刀2项目。这一次依赖的是机器人工具和脚本，做了一个极简的客户端，让这个客户端可以通过脚本登陆、退出和收发所有消息，然后在脚本中定制测试流程。</p>
+<p>这套工具听着蛮不错的，至少能测试服务器真实的交互流程，QA也用过一段时间，用来测压力和刷怪。但说到测试某个子模块，却一直未能成形。</p>
+<p>其实还是老问题，通信协议太容易变化了。今天这个子模块还好好的，明天可能就某个协议增加了字段或者调整了发送顺序，测试就挂了。</p>
+<p>这样一来，调整太频繁，可用性就低了。</p>
+<p><strong>rspec</strong></p>
+<p>最近在学习ruby on rails，相应的也就接触到rspec测试，很快就有了灵感，觉得这可能是一个更靠谱的方向。</p>
+<p>rspec把整个页面作为测试对象，通过填充和点击操作，验证页面刷新包含的目标字符串。页面其实就是DOM文本，前面说到游戏从里到外都是二进制的，视觉内容还真不是一般工具能检测和操作的。</p>
+<p>虽然如此，但是灵感就从中抽象出来。UI模块虽然是私有的二进制数据集合，但实际上对我们而言就是一棵控件树，在客户端的脚本里，同样可以用类似rspec的方式去操作UI，并且检验结果。</p>
+<p>为了降低功能的频繁调整而降低测试的可用性，测试脚本一定是要把UI当做黑盒，尽可能用稳定的接口。用类似rspec的语法写个测试游戏商城模块的例子：</p>
+<pre>describe &#39;mall&#39; do
+    click_button ui_main.w_main, &#39;商城&#39;
+    wait 2, seconds
+
+    assert ui_supermarket.w_win.visible
+    assert { have_content ui_supermarket.w_win, &#39;圣甲精华&#39; }
+
+    click_button ui_supermarket.w_win, &#39;购买&#39;, &#39;圣甲精华&#39; }
+    assert ui_msgbox.w_win.visible
+
+    fill ui_msgbox.w_win, &#39;数量&#39;, 1
+    click_button ui_msgbox.w_win, &#39;购买&#39;
+    wait 2, seconds
+
+    assert { have_item(&#39;圣甲精华&#39;, 1) }
+end</pre><p>测试的流程大体是打开商城界面，点击圣甲精华购买按钮，出现购买确认对话后，填充数量并发起购买，然后确认道具数量的变化。</p>
+<p>虽说把UI当黑盒，但窗口的顶层控件作为参数会有利于测试加速。比如 <em>have_content</em> 就是在商城窗口中搜索圣甲精华文字，至于这个文字到底放在哪，则一层层的去搜索商城窗口的子控件去寻找了。</p>
+<p>无视UI的布局细节，尽量从客户端本身的数据中，通过不易改变的名字去查找和验证，就不惧怕程序的频繁调整了。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[内存分配释放跟踪]]></title>
         <link href="idea/memtrace.html"/>
         <published>2014-02-27T16:00:00.000Z</published>
