@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.4.7">
+    <meta name="theme" content="one 0.1">
+    <title>git rebase 实践</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="叫我abc" />
+    <link rel="stylesheet" href="../static/one.css" />
+    <link rel="stylesheet" href="../static/syntax.css" />
+  </head>
+  <body>
+    <div class="navigation" role="navigation">
+      <div class="container">
+        <a class="home" href="../">叫我abc</a>
+        <div class="menu">
+          <a href="/life">生活</a>
+          <a href="/idea">好主意</a>
+          <a href="/game-art">独立游戏</a>
+          <a href="/about.html">About</a>
+          <a href="http://note.sdo.com/u/huangwenhai">笔记</a>
+        </div>
+      </div>
+    </div>
+    <div class="document">
+<div class="hentry">
+  <h1 class="entry-title">git rebase 实践</h1>
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-04-28T16:00:00.000Z">2014-04-29</time>
+  </div>
+  <div class="entry-content"><p>rebase可以这么理解，之前创建分支后做了很多提交，现在尝试根据最新的主干重新创建分支，然后提交相同的内容。
+这么做的好处是，保持主干提交的连贯性，方便其他人进行merge。</p>
+<p>ladder-web拥有两个分支：</p>
+<ol>
+<li>master</li>
+<li>create-pac</li>
+</ol>
+<p>现在的任务是将<em>create-pac</em>分支rebase后，merge到<em>master</em>并提交。</p>
+<p>首先确保<em>master</em>分支最新：
+<code>git checkout master</code>
+<code>git fetch</code>
+<code>git merge origin/master</code></p>
+<p>然后开始rebase：
+<code>git checkout create-pac</code>
+<code>git rebase master</code></p>
+<p>在这里我遇上了好几次冲突，主要是db/schema.rb的。因为我知道schema可以重新生成，所以当时选择了<em>rebase --skip</em>。
+我以为skip是忽略冲突的意思，没想到结果是直接放弃了这个提交，导致rebase完成后，缺少了好几个文件，测试也无法通过。</p>
+<p>麻烦大了，怎么修复？祭出reset神器。
+<code>git reflog</code>
+<code>git reset HEAD@{10}</code>
+<code>git clean -df</code></p>
+<p>reflog指令是查看git的提交记录，找到rebase开始前的那个节点，然后将HEAD指针reset回去。
+reset后，工作目录下可能会残留一些rebase加进来的unchecked文件，用clean指令删除。</p>
+<p>从这个问题学到两点：</p>
+<ol>
+<li>rebase处理冲突的时候，不要使用skip，除非真的无法解决冲突</li>
+<li>db/schema.rb不需要加入版本管理，完全可以重新生成</li>
+</ol>
+<p>重新执行rebase指令，解决所有冲突后，成功。然后需要跑测试校验一下：
+<code>rake db:drop</code>
+<code>rake db:migrate</code>
+<code>rake test:prepare</code>
+<code>rake spec</code></p>
+<p>最后merge到主干并提交
+<code>git checkout master</code>
+<code>git merge create-pac</code>
+<code>git branch -d create-pac</code>
+<code>git push</code></p>
+<p>在merge到主干后，同样需要跑一次测试。</p>
+</div>
+</div>
+ <a href='http://me.alipay.com/hwh008'>pay me or like me<img src='/m.png' /> </a>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hwh008"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.4.7</p>
+    </div>
+    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
+    <div class="github"><a class="github-link" href="https://github.com/hwh008">Fork me on GitHub</a></div>
+  </body>
+</html>
