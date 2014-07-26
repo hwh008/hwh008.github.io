@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.5.0">
+    <meta name="theme" content="one 0.1">
+    <title>unity3d的纹理尺寸优化</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="叫我abc" />
+    <link rel="stylesheet" href="../static/one.css" />
+    <link rel="stylesheet" href="../static/syntax.css" />
+  </head>
+  <body>
+    <div class="navigation" role="navigation">
+      <div class="container">
+        <a class="home" href="../">叫我abc</a>
+        <div class="menu">
+          <a href="/life">生活</a>
+          <a href="/idea">好主意</a>
+          <a href="/game-art">独立游戏</a>
+          <a href="/about.html">About</a>
+          <a href="http://note.sdo.com/u/huangwenhai">笔记</a>
+        </div>
+      </div>
+    </div>
+    <div class="document">
+<div class="hentry">
+  <h1 class="entry-title">unity3d的纹理尺寸优化</h1>
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-07-25T16:00:00.000Z">2014-07-26</time>
+  </div>
+  <div class="entry-content"><p>如果想减少手游打包的尺寸，第一步要做的是分析找出热点。<br>在console窗口可以右键打开editorlog，里面列举了本次打包编译的所有资源和大小。进行归类和细分，定位哪块内容最占空间。</p>
+<p>一般情况下，有以下3方面消耗了大量空间。</p>
+<ol>
+<li>UI 素材</li>
+<li>场景纹理</li>
+<li>动画文件</li>
+</ol>
+<p>图片最占用空间，动画文件比重虽然不低，但是压缩比高。图片打包时几乎是无法压缩的。<br>因此优化尺寸的重点就是在导入图片时设定正确的压缩格式。</p>
+<h2 id="switch-platform-to-android">switch platform to android</h2><p>把build platform默认设置为android，因为unity为你自动转换压缩格式的时候，在android这块处理的并不好，有些方面需要自己去盯着。<br>ios因为硬件的一致性，统一使用PVRTC。<br>ETC1是android目前支持最广泛的压缩格式，和ios的压缩格式一样都是8:1。</p>
+<h2 id="1024x1024">1024x1024</h2><p>纹理最大只用1024x1024。<br>更大尺寸的纹理？有些手机支持不了。<br>非方形纹理？无法使用最佳格式去压缩，只能采用失真高，压缩率低的格式。</p>
+<p>总之，需要压缩的纹理必须是方形，分辨率限制在1024x1024以下。</p>
+<h2 id="拼接和切割ui素材">拼接和切割UI素材</h2><p>UI素材的小元素很多，将多个素材拼接成一个1024大图有以下好处：</p>
+<ol>
+<li>减少drawcall，提高效率。 移动设备的极限差不多就100 drawcall吧，长时间太高会发烫。</li>
+<li>减少图片数量，容易看到优化效果。</li>
+<li>大图压缩后的失真程度非常小。</li>
+</ol>
+<p>为什么要切割呢，主要是有一些长背景素材，如2000x500，可以切成1024x500，再合并成1024x1024的方图进行压缩。<br>如果压缩后太失真，那就不切割，使用原图而不进行压缩，尺寸上也比1024x1024不压缩的小。<br>这需要权衡。</p>
+<h2 id="压缩ui素材">压缩UI素材</h2><p>有时候UI素材压缩，会失真，需要尝试看效果是否选择压缩。<br>按钮，边框类的素材一般是不压缩的，因为压缩后容易失真。<br>但如背景类素材，布景类素材压缩后却和原图非常接近。</p>
+<p>因为UI素材携带alpha通道，unity在转成android压缩格式时会使用rgba16，这是非常糟糕的压缩格式——低压缩比，高失真。<br>可手工指定android的压缩格式为ETC1，但是ETC1并不包含alpha数据。为了能够显示半透的元素，需要修改shader，传一张alpha通道的纹理进行混合。<br>alpha纹理不需要另外制作，将原图复制一份，设置导入格式为alpha8即可，导入尺寸尽可能缩小到256x256以内。</p>
+<h2 id="压缩场景纹理">压缩场景纹理</h2><p>场景纹理总是选择压缩格式，全部都必须是方形的。<br>更重要的是，要避免alpha通道。如果包含了alpha通道，压缩格式手工改成ETC1，无需额外的alpha通道纹理。</p>
+</div>
+</div>
+ <a href='http://me.alipay.com/hwh008'>pay me or like me<img src='/m.png' /> </a>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hwh008"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.0</p>
+    </div>
+    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
+    <div class="github"><a class="github-link" href="https://github.com/hwh008">Fork me on GitHub</a></div>
+  </body>
+</html>
