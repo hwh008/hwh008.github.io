@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.5.0">
+    <meta name="theme" content="one 0.1">
+    <title>demo《黑猫》的制作过程</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="叫我abc" />
+    <link rel="stylesheet" href="../static/one.css" />
+    <link rel="stylesheet" href="../static/syntax.css" />
+  </head>
+  <body>
+    <div class="navigation" role="navigation">
+      <div class="container">
+        <a class="home" href="../">叫我abc</a>
+        <div class="menu">
+          <a href="/life">生活</a>
+          <a href="/idea">好主意</a>
+          <a href="/game-art">独立游戏</a>
+          <a href="/about.html">About</a>
+          <a href="http://note.sdo.com/u/huangwenhai">笔记</a>
+        </div>
+      </div>
+    </div>
+    <div class="document">
+<div class="hentry">
+  <h1 class="entry-title">demo《黑猫》的制作过程</h1>
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-09-17T16:00:00.000Z">2014-09-18</time>
+  </div>
+  <div class="entry-content"><p>这是工作7年后的第一次独立制作。上一次的独立制作是在7年前，在学校里为找工作准备的一些项目。</p>
+<p>这次制作的目标是indie game
+，虽然最终没有完成，但是制作过程可供回顾和参考。</p>
+<h2 id="最初设计">最初设计</h2><p>制作游戏的第一步，就是要有点子。除了平时的记录和积累，用一个系统的头脑风暴流程来产生游戏点子更有效率。</p>
+<p>我采用了一个称为<a href="http://www.gameseeds.net/">game seeds
+</a>的思路。<strong>首先是以随机的方式定义一个主角的属性</strong>，比如：</p>
+<blockquote>
+<p>物种：生物</p>
+<p>性别：female</p>
+<p>时空：现今</p>
+<p>习性：流动</p>
+<p>身材：2x1（最大3x3）</p>
+<p>生命：2（最大6，下同）</p>
+<p>攻击：5</p>
+<p>速度：4</p>
+<p>智力：6</p>
+<p>领导力：2</p>
+</blockquote>
+<p><strong>通过这些随机的属性，想象主角的样子，把他画到纸上，并写下他拥有的能力和性格</strong>。我想到的是一只优雅的黑猫，跑得快，能走钢丝，会瞬移，会电击。</p>
+<p>用同样的方式，或者直接设计，再定义一个配角。我想到的是一个互补的角色，大黄狗，速度慢，但是生命力顽强，能撞坏一些较大的障碍物。</p>
+<p><a href="http://www.gameseeds.net/">game seeds</a>预定义了30种游戏类型，<strong>以随机的方式，抽取主游戏类型和辅游戏类型，设计游戏特性</strong>。我抽取到的是spy和navigate。</p>
+<p>spy是潜入游戏，我参考了很多的2D游戏的潜入设计，然后想了很多系统点子，最终精简到6条。</p>
+<ul>
+<li>移动和光影暴露系统。移动分快速和潜行</li>
+<li>进入物体内躲避</li>
+<li>AI视野和分级</li>
+<li>跳箱子</li>
+<li>走线和墙沿</li>
+<li>电击</li>
+</ul>
+<p><strong>想很多点子，但是只选择5条，独立制作的工作量绝不可以大。</strong></p>
+<h2 id="功能实现">功能实现</h2><p>做完最初设计，可以开始用代码和资源实现系统点子了。</p>
+<p><img src="./blackcat/origi_snap.png" alt="origi_snap"></p>
+<p>这就是我实现各种点子的关卡，花盘可以进入躲避，箱子和横杆可以跳跃，灯光增加你的暴露值，而守卫则用来发现你。</p>
+<p>这些道具一字排开的摆在一个平面关卡中，逐步进行实现。素材都是自己画的方块，纯色的。<strong>实现基本功能点的时候，不要找素材，不要设计关卡，用成本最低的方式开始进行编码。</strong></p>
+<h2 id="关卡设计">关卡设计</h2><p>等那几个游戏点子实现的差不多了，就可以开始设计第一关。我阅读了一些如何设计platformer关卡的文章，首先<strong>第一步是，画出关卡线路简图</strong>。有多简介呢？只用一根线表示地面和墙，随意的绘制整个关卡的区域线路，图上不考虑其他素材的放置。</p>
+<p><img src="./blackcat/level_1.png" alt="level_1"></p>
+<p><strong>紧接着设计一些关卡的局部特性</strong>。这些局部特性是独立的，可以复用的设计，不要放到关卡线路简图中考虑。比如躲避物和守卫的摆放设计，箱子和通道口的设计，陷阱摆放设计，地形局部设计等等。</p>
+<p>局部特性是玩家在视野内面对的具体挑战，每一个设计都为玩家预留了破解方法。</p>
+<p><img src="./blackcat/level_2.png" alt="level_2"></p>
+<p><strong>做完了局部特性的设计，将他们放置在关卡线路图的特定位置上，重新绘制一份墙和地面有厚度的关卡地图</strong>。</p>
+<p><img src="./blackcat/level_3.png" alt="level_3"></p>
+<h2 id="制作关卡">制作关卡</h2><p>根据关卡设计图制作关卡，一定要使用地图编辑工具，极大提高效率。找到合适的tileset
+后，用地图工具轻松的组装和调整。</p>
+<p>首先要做的就是刷好地面，墙和基本背景墙，然后放置关卡的局部设计。局部设计中的各种资源都使用正式的素材和动画进行替换。</p>
+<p>对关卡中空余的空间复用这些局部设计，进行一定的调整，充实关卡又尽可能不要产生太重复的感觉。一边调整一边运行游戏，保证自己也能跑通。</p>
+<p>最后找来3种能体现关卡风格的背景素材或者tileset，铺设到关卡中，丰富关卡环境表现，每个房间也可以增加一种不同的素材来体现区别。</p>
+<p><img src="./blackcat/last_snap.png" alt="last_snap"></p>
+<h2 id="总结">总结</h2><ol>
+<li>地图编辑器很重要，tilemap虽然简单，但不是很好的选择。那种自定义形状的关卡编辑器效率会更高。</li>
+<li>素材是痛。设计游戏时，是否可提前指定素材包？</li>
+</ol>
+</div>
+</div>
+ <a href='http://me.alipay.com/hwh008'>pay me or like me<img src='/m.png' /> </a>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hwh008"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.0</p>
+    </div>
+    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
+    <div class="github"><a class="github-link" href="https://github.com/hwh008">Fork me on GitHub</a></div>
+  </body>
+</html>
