@@ -6,6 +6,27 @@
     <id>./</id>
     <entry>
         <title type="html"><![CDATA[周记]]></title>
+        <link href="life/20150929-weekly.html"/>
+        <published>2015-09-27T16:00:00.000Z</published>
+        <updated>2015-09-27T16:00:00.000Z</updated>
+        <id>life/20150929-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>绿色：140，67%<br>橙色：032，15%<br>黄色：028，13%<br>红色：009，04%  </p>
+<p>总计：209<br>奖励：28/4 - 9/2 = 2.5 (一个半小时)</p>
+<p><strong>本周要事</strong></p>
+<ol>
+<li><p>去兴业的事情黄了，也没怎么可惜，毕竟不想分居</p>
+</li>
+<li><p>电商被检测出重置任意用户密码的漏洞，原始的原因竟然是开发公司愚蠢的两次请求的接口写法，框架落后坑自己啊</p>
+</li>
+<li><p>看小说容易沉迷当前的情节，浪费时间</p>
+</li>
+</ol>
+<p>看来本周没有发生积极的事情，遗憾。</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[周记]]></title>
         <link href="life/20150921-weekly.html"/>
         <published>2015-09-20T16:00:00.000Z</published>
         <updated>2015-09-20T16:00:00.000Z</updated>
@@ -721,27 +742,6 @@ end</pre><p>测试的流程大体是打开商城界面，点击圣甲精华购�
 <hr>
 <blockquote>
 <p>Written with <a href="http://benweet.github.io/stackedit/">StackEdit</a>.</p>
-</blockquote>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[上色是个苦力活]]></title>
-        <link href="game-art/draws-on.html"/>
-        <published>2013-08-26T16:00:00.000Z</published>
-        <updated>2013-08-26T16:00:00.000Z</updated>
-        <id>game-art/draws-on.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>继<a href="http://hwh008.github.io/game-art/draw-by-hand.html">开始画画</a>以后，又抽空画了一些。临摹的关键是注重比例，轮廓草图打的时好时坏。即使轮廓草图再差，经过仔细上色后，也能画出一幅有模有样的作品来。上色费的功夫越多，画面越像，画画其实是个苦力活，不过因为是右脑机制，除了手累点，其实蛮享受的。</p>
-<hr>
-<p>这个画了一半突然不想画下去了，因为心情不好。作画时最能看一个人内心是否宁静了，如果浮躁有心事的话，肯定干不了上色这种细致的苦力活。<br><em>四个小时</em><br><img src="./res/13-8-27-1.jpg" alt="p1"></p>
-<hr>
-<p>又是一个姑娘，稍微把左护肩画小了。如果你能从<strong>麦思涂鸦</strong>看到这幅画的绘画流程，你就能明白从一个比小学生作品还次的蜡笔画一般的草图，转变到这种效果，需要多么苦力的上色处理了。<br><em>十个小时</em><br><img src="./res/13-8-27-2.jpg" alt="p2"></p>
-<hr>
-<blockquote>
-<p><em>此篇博客长期更新</em></p>
-<blockquote>
-<p>Written with <a href="http://benweet.github.io/stackedit/">StackEdit</a>.</p>
-</blockquote>
 </blockquote>
 ]]>
         </content>
