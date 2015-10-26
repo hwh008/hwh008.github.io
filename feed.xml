@@ -6,6 +6,50 @@
     <id>./</id>
     <entry>
         <title type="html"><![CDATA[周记]]></title>
+        <link href="life/20151026-weekly.html"/>
+        <published>2015-10-25T16:00:00.000Z</published>
+        <updated>2015-10-25T16:00:00.000Z</updated>
+        <id>life/20151026-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>绿色：100枚<br>黄色：050枚<br>橙色：030枚<br>红色：006枚  </p>
+<p>经过几周的记录，基本可以明确一周大概200枚金币。时间如金钱，用一枚少一枚。其中绿色布局在100枚出头，不再另计。主要登记黄橙红蓝，黄色能保持在50枚以上是情况比较好的情形了，再往上努力则更加辛苦。红色应保持在10枚以下，橙色不使用的时候则是向黄色进行补充。</p>
+<blockquote>
+<p>人生苦短，2/3的时间用在吃，睡，聊上面，约1/6用在有意义的事情上，1/6用在挣生活费上。</p>
+</blockquote>
+<h2 id="本周要事">本周要事</h2><ol>
+<li><p>小领导的白事，第一次听说白事也给份子钱，给了。</p>
+</li>
+<li><p>拿到项目首付款，啧啧，真是突然挣了一下。</p>
+</li>
+<li><p>周六跟LP闹矛盾了，嗯，有我的不对。做人还是容易苛刻啊，可是又不甘心一起拉低水平线。</p>
+</li>
+<li><p>这个月市场还是猜的挺准的，利用A类和创业板ETF反复对冲，喝了点汤水。</p>
+</li>
+</ol>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[选择前端框架的想法]]></title>
+        <link href="idea/vuejs.html"/>
+        <published>2015-10-25T16:00:00.000Z</published>
+        <updated>2015-10-25T16:00:00.000Z</updated>
+        <id>idea/vuejs.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
+<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
+<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
+<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
+<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
+<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
+<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
+<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
+<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
+<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
+<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151019-weekly.html"/>
         <published>2015-10-18T16:00:00.000Z</published>
         <updated>2015-10-18T16:00:00.000Z</updated>
@@ -659,92 +703,6 @@ end</pre><p>测试的流程大体是打开商城界面，点击圣甲精华购�
 <p>相比之下，cocos2dx显得落后很多。落后的原因，我觉得差不多是两块：收益和技术。</p>
 <p>感觉cocos2dx做引擎没能挣什么钱，靠的是前台的游戏养活。收益不足的话，怎么补充人员开发更丰富的工具呢。光靠开源代码，是没法和unity这种工具抗衡的。</p>
 <p>另一块是技术。现有的开发者技术很强，但是收益不足的话，无法吸引更多技术强力的开发者进来，为cocos2dx提供更强的动力。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[11月，很高兴买了iMac]]></title>
-        <link href="life/201311-imac.html"/>
-        <published>2013-11-23T16:00:00.000Z</published>
-        <updated>2013-11-23T16:00:00.000Z</updated>
-        <id>life/201311-imac.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="我买了21-5低配">我买了21.5低配</h2><p>几年前的老电脑，硬件渐渐不稳定，时不时程序崩溃，或者蓝屏。等到国行iMac上线，就买了一台。</p>
-<p>看过很多吹捧osx的文章，说什么改变生活，GUI和控制台的完美结合，用过就不想用别的了等等。说实话，我觉得我花了9k但是没有感受得到9k的价值（<strong>我一边写文章一边改变了自己的想法(๑•́ ₃ •̀๑)</strong>）。</p>
-<h3 id="mac优势">Mac优势</h3><p><strong>颜色很棒</strong> 。用过几个显示器，从来没有这么舒服和靓丽的颜色。</p>
-<p><strong>terminal秒杀cmd</strong> 。外观很重要，每次用到cmd都想一头撞死。powershell已经很好看了，但是提权仍旧不方便。</p>
-<p><strong>mission control很直观</strong> 。在win下切换任务，make me think think think，感觉很累。有了mission control，配合magic mouse，呼之则来。</p>
-<p><strong>全屏focus</strong> 。帮助我集中注意力到当前任务上，算是一个喜欢的小特性吧。其他系统也有软件具有全屏功能，但并非系统原生。osx下的全屏配合magic mouse手势，切换到其他窗口非常方便。</p>
-<p><strong>高效的图形驱动</strong> 。作为一个linux，显卡驱动程序的性能真不是盖的。</p>
-<h3 id="没有9k价值">没有9k价值</h3><p>买iMac，我是冲着3件事去的</p>
-<ol>
-<li>xcode开发</li>
-<li>外观良好的terminal，linux命令行</li>
-<li>高效的图形性能</li>
-</ol>
-<p>入手后，和预期相差不少。我的意思是，用这个不菲价格，osx提供的方案还不够完美，其他系统能用更低的价格，提供类似甚至更好的方案。</p>
-<p><strong>不是100%的linux命令行</strong> 。我现在用homebrew安装命令行程序，希望他能包含大部分我想用的模块。总有一种命令行只是这个系统下的一个客人的感觉，不太舒服。</p>
-<p>windows下也有类似的程序<a href="https://github.com/lukesampson/scoop">scoop</a>，只是差在powershell缺乏提权和目录的非linux。</p>
-<p><strong>GUI不比别人强</strong> 。magic mouse只能说很漂亮，mission control虽然windows下没有，但若通过touch pad使用windows，切换任务并不困难，手势操作胜过osx。</p>
-<p>再有就是ubuntu unity简直是osx的copy，该抄的元素一个不少。若是说冲着osx“完美”的GUI，我觉得选择免费的ubuntu更实惠，反正大家都对网银没辙。而且ubuntu拥有100%的linux命令行。</p>
-<p>我本来想说完全可以花60%甚至更少的钱配台式机，<em>i5，好显卡(linux驱动支持好)，8G内存，SSD硬盘</em>，运行ubuntu，图形性能接近甚至超过osx。</p>
-<p>实际到京东配下来，价格并不算太优惠。而相比买入iMac所独占获得的</p>
-<ul>
-<li>一体机美观大方，没有凌乱的排线，配上蓝牙键盘和magic mouse，还有比这更干净的桌面么</li>
-<li>超棒的显示器，卓越的图形性能，鲜艳的颜色</li>
-<li>xcode</li>
-<li>静音低耗。我暂时没听到过它发出任何机械声，相比我的老台式机和笔记本，总能听到疯狂的风扇声。待机的时候才30w，而且唤醒是实时的，跟MBA/MBP一样。</li>
-</ul>
-<h2 id="分享">分享</h2><ul>
-<li><a href="http://drops.wooyun.org/tips/734">通过nginx配置文件抵御攻击</a></li>
-</ul>
-<p>涨姿势了，一般的防御也是这个套路。</p>
-<ul>
-<li><a href="http://webappsecuritylab.com/?p=6">防御XSS的七条原则</a></li>
-</ul>
-<p>我觉得知道“不要在页面中插入任何不可信数据”就够了。</p>
-<ul>
-<li><a href="http://ruby-china.org/topics/14005">Web 中文字体应用指南</a></li>
-</ul>
-<p>一劳永逸，放弃思考，直接取用。</p>
-<ul>
-<li><a href="http://www.guifabu.com/?p=8662">斯坦福的一堂赌博课</a></li>
-</ul>
-<p>企业应奖励那些优秀决策而非优秀的结果。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[创业就是卖出去]]></title>
-        <link href="idea/marketing.html"/>
-        <published>2013-11-20T16:00:00.000Z</published>
-        <updated>2013-11-20T16:00:00.000Z</updated>
-        <id>idea/marketing.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>我做了两个月<a href="http://ppt99.sinaapp.com/">快乐上网</a>的回顾。</p>
-<p>这个项目不太上台面，但是所经历的，和现在许多真正创业的朋友所经历的并没有多少区别，是我一笔重要的经验。</p>
-<p>说下现状，业余，运营成本100/月，截至目前为止收入30。</p>
-<h2 id="首先，你要有心灵鸡汤">首先，你要有心灵鸡汤</h2><p>这是我第一次尝试去做技术以外的事情，经历各种初级错误，入不敷出的运营。</p>
-<ul>
-<li>《黑客与画家》，财富是提供别人需要的东西；</li>
-<li>《重来》，随时可以行动；</li>
-<li>《精益创业》，听取反馈，不要浪费成本；</li>
-</ul>
-<p>一个idea要落到地面的第一步是有产品，并且这个产品有人需要。我更喜欢的一句话是</p>
-<blockquote>
-<p>虽然我们是卖钻孔机的，但实际上我们的用户只是需要墙上有个孔。</p>
-</blockquote>
-<p>有了idea，就行动作出产品，有了产品接着行动获得用户，有了用户就尽量取得用户的反馈，并依据修改。在这过程中，最重要的事情就是不要浪费成本。</p>
-<p>自从做快乐上网，我开始注意其他创业者的消息，特别是个人创业者。一个idea做不好可能有多方面的原因，但是过早的高额硬件成本，会严重挫伤士气。每个月花的越少，就能坚持越长时间，有更多的次数根据用户的意见转型新的尝试。</p>
-<p>每个月花的越少，越容易从一点点的用户收入中获得收支平衡，以后即使放弃了，也能让项目自我运行下去。</p>
-<p>所以我把网站放在了几乎免费的SAE上，域名也无所谓，只在代理服务器上投入成本。</p>
-<p>有了决定，趁热打铁，马上将产品粗糙的开发出来，然后一边推广一边改进。不要害怕太粗糙被嘲笑，一个是用户基本没有，另一个是有人肯笑你好反省哪里做错了。</p>
-<p>接下来将按以下几块交叉说明：</p>
-<ol>
-<li><a href="/idea/marketing-web.html">网站改进</a></li>
-<li><a href="/idea/marketing-how.html">推广操作</a></li>
-<li><a href="/idea/marketing-data.html">数据统计</a></li>
-<li><a href="/idea/marketing-proxy.html">业务改进</a></li>
-<li><a href="/idea/marketing-seo.html">SEO规划</a></li>
-</ol>
 ]]>
         </content>
     </entry>
