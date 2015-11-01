@@ -6,6 +6,23 @@
     <id>./</id>
     <entry>
         <title type="html"><![CDATA[周记]]></title>
+        <link href="life/20151101-weekly.html"/>
+        <published>2015-10-31T16:00:00.000Z</published>
+        <updated>2015-10-31T16:00:00.000Z</updated>
+        <id>life/20151101-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>黄色：040枚<br>橙色：040枚  </p>
+<p>没有达标50枚标准，因为周末感冒严重了，现在还是不停打喷嚏，不舒服啊。</p>
+<h2 id="本周记事">本周记事</h2><p>Vuejs发布1.0版本，本来打算升级，阅读更新公告后发现只是增加了一些语法简写以及控件子事件指令，我模仿着写一个指令，并不升级。</p>
+<p>做app用HBuilder，真是好东西不用愁，可以在win打包apk发布，还可以发布到iphone真机调试，指令也比较全面，真是好用的没话说。</p>
+<p>周五想挑周边玩玩，结果发现除了桂林，其他景点真是又小又难看，毫无可看的。其实桂林也真是超级low的，皮条客满街都是。</p>
+<p>在sprint+jsp环境下尝试web服务端开发的最佳实践，也就是template,layout,helper这些东西，用jsp的simple tag完成的。虽然也做到了，不过总是要带入taglib也真是相当不方便。</p>
+<p>周末走了走青秀山，阴天偶尔小雨，看看各种植物还是非常不错的。</p>
+<p>基于rails的股票神奇公式计算项目<a href="https://coding.net/u/hwh008/p/mss/git">MSS</a>，第一阶段完成啦。第一阶段做的就是抓股价和财报数据，按神奇公式计算排名和安全值。准备开始第二阶段，抓相应的财务指标走势数据，用分类器进行分类，并给出买入建议。</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151026-weekly.html"/>
         <published>2015-10-25T16:00:00.000Z</published>
         <updated>2015-10-25T16:00:00.000Z</updated>
@@ -663,46 +680,6 @@ end</pre><p>测试的流程大体是打开商城界面，点击圣甲精华购�
 获得每个堆栈的代码文件位置。<em>addr</em> 是堆栈值。</p>
 <p>gdb调试时，新方法比常规方法计算量更小，也更容易汇总和分类。也不需要被每个源文件包含，并能影响到每个静态库模块 <em>(动态库尚未确认)</em>。</p>
 <p>此外，还可以应用的 <code>malloc_hook</code> 上，需要注意的是hook分配时，不能为每块请求的内存额外分配，管理方式与new不同，易引起崩溃。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[unity4.3的2d技术要点]]></title>
-        <link href="game-art/unity4.3.html"/>
-        <published>2013-12-08T16:00:00.000Z</published>
-        <updated>2013-12-08T16:00:00.000Z</updated>
-        <id>game-art/unity4.3.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>unity4.3的2d，是在3d中用正交投影实现的。投影不是重点，重点是增加了2d的物理组件，提供2d的碰撞和物理支持。</p>
-<h2 id="场景分层">场景分层</h2><p>2d的场景构建讲究分层，不同的对象分布到不同的层中，方便管理。</p>
-<p>一般说来分5层</p>
-<ol>
-<li>静态背景层。静态的远景，然后云，水，雾气等可以做一个缓慢的循环动画。</li>
-<li>动态背景子物体。飞鸟，小动物，小植物等偶尔出现的对象，但是不和游戏交互。</li>
-<li>静态前景层。和游戏发生实际交互的地面，墙和物体，是实际的关卡内容。这些物体一般要设定碰撞多边形和物理材质。</li>
-<li>游戏对象层。玩家，怪物等活物。</li>
-<li>UI层。界面和粒子等。</li>
-</ol>
-<p>要快速做原型，主要是集中力量做操作逻辑，前景层，游戏对象逻辑和粒子表现。</p>
-<h2 id="动画技术">动画技术</h2><p><strong>骨骼动画编辑器</strong></p>
-<p>unity4.3内置了2d骨骼动画编辑器，所谓骨骼动画就是子部件的移动缩放和旋转。内置的编辑器可以所见即所得的编辑角色的各种动画。</p>
-<p>原始的精灵动画，也作为骨骼动画的一种特殊表现形式出现。</p>
-<p><strong>动画融合</strong></p>
-<p>为不同的两个动画同时播放提供基于权重的融合支持，比如一边跑一边开枪，可以是跑和开枪两个动画的融合。</p>
-<p><strong>动画切换状态机</strong></p>
-<p>以前从一个动画向下一个动画切换的时候，需要用代码详细控制。unity4.3内置动画状态编辑器，让动画切换规则可见，并且定义了一些基本的切换规则，可以无需代码实现动画的自动切换。</p>
-<p>至于需要代码控制的切换，只需调用<code>SetTrigger</code>。</p>
-<h2 id="其他">其他</h2><p><strong>UI控件</strong></p>
-<p>GUITexture和GUIText</p>
-<p><strong>声音</strong></p>
-<p>AudioSource</p>
-<p><strong>线程</strong></p>
-<p>过一阵再做一件事情，可以用<code>SetDelay</code>，也可以用<code>StartCoroutine</code>。</p>
-<p><strong>时间控制</strong></p>
-<p>Time.timeScale</p>
-<hr>
-<p>相比之下，cocos2dx显得落后很多。落后的原因，我觉得差不多是两块：收益和技术。</p>
-<p>感觉cocos2dx做引擎没能挣什么钱，靠的是前台的游戏养活。收益不足的话，怎么补充人员开发更丰富的工具呢。光靠开源代码，是没法和unity这种工具抗衡的。</p>
-<p>另一块是技术。现有的开发者技术很强，但是收益不足的话，无法吸引更多技术强力的开发者进来，为cocos2dx提供更强的动力。</p>
 ]]>
         </content>
     </entry>
