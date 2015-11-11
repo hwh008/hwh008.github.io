@@ -5,6 +5,30 @@
     <link href="./" />
     <id>./</id>
     <entry>
+        <title type="html"><![CDATA[周记1111]]></title>
+        <link href="life/20151111-weekly.html"/>
+        <published>2015-11-10T16:00:00.000Z</published>
+        <updated>2015-11-10T16:00:00.000Z</updated>
+        <id>life/20151111-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>橙色：42枚<br>黄色：31枚<br>蓝色：08枚<br>红色：02枚  </p>
+<p>奖励31/4 - 2/2 = 6枚</p>
+<p>这两周的量都不是很足够，因为工作的活儿有点多。</p>
+<h2 id="本周要事">本周要事</h2><ul>
+<li><p>房贷办理下来，开始要还了，每个月2800，有点不爽，出钱总是不爽的。</p>
+</li>
+<li><p>做了点马尔代夫的调研，找到一个选岛工具。一般两人预算也就3w多吧，想玩浮潜和水屋，我喜欢无边泳池啊。</p>
+</li>
+<li><p>股票的网站上线了，域名也申请下来，还是很有意思的，<a href="http://www.magica.me">筹码游戏</a>。我的个人博客也放在这个二级域名下了，<a href="http://blog.magica.me">MAGICABC</a>。</p>
+</li>
+<li><p>古摄影想来消除老婆写的差评，最后不得不计划重拍3套，其实我对重拍真是没什么兴趣了，但是他们又不肯赔钱，磨磨唧唧的最后出卖了自己。</p>
+</li>
+<li><p>以10元价格蹭了联通的2G流量，又一阵子无忧啦。</p>
+</li>
+</ul>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151101-weekly.html"/>
         <published>2015-10-31T16:00:00.000Z</published>
@@ -19,6 +43,26 @@
 <p>在sprint+jsp环境下尝试web服务端开发的最佳实践，也就是template,layout,helper这些东西，用jsp的simple tag完成的。虽然也做到了，不过总是要带入taglib也真是相当不方便。</p>
 <p>周末走了走青秀山，阴天偶尔小雨，看看各种植物还是非常不错的。</p>
 <p>基于rails的股票神奇公式计算项目<a href="https://coding.net/u/hwh008/p/mss/git">MSS</a>，第一阶段完成啦。第一阶段做的就是抓股价和财报数据，按神奇公式计算排名和安全值。准备开始第二阶段，抓相应的财务指标走势数据，用分类器进行分类，并给出买入建议。</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[选择前端框架的想法]]></title>
+        <link href="idea/vuejs.html"/>
+        <published>2015-10-25T16:00:00.000Z</published>
+        <updated>2015-10-25T16:00:00.000Z</updated>
+        <id>idea/vuejs.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
+<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
+<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
+<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
+<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
+<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
+<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
+<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
+<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
+<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
+<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
 ]]>
         </content>
     </entry><entry>
@@ -43,26 +87,6 @@
 <li><p>这个月市场还是猜的挺准的，利用A类和创业板ETF反复对冲，喝了点汤水。</p>
 </li>
 </ol>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[选择前端框架的想法]]></title>
-        <link href="idea/vuejs.html"/>
-        <published>2015-10-25T16:00:00.000Z</published>
-        <updated>2015-10-25T16:00:00.000Z</updated>
-        <id>idea/vuejs.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
-<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
-<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
-<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
-<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
-<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
-<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
-<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
-<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
-<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
-<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
 ]]>
         </content>
     </entry><entry>
@@ -652,34 +676,6 @@ reset后，工作目录下可能会残留一些rebase加进来的unchecked文件
 end</pre><p>测试的流程大体是打开商城界面，点击圣甲精华购买按钮，出现购买确认对话后，填充数量并发起购买，然后确认道具数量的变化。</p>
 <p>虽说把UI当黑盒，但窗口的顶层控件作为参数会有利于测试加速。比如 <em>have_content</em> 就是在商城窗口中搜索圣甲精华文字，至于这个文字到底放在哪，则一层层的去搜索商城窗口的子控件去寻找了。</p>
 <p>无视UI的布局细节，尽量从客户端本身的数据中，通过不易改变的名字去查找和验证，就不惧怕程序的频繁调整了。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[内存分配释放跟踪]]></title>
-        <link href="idea/memtrace.html"/>
-        <published>2014-02-27T16:00:00.000Z</published>
-        <updated>2014-02-27T16:00:00.000Z</updated>
-        <id>idea/memtrace.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>当程序出现类似内存泄露等内存不稳定的问题时，若无法从代码审核角度发现问题，则考虑跟踪内存的分配和释放。</p>
-<p>从跟踪的数据中得到程序内存的使用分布情况，以及退出时没有释放的内存，可以推断出程序内存开销的热点，以及内存泄露位置，执行相应的改进。</p>
-<h2 id="常规跟踪方法">常规跟踪方法</h2><p>linux下有跟踪内存泄露的工具，但工具操作和数据解读的不习惯，以及DIY内存跟踪的轻易性，实际的使用效果并不理想。</p>
-<p>常规的跟踪方法一般是重载<code>operator new</code> <code>operator delete</code> ，使重载参数中包含文件名和行号，这样new/delete分配时会传递分配的文件位置。</p>
-<p>在<code>operator new</code>实现中，为每块请求的内存多分配出一个item结构，item结构中记录这次分配的大小和文件位置。</p>
-<p>等到<code>operator delete</code>回收内存时，将指针偏移一个item结构的位置，就能读到item中的信息。</p>
-<p>通过统计所有的item信息，得出内存使用分布，以及泄露的内存。</p>
-<blockquote>
-<p><strong>常规跟踪方法的限制</strong>
-<em>因为定义的 <code>operator new</code> <code>operator delete</code> 比标准方法增加了参数，需要定义new宏，并将new宏包含在每一个源文件中。</em></p>
-</blockquote>
-<h2 id="优化出新的跟踪方法">优化出新的跟踪方法</h2><p>新的方法仍然基于重载<code>operator new</code> <code>operator delete</code>，但是重载标准方法，不增加参数。那么如何记录每次分配的大小和文件位置呢？</p>
-<p>我们预先定义好一个item元素的哈希表，key是一个整数。在 <code>operator new</code> 的实现里，调用系统接口 <code>backtrace</code> 获得分配内存的调用堆栈，计算这些堆栈的哈希key，然后将这些堆栈数据保存到哈希表的item元素中。调用堆栈等价于文件位置。</p>
-<p>我们依旧需要为每块请求的内存多分配一个指针，指向item元素，以便在<code>operator delete</code> 的时候，修改item信息。</p>
-<p>我们分析内存分布和泄露之前，需要取得程序的core。导出item信息中的堆栈值之后，通过在gdb中执行以下指令：
-<code>info line * addr</code>
-获得每个堆栈的代码文件位置。<em>addr</em> 是堆栈值。</p>
-<p>gdb调试时，新方法比常规方法计算量更小，也更容易汇总和分类。也不需要被每个源文件包含，并能影响到每个静态库模块 <em>(动态库尚未确认)</em>。</p>
-<p>此外，还可以应用的 <code>malloc_hook</code> 上，需要注意的是hook分配时，不能为每块请求的内存额外分配，管理方式与new不同，易引起崩溃。</p>
 ]]>
         </content>
     </entry>
