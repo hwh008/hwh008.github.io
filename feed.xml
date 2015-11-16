@@ -21,6 +21,56 @@
 ]]>
         </content>
     </entry><entry>
+        <title type="html"><![CDATA[rails小项目的一些分享]]></title>
+        <link href="idea/rails-exp.html"/>
+        <published>2015-11-15T16:00:00.000Z</published>
+        <updated>2015-11-15T16:00:00.000Z</updated>
+        <id>idea/rails-exp.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>为了满足自己炒股兴趣的需要，根据<a href="http://www.amazon.com/Little-Book-Still-Beats-Market/dp/0470624159">《神奇公式》</a>，对A股市场做了一个排序系统，既完成了一个对自己有效的需求，也从中学习rails。</p>
+<p><strong>Source</strong> : <a href="https://coding.net/u/hwh008/p/mss/git">https://coding.net/u/hwh008/p/mss/git</a></p>
+<p><strong>Site</strong> : <a href="http://www.magica.me">http://www.magica.me</a></p>
+<h2 id="爬虫">爬虫</h2><p>股票的财务数据都是从sina抓的，所以<a href="http://www.nokogiri.org/">Nokogiri</a>是首选，有了他，做点基础的爬虫实在太容易了。</p>
+<p>用whenever每天定点去爬一下收盘价，顺便检测一些需要更新财务数据的股票。</p>
+<pre>StockInfo.tick_sheet</pre><h2 id="缓存">缓存</h2><p>我有一个很耗时的model函数，也就是对所有股票进行排序的公式实现：</p>
+<pre>StockSheet.calc_better_cheap</pre><p>我希望这个公式的结果页面显示后，可以重用这个页面，不要重新计算排序，因此我尝试了action cache和fragment cache，然而并没有什么卵用，因为这两种cache都还是要执行controller#action的，费时的函数调用恰好放在action中。我可以把这个调用放到view里，这样就解决了问题，但是又涉及到请求参数变化的问题，而且这串调用放到view里也带来了限制，不方便在action里对数据做更多的修饰。  </p>
+<p>另外，我也搞不清楚fragment cache的实现机制和最佳实践。</p>
+<p>经过搜索我找到了<a href="https://github.com/qor/qor_cache">qor_cache</a>，还是国人的优秀作品，有3点好处：</p>
+<ol>
+<li>针对Model函数结果的cache，正好我就是model函数耗时多。</li>
+<li>qor_cache wrap了我指定的函数，使得我的代码对这个gem没有依赖，可以轻易的从config中删掉qor_cache。</li>
+<li>以接口的方式告诉我一条cache的最佳实践：<blockquote>
+<p>The cache key is the fluid part and the cache content is the fixed part. A given key should always return the same content. You never update the content after it’s been written and you never try to expire it either.</p>
+</blockquote>
+</li>
+</ol>
+<pre>cache_key &#39;stock_update&#39; do
+    StockInfo.first.updated_at
+end
+
+scope :stock_sheet do
+    cache_class_method :calc_better_cheap, &#39;stock_update&#39;
+end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cache key的一部分，但是这个hash obj中，其实有些key并不影响cache，因此我根据qor_cache做了一个hack：</p>
+<pre>hash_obj.instance_eval do
+        # 为了优化qor cache，不是每个选项都影响cache key
+        def inspect
+            %Q(inspect redefine:#{self[&quot;mktcap_min&quot;]},#{self[&quot;mktcap_max&quot;]})
+        end
+        self
+    end</pre><h2 id="翻页">翻页</h2><p>我没有使用will_paginate，因为will_paginate只包装relation对象，但我要做的是对数据进行排序计算，已经将数据全部都取出来了，因此找了一个支持page array的gem：<a href="https://github.com/amatsuda/kaminari">kaminari</a>，听这名字像日本人写的gem。</p>
+<pre>  def better_cheap
+    stocks = Kaminari.paginate_array StockSheet.calc_better_cheap(calc_params)
+    @stocks_page = stocks.page(params.fetch(:page, 1)).per 100
+  end</pre><h2 id="函数式fp">函数式FP</h2><p>函数式编程其实就是好看，可以把对集合的一连串操作都写在一行里，长长的。</p>
+<p>神奇公式的排序算法就是，将集合所有元素根据指标A排序，取排序顺序为分数A，再根据指标B排序，取排序顺序为分数B，根据分数AB之和再排序。写到一行里是这样的：</p>
+<pre>def self.calc_better_cheap(opt)
+    available(opt).sort { |a, b| a.better_v &lt;=&gt; b.better_v }.reverse.map.with_index(1) { |el, i| el.better_ord = i ; el}.sort { |a,b| a.cheap_v &lt;=&gt; b.cheap_v }.reverse.map.with_index(1) { |el, i| el.cheap_ord = i; el}.sort { |a,b| a.bc_value &lt;=&gt; b.bc_value }
+  end</pre><h2 id="nginx-passenger">nginx + passenger</h2><p>生产部署用的是passenger，很简单，安装就好了。就是环境变量遇上了一些问题，后来通过dotenv-rails解决。</p>
+<h2 id="helper让view漂亮">Helper让View漂亮</h2><p>有两种不漂亮的写法，一种是在view里写表达式，另一种是在action里把表达式算好的结果放到instance var。</p>
+<p>不过erb模版对Helper的支持还是不够漂亮，我比较倾向的是那种管道式的，这样可以把一串helper像羊肉串一样串起来。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[周记1111]]></title>
         <link href="life/20151111-weekly.html"/>
         <published>2015-11-10T16:00:00.000Z</published>
@@ -601,54 +651,6 @@ p.then(fn1, fn2, fn3);</pre><p>模拟的时候用$timeout延时后给调用者�
 </blockquote>
 <p>但<code>f1_ptr</code>的默认值是<code>f1@plt</code>的第二条指令，因此继续执行下一条指令，这条指令就是去重定位<code>f1</code>符号，填写到<code>f1_ptr</code>中。</p>
 <p>调用一次后，<code>f1_ptr</code>就存储了<code>f1</code>的绝对地址，不需要再次重定位了。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[git rebase 实践]]></title>
-        <link href="idea/git-rebase.html"/>
-        <published>2014-04-28T16:00:00.000Z</published>
-        <updated>2014-04-28T16:00:00.000Z</updated>
-        <id>idea/git-rebase.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>rebase可以这么理解，之前创建分支后做了很多提交，现在尝试根据最新的主干重新创建分支，然后提交相同的内容。
-这么做的好处是，保持主干提交的连贯性，方便其他人进行merge。</p>
-<p>ladder-web拥有两个分支：</p>
-<ol>
-<li>master</li>
-<li>create-pac</li>
-</ol>
-<p>现在的任务是将<em>create-pac</em>分支rebase后，merge到<em>master</em>并提交。</p>
-<p>首先确保<em>master</em>分支最新：
-<code>git checkout master</code>
-<code>git fetch</code>
-<code>git merge origin/master</code></p>
-<p>然后开始rebase：
-<code>git checkout create-pac</code>
-<code>git rebase master</code></p>
-<p>在这里我遇上了好几次冲突，主要是db/schema.rb的。因为我知道schema可以重新生成，所以当时选择了<em>rebase --skip</em>。
-我以为skip是忽略冲突的意思，没想到结果是直接放弃了这个提交，导致rebase完成后，缺少了好几个文件，测试也无法通过。</p>
-<p>麻烦大了，怎么修复？祭出reset神器。
-<code>git reflog</code>
-<code>git reset HEAD@{10}</code>
-<code>git clean -df</code></p>
-<p>reflog指令是查看git的提交记录，找到rebase开始前的那个节点，然后将HEAD指针reset回去。
-reset后，工作目录下可能会残留一些rebase加进来的unchecked文件，用clean指令删除。</p>
-<p>从这个问题学到两点：</p>
-<ol>
-<li>rebase处理冲突的时候，不要使用skip，除非真的无法解决冲突</li>
-<li>db/schema.rb不需要加入版本管理，完全可以重新生成</li>
-</ol>
-<p>重新执行rebase指令，解决所有冲突后，成功。然后需要跑测试校验一下：
-<code>rake db:drop</code>
-<code>rake db:migrate</code>
-<code>rake test:prepare</code>
-<code>rake spec</code></p>
-<p>最后merge到主干并提交
-<code>git checkout master</code>
-<code>git merge create-pac</code>
-<code>git branch -d create-pac</code>
-<code>git push</code></p>
-<p>在merge到主干后，同样需要跑一次测试。</p>
 ]]>
         </content>
     </entry>

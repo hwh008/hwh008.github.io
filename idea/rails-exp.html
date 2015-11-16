@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.5.1">
+    <meta name="theme" content="one 0.1">
+    <title>rails小项目的一些分享</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
+    <link rel="stylesheet" href="../static/one.css" />
+    <link rel="stylesheet" href="../static/syntax.css" />
+  </head>
+  <body>
+    <div class="navigation" role="navigation">
+      <div class="container">
+        <a class="home" href="../">Magic ABC</a>
+        <div class="menu">
+          <a href="/life">生活</a>
+          <a href="/idea">好主意</a>
+          <a href="/game-art">独立游戏</a>
+          <a href="/gamemaker.html">点子工具</a>
+          <a href="/about.html">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="document">
+<div class="hentry">
+  <h1 class="entry-title">rails小项目的一些分享</h1>
+  <div class="entry-meta">
+    <time class="updated" datetime="2015-11-15T16:00:00.000Z">2015-11-16</time>
+  </div>
+  <div class="entry-content"><p>为了满足自己炒股兴趣的需要，根据<a href="http://www.amazon.com/Little-Book-Still-Beats-Market/dp/0470624159">《神奇公式》</a>，对A股市场做了一个排序系统，既完成了一个对自己有效的需求，也从中学习rails。</p>
+<p><strong>Source</strong> : <a href="https://coding.net/u/hwh008/p/mss/git">https://coding.net/u/hwh008/p/mss/git</a></p>
+<p><strong>Site</strong> : <a href="http://www.magica.me">http://www.magica.me</a></p>
+<h2 id="爬虫">爬虫</h2><p>股票的财务数据都是从sina抓的，所以<a href="http://www.nokogiri.org/">Nokogiri</a>是首选，有了他，做点基础的爬虫实在太容易了。</p>
+<p>用whenever每天定点去爬一下收盘价，顺便检测一些需要更新财务数据的股票。</p>
+<pre>StockInfo.tick_sheet</pre><h2 id="缓存">缓存</h2><p>我有一个很耗时的model函数，也就是对所有股票进行排序的公式实现：</p>
+<pre>StockSheet.calc_better_cheap</pre><p>我希望这个公式的结果页面显示后，可以重用这个页面，不要重新计算排序，因此我尝试了action cache和fragment cache，然而并没有什么卵用，因为这两种cache都还是要执行controller#action的，费时的函数调用恰好放在action中。我可以把这个调用放到view里，这样就解决了问题，但是又涉及到请求参数变化的问题，而且这串调用放到view里也带来了限制，不方便在action里对数据做更多的修饰。  </p>
+<p>另外，我也搞不清楚fragment cache的实现机制和最佳实践。</p>
+<p>经过搜索我找到了<a href="https://github.com/qor/qor_cache">qor_cache</a>，还是国人的优秀作品，有3点好处：</p>
+<ol>
+<li>针对Model函数结果的cache，正好我就是model函数耗时多。</li>
+<li>qor_cache wrap了我指定的函数，使得我的代码对这个gem没有依赖，可以轻易的从config中删掉qor_cache。</li>
+<li>以接口的方式告诉我一条cache的最佳实践：<blockquote>
+<p>The cache key is the fluid part and the cache content is the fixed part. A given key should always return the same content. You never update the content after it’s been written and you never try to expire it either.</p>
+</blockquote>
+</li>
+</ol>
+<pre>cache_key &#39;stock_update&#39; do
+    StockInfo.first.updated_at
+end
+
+scope :stock_sheet do
+    cache_class_method :calc_better_cheap, &#39;stock_update&#39;
+end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cache key的一部分，但是这个hash obj中，其实有些key并不影响cache，因此我根据qor_cache做了一个hack：</p>
+<pre>hash_obj.instance_eval do
+        # 为了优化qor cache，不是每个选项都影响cache key
+        def inspect
+            %Q(inspect redefine:#{self[&quot;mktcap_min&quot;]},#{self[&quot;mktcap_max&quot;]})
+        end
+        self
+    end</pre><h2 id="翻页">翻页</h2><p>我没有使用will_paginate，因为will_paginate只包装relation对象，但我要做的是对数据进行排序计算，已经将数据全部都取出来了，因此找了一个支持page array的gem：<a href="https://github.com/amatsuda/kaminari">kaminari</a>，听这名字像日本人写的gem。</p>
+<pre>  def better_cheap
+    stocks = Kaminari.paginate_array StockSheet.calc_better_cheap(calc_params)
+    @stocks_page = stocks.page(params.fetch(:page, 1)).per 100
+  end</pre><h2 id="函数式fp">函数式FP</h2><p>函数式编程其实就是好看，可以把对集合的一连串操作都写在一行里，长长的。</p>
+<p>神奇公式的排序算法就是，将集合所有元素根据指标A排序，取排序顺序为分数A，再根据指标B排序，取排序顺序为分数B，根据分数AB之和再排序。写到一行里是这样的：</p>
+<pre>def self.calc_better_cheap(opt)
+    available(opt).sort { |a, b| a.better_v &lt;=&gt; b.better_v }.reverse.map.with_index(1) { |el, i| el.better_ord = i ; el}.sort { |a,b| a.cheap_v &lt;=&gt; b.cheap_v }.reverse.map.with_index(1) { |el, i| el.cheap_ord = i; el}.sort { |a,b| a.bc_value &lt;=&gt; b.bc_value }
+  end</pre><h2 id="nginx-passenger">nginx + passenger</h2><p>生产部署用的是passenger，很简单，安装就好了。就是环境变量遇上了一些问题，后来通过dotenv-rails解决。</p>
+<h2 id="helper让view漂亮">Helper让View漂亮</h2><p>有两种不漂亮的写法，一种是在view里写表达式，另一种是在action里把表达式算好的结果放到instance var。</p>
+<p>不过erb模版对Helper的支持还是不够漂亮，我比较倾向的是那种管道式的，这样可以把一串helper像羊肉串一样串起来。</p>
+</div>
+</div>
+ <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hwh008"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+    </div>
+    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
+    <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+  </body>
+</html>
