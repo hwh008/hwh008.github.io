@@ -5,19 +5,18 @@
     <link href="./" />
     <id>./</id>
     <entry>
-        <title type="html"><![CDATA[周记]]></title>
-        <link href="life/20151116-weekly.html"/>
-        <published>2015-11-15T16:00:00.000Z</published>
-        <updated>2015-11-15T16:00:00.000Z</updated>
-        <id>life/20151116-weekly.html</id>
+        <title type="html"><![CDATA[周记1123]]></title>
+        <link href="life/20151122-weekly.html"/>
+        <published>2015-11-21T16:00:00.000Z</published>
+        <updated>2015-11-21T16:00:00.000Z</updated>
+        <id>life/20151122-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
-<p>周末实在太懒散了，什么都没有做。</p>
-<h2 id="本周要事">本周要事</h2><ul>
-<li>怕冷，容易感冒</li>
-<li>在处理档案和贷款合同的事情上，容易犯拖延症，怕与人接触。不过据说积极性和注意力一样是一种每日有限资源，如果在一件事情上投入多了，别的事情就会需要反方向的补充。</li>
-<li>唉</li>
-</ul>
+            <![CDATA[ <h2 id="时间">时间</h2><p>Yellow 40<br>Orange 20  </p>
+<p>这周事情做的不多啊。</p>
+<h2 id="事件">事件</h2><p>负责需求的人必须会做原型，方能降低沟通成本和返工工作量。</p>
+<p>公司要求调档，去咨询一下，我的档案还在大学生就业中心，不在人才中心，无法办理转正定级，最坏的情况就是丢掉几年工龄。</p>
+<p>每周出差去桂林，其实蛮无聊的，真是一份无聊的工作啊。</p>
+<p>订单表还是要记录一些产品冗余信息的，为了显示和快照。</p>
 ]]>
         </content>
     </entry><entry>
@@ -71,6 +70,22 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 ]]>
         </content>
     </entry><entry>
+        <title type="html"><![CDATA[周记]]></title>
+        <link href="life/20151116-weekly.html"/>
+        <published>2015-11-15T16:00:00.000Z</published>
+        <updated>2015-11-15T16:00:00.000Z</updated>
+        <id>life/20151116-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
+<p>周末实在太懒散了，什么都没有做。</p>
+<h2 id="本周要事">本周要事</h2><ul>
+<li>怕冷，容易感冒</li>
+<li>在处理档案和贷款合同的事情上，容易犯拖延症，怕与人接触。不过据说积极性和注意力一样是一种每日有限资源，如果在一件事情上投入多了，别的事情就会需要反方向的补充。</li>
+<li>唉</li>
+</ul>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[周记1111]]></title>
         <link href="life/20151111-weekly.html"/>
         <published>2015-11-10T16:00:00.000Z</published>
@@ -112,26 +127,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 ]]>
         </content>
     </entry><entry>
-        <title type="html"><![CDATA[选择前端框架的想法]]></title>
-        <link href="idea/vuejs.html"/>
-        <published>2015-10-25T16:00:00.000Z</published>
-        <updated>2015-10-25T16:00:00.000Z</updated>
-        <id>idea/vuejs.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
-<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
-<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
-<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
-<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
-<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
-<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
-<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
-<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
-<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
-<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
-]]>
-        </content>
-    </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151026-weekly.html"/>
         <published>2015-10-25T16:00:00.000Z</published>
@@ -153,6 +148,26 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 <li><p>这个月市场还是猜的挺准的，利用A类和创业板ETF反复对冲，喝了点汤水。</p>
 </li>
 </ol>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[选择前端框架的想法]]></title>
+        <link href="idea/vuejs.html"/>
+        <published>2015-10-25T16:00:00.000Z</published>
+        <updated>2015-10-25T16:00:00.000Z</updated>
+        <id>idea/vuejs.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
+<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
+<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
+<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
+<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
+<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
+<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
+<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
+<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
+<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
+<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
 ]]>
         </content>
     </entry><entry>
@@ -585,72 +600,6 @@ p.then(fn1, fn2, fn3);</pre><p>模拟的时候用$timeout延时后给调用者�
 <li><a href="http://jianshu.io/p/93c7b3e6af03">Getting Real</a></li>
 </ul>
 <p>我希望这个移动项目能迭代更快，更高效。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[程序员的自我修养：reloc, PIC, dynsym and PLT]]></title>
-        <link href="idea/reloc-pic.html"/>
-        <published>2014-05-07T16:00:00.000Z</published>
-        <updated>2014-05-07T16:00:00.000Z</updated>
-        <id>idea/reloc-pic.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="什么是重定位">什么是重定位</h2><p>我们编译可执行程序的时候，调用的函数只有声明没有实现会出现编译错误。总之是要在编译期间解决的问题。</p>
-<p>我们编译动态库的时候，调用的函数是可以没有实现的。那么加载动态库后如何正确的执行函数呢？毕竟编译期间根本没有解决这个函数符号。</p>
-<p>编译时不解决，那就记录下来，留到以后解决吧。</p>
-<p><code>objdump -C -R</code>会打印出未解决的符号，和符号被调用时候的地址。比如有个未解决符号是<code>f1</code>。</p>
-<blockquote>
-<p>0x80abcde4----------f1</p>
-</blockquote>
-<p>用<code>objdump -C -d</code>查看调用<code>f1</code>的代码，可能如下：</p>
-<blockquote>
-<p>0x80abcde0-----call 0x80abcde4</p>
-</blockquote>
-<p>执行到<em>0x80abcde0</em>，代码就是call后4个字节的内容，我们假设call指令占用4个字节的话。正好是<em>0x80abcde4</em>。我们等着<em>0x80abcde4</em>被填上<code>f1</code>的真正地址。</p>
-<p>程序启动后，会记录他所加载的符号和符号地址，无论是来自可执行文件还是动态链接库。</p>
-<p>当它加载到那个还没有解决<code>f1</code>符号的动态链接库的时候，程序会尝试从所记录的符号表中查找<code>f1</code>，如果能找到，嗯，就把动态链接库中所有调用<code>f1</code>的位置都填上正确的值。比如<em>0x80abcde4</em>。</p>
-<p>我所说的只是重定位中的一种，称为动态链接。实际上静态链接的时候也有重定位过程。</p>
-<h2 id="什么是pic">什么是PIC</h2><p>PIC是地址无关代码，由gcc编译时指定选项<code>-fPIC</code>开启。</p>
-<p>首先说什么是地址相关代码，当程序调用函数<code>f1</code>的时候，实际汇编代码是这样的：</p>
-<blockquote>
-<p><code>call 0x80abcde4</code></p>
-</blockquote>
-<p>这个<em>0x80abcde4</em>就是<code>f1</code>的函数绝对地址。</p>
-<p>为了调用<code>f1</code>而将它的绝对地址编译到调用中的做法，叫做地址相关代码。</p>
-<p>地址无关代码恰好相反，编译器增加一个符号<code>f1_ptr</code>，存储函数地址。实际上是等价于增加了指向函数地址的全局指针变量。</p>
-<p>那么调用<code>f1</code>的时候，是这么调用的：</p>
-<blockquote>
-<p><code>call *(0x80123456)</code></p>
-</blockquote>
-<p><em>0x80123456</em>是<code>f1_ptr</code>的地址，存储的是<code>f1</code>的函数绝对地址值。这个值在程序运行期间是可以修改的，那么调用的时候实际就跟<code>f1</code>的绝对地址无关了。</p>
-<p><code>f1_ptr</code>的地址是相对的，这就是地址无关代码。</p>
-<p>当然编译器并没有真的增加一个名称是<code>f1_ptr</code>的符号，但确实增加了一个匿名全局变量，保存<code>f1</code>的函数地址，重定位的时候，只需要修改这个变量值。</p>
-<h2 id="地址无关代码的收益">地址无关代码的收益</h2><p>当程序要为某个动态库重定位未解决的符号的时候，如果是地址相关代码，那么重定位需要修改动态库的代码。</p>
-<p>若有多个程序同时使用这个动态库，系统不得不加载多份代码到内存中，因为每一份代码都要被修改。</p>
-<p>地址无关的动态库在共享方面则不会有这个问题，系统只加载一份代码，每个程序都有一份<code>f1_ptr</code>变量，修改这份变量同样达到重定位的效果。</p>
-<h2 id="什么是导出符号">什么是导出符号</h2><p>重定位过程中提到程序会记录所加载的符号和符号地址。那么什么符号才会被记录呢？是整个程序所有的符号吗？</p>
-<p>符号是导出符号的超集，符号记录在<code>.sym</code>中，导出符号记录在<code>.dynsmy</code>中。只有导出符号才能用来供重定位过程查找。</p>
-<p>可以通过<code>objdump -C -T</code>查看动态符号。</p>
-<p>程序启动后，首先加载自身的导出符号，然后挨个加载动态库的导出符号，然后用链表串联起来。</p>
-<p>重定位查找一个符号的时候，从链表头开始查找，第一次找到符号为止。因此即使后面的模块有定义这个符号，也等价于被隐藏起来了。</p>
-<h2 id="总是重定位，总是导出符号">总是重定位，总是导出符号</h2><p>事实上，动态链接库不仅仅需要重定位未解决的符号，他把所有调用过函数都编译成重定位的形式。这就形成了很有趣的用法，比如替换分配器，测试和性能收集。</p>
-<p>动态链接库只导出他自身实现的符号，而可执行文件则不导出符号。</p>
-<p>gcc编译时指定<code>-rdynamic</code>选项，可执行文件会导出所有他自身以及静态库所实现的符号。这样可执行程序本身就可以为它所依赖的动态链接库本身提供实现，真是挺奇葩的。</p>
-<h2 id="什么是plt">什么是PLT</h2><p>PTL是<code>.plt</code>段，用来在重定位过程中对符号的真实地址进行惰性求值。仅限于PIC代码。</p>
-<p>因为动态链接库将所有调用的函数都编译成重定位的形式，数量十分巨大。如果程序在加载动态链接库的时候就重定位所有符号，比较耗时间。</p>
-<p>因此第一次调用的时候才去查找符号的绝对地址就比较划算。实际上PIC代码调用一个函数的时候，并不像上面所说的直接</p>
-<blockquote>
-<p>call *(f1_ptr)</p>
-</blockquote>
-<p>而是调用一个PLT函数</p>
-<blockquote>
-<p>call f1@plt</p>
-</blockquote>
-<p><code>f1@plt</code>的第一条指令是</p>
-<blockquote>
-<p>jmp f1_ptr</p>
-</blockquote>
-<p>但<code>f1_ptr</code>的默认值是<code>f1@plt</code>的第二条指令，因此继续执行下一条指令，这条指令就是去重定位<code>f1</code>符号，填写到<code>f1_ptr</code>中。</p>
-<p>调用一次后，<code>f1_ptr</code>就存储了<code>f1</code>的绝对地址，不需要再次重定位了。</p>
 ]]>
         </content>
     </entry>
