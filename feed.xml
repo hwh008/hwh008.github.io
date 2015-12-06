@@ -5,6 +5,28 @@
     <link href="./" />
     <id>./</id>
     <entry>
+        <title type="html"><![CDATA[周记1206]]></title>
+        <link href="life/20151206-weekly.html"/>
+        <published>2015-12-05T16:00:00.000Z</published>
+        <updated>2015-12-05T16:00:00.000Z</updated>
+        <id>life/20151206-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="时间">时间</h2><p>Yellow, 34 coins, 低于50 coins每周。最近是需要多努力一点。</p>
+<h2 id="记事">记事</h2><ol>
+<li><p>hbuilder云编译的应用有问题，无法装到4.4虚拟机，不得已自己下了一套sdk本地编译。</p>
+</li>
+<li><p>软件中级资格证拿到手了，太easy。</p>
+</li>
+<li><p>redis是好东西啊，订阅模式和有序队列。准备再看看zookeeper。</p>
+</li>
+<li><p>纪念碑谷限免，通过，确实是神一般的游戏。
+<img src="/life/pic/jnbg1.png" alt="game1">
+<img src="/life/pic/jnbg2.png" alt="game2"></p>
+</li>
+</ol>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[周记1123]]></title>
         <link href="life/20151122-weekly.html"/>
         <published>2015-11-21T16:00:00.000Z</published>
@@ -17,6 +39,22 @@
 <p>公司要求调档，去咨询一下，我的档案还在大学生就业中心，不在人才中心，无法办理转正定级，最坏的情况就是丢掉几年工龄。</p>
 <p>每周出差去桂林，其实蛮无聊的，真是一份无聊的工作啊。</p>
 <p>订单表还是要记录一些产品冗余信息的，为了显示和快照。</p>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[周记]]></title>
+        <link href="life/20151116-weekly.html"/>
+        <published>2015-11-15T16:00:00.000Z</published>
+        <updated>2015-11-15T16:00:00.000Z</updated>
+        <id>life/20151116-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
+<p>周末实在太懒散了，什么都没有做。</p>
+<h2 id="本周要事">本周要事</h2><ul>
+<li>怕冷，容易感冒</li>
+<li>在处理档案和贷款合同的事情上，容易犯拖延症，怕与人接触。不过据说积极性和注意力一样是一种每日有限资源，如果在一件事情上投入多了，别的事情就会需要反方向的补充。</li>
+<li>唉</li>
+</ul>
 ]]>
         </content>
     </entry><entry>
@@ -67,22 +105,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
   end</pre><h2 id="nginx-passenger">nginx + passenger</h2><p>生产部署用的是passenger，很简单，安装就好了。就是环境变量遇上了一些问题，后来通过dotenv-rails解决。</p>
 <h2 id="helper让view漂亮">Helper让View漂亮</h2><p>有两种不漂亮的写法，一种是在view里写表达式，另一种是在action里把表达式算好的结果放到instance var。</p>
 <p>不过erb模版对Helper的支持还是不够漂亮，我比较倾向的是那种管道式的，这样可以把一串helper像羊肉串一样串起来。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[周记]]></title>
-        <link href="life/20151116-weekly.html"/>
-        <published>2015-11-15T16:00:00.000Z</published>
-        <updated>2015-11-15T16:00:00.000Z</updated>
-        <id>life/20151116-weekly.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
-<p>周末实在太懒散了，什么都没有做。</p>
-<h2 id="本周要事">本周要事</h2><ul>
-<li>怕冷，容易感冒</li>
-<li>在处理档案和贷款合同的事情上，容易犯拖延症，怕与人接触。不过据说积极性和注意力一样是一种每日有限资源，如果在一件事情上投入多了，别的事情就会需要反方向的补充。</li>
-<li>唉</li>
-</ul>
 ]]>
         </content>
     </entry><entry>
@@ -553,53 +575,6 @@ p.then(fn1, fn2, fn3);</pre><p>模拟的时候用$timeout延时后给调用者�
 <h2 id="压缩ui素材">压缩UI素材</h2><p>有时候UI素材压缩，会失真，需要尝试看效果是否选择压缩。<br>按钮，边框类的素材一般是不压缩的，因为压缩后容易失真。<br>但如背景类素材，布景类素材压缩后却和原图非常接近。</p>
 <p>因为UI素材携带alpha通道，unity在转成android压缩格式时会使用rgba16，这是非常糟糕的压缩格式——低压缩比，高失真。<br>可手工指定android的压缩格式为ETC1，但是ETC1并不包含alpha数据。为了能够显示半透的元素，需要修改shader，传一张alpha通道的纹理进行混合。<br>alpha纹理不需要另外制作，将原图复制一份，设置导入格式为alpha8即可，导入尺寸尽可能缩小到256x256以内。</p>
 <h2 id="压缩场景纹理">压缩场景纹理</h2><p>场景纹理总是选择压缩格式，全部都必须是方形的。<br>更重要的是，要避免alpha通道。如果包含了alpha通道，压缩格式手工改成ETC1，无需额外的alpha通道纹理。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[ruby不成，成unity]]></title>
-        <link href="life/201406-unity.html"/>
-        <published>2014-06-08T16:00:00.000Z</published>
-        <updated>2014-06-08T16:00:00.000Z</updated>
-        <id>life/201406-unity.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="移动项目">移动项目</h2><p>已经完成ruby on rails的基本学习了，正打算找远程的工作，找到后就立刻离职。</p>
-<p>一方面工作机会比较少，另一方面缺乏历史积累，估计别人也看不上。总之也不太好混了。</p>
-<p>后来公司移动项目有同事离职，调整我过去救火，还表示不介意我将离职，总之要我帮忙挺一下。</p>
-<p>鉴于我一下子走不了，还是好基友的项目，而且可以学习新内容，我就答应过去了。</p>
-<p>项目用unity3d做的，我上手很快，写了一些战斗和动画相关的组件。</p>
-<p>估计过几天闲了，会整理出一些可以复用的放到github上。注意可复用组件的积累，可以提高以后相同工作的效率。</p>
-<p>现在是热情满满的，有时候会盼望着上班。小团队的效率和沟通就是高。</p>
-<h2 id="租车">租车</h2><p>正好赶上端午节，被迫开了两天车出游。</p>
-<p>太久没摸车了，并且没有提前去熟悉线路，一路上惊险不少。</p>
-<p>这次开车的经验积累如下：</p>
-<ul>
-<li><p>验车一定要仔细，拍照。</p>
-<blockquote>
-<p>当时我租车的时候我就没怎么看车身，后来可能停车的时候被刮蹭了，多赔了200。
-有些老刮痕甚至会留在保险杠最底下，一定要仔细检查。</p>
-</blockquote>
-</li>
-<li><p>不熟悉线路一定要提前模拟导航，那些关键的岔路口尽可能用街景图看一下，做到心里大概有数。</p>
-</li>
-<li>北京的高速车很多，一公里出口处，最好提前靠右，即使有车排前面也慢慢跟着，不然容易错过出口。</li>
-<li>减少饮水，尿急会影响注意力和判断力。我差点闯祸。</li>
-</ul>
-<h2 id="分享">分享</h2><ul>
-<li><a href="http://mp.weixin.qq.com/s?__biz=MjM5NjAxOTU4MA==&amp;mid=250361370&amp;idx=1&amp;sn=eae8dd430645bd23305ed715f8e8d47a&amp;key=e60cf81314c277c737fa16c87755928f249a129d2e85a9e8de9d7dcb54604638475bfe17cd0617604887f435c687e61a&amp;ascene=1&amp;uin=MTYwNTc5">为何你的生活那么无趣</a></li>
-</ul>
-<p>兴趣就是用热情去挑战痛苦，然后获得成就。</p>
-<ul>
-<li><a href="http://coolshell.cn/articles/10910.html">分布式系统的事务处理</a></li>
-</ul>
-<p>要做分布式的数据和同步？这篇基础很值得一看。</p>
-<ul>
-<li><a href="http://daily.zhihu.com/story/2012184?utm_campaign=in_app_share&amp;utm_medium=iOS&amp;utm_source=copy">SEO？呵呵</a></li>
-</ul>
-<p>打点广告，然后好好服务用户吧。</p>
-<ul>
-<li><a href="http://jianshu.io/p/93c7b3e6af03">Getting Real</a></li>
-</ul>
-<p>我希望这个移动项目能迭代更快，更高效。</p>
 ]]>
         </content>
     </entry>
