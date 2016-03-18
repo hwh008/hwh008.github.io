@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>git rebase 实践</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">git rebase 实践</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2014-04-28T16:00:00.000Z">2014-04-29</time>
-  </div>
-  <div class="entry-content"><p>rebase可以这么理解，之前创建分支后做了很多提交，现在尝试根据最新的主干重新创建分支，然后提交相同的内容。
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">git rebase 实践</h1>
+  <div class="entry-content" itemprop="articleBody"><p>rebase可以这么理解，之前创建分支后做了很多提交，现在尝试根据最新的主干重新创建分支，然后提交相同的内容。
 这么做的好处是，保持主干提交的连贯性，方便其他人进行merge。</p>
 <p>ladder-web拥有两个分支：</p>
 <ol>
@@ -69,10 +67,11 @@ reset后，工作目录下可能会残留一些rebase加进来的unchecked文件
 <code>git push</code></p>
 <p>在merge到主干后，同样需要跑一次测试。</p>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-04-28T16:00:00.000Z" itemprop="dateModified">Tuesday, Apr 29th, 2014</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -89,12 +88,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>

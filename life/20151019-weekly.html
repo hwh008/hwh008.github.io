@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>周记</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">周记</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2015-10-18T16:00:00.000Z">2015-10-19</time>
-  </div>
-  <div class="entry-content"><p><strong> 摆酒过门 </strong></p>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">周记</h1>
+  <div class="entry-content" itemprop="articleBody"><p><strong> 摆酒过门 </strong></p>
 <p>10月9日办的，中午12点才磕的头，急急忙忙的1点才开始，几乎没有迎宾。等每桌敬酒客人就已经吃饱要走了。<br>当天的安排上现在想想还是有些遗憾的，但是新生活在继续中又开始了。</p>
 <p><strong> 本周其他要事 </strong></p>
 <ol>
@@ -45,10 +43,11 @@
 </li>
 </ol>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2015-10-18T16:00:00.000Z" itemprop="dateModified">Monday, Oct 19th, 2015</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -65,12 +64,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>

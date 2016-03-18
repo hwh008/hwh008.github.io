@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>有志者事竟成</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">有志者事竟成</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2014-08-04T16:00:00.000Z">2014-08-05</time>
-  </div>
-  <div class="entry-content"><p>今天我突然想明白一件事情：一个人的意向，会逐渐指导行为向目标靠拢。</p>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">有志者事竟成</h1>
+  <div class="entry-content" itemprop="articleBody"><p>今天我突然想明白一件事情：一个人的意向，会逐渐指导行为向目标靠拢。</p>
 <ol>
 <li>一个人最终会现实目标，耗时长短大体跟经验积累速度相关；</li>
 <li>一个清晰的长期目标和计划，都会 <strong>执行失败</strong>；</li>
@@ -39,10 +37,11 @@
 <p>欣慰的是，人只要有大概的意向，总是时不时的做一些事情向期望靠拢。比如暂时控制恐惧后，如果有其他意向，就会投入精力去接触，慢慢的会掌握更多的信息，渐渐实现目标。<br>如果同时有很多意向，多半是这块投入一点，那块投入一点，而不会一下子全投入到一点上以获得突破。这其实是本能，除非投入的结果很清晰，否则我们怎么会全身去投入呢。但清晰的目标是伪命题，就是因为不熟悉我们才会去学习，不熟悉时我们有怎么能定义清晰的结果呢。</p>
 <p>所以你同时有很多想做的事情，又不能专注某件事，并不是你的错。人类向目标靠近的时候，其实用的是AStar寻路搜索算法（<em>AStart是启发式的广度优先搜索</em>）。</p>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-08-04T16:00:00.000Z" itemprop="dateModified">Tuesday, Aug 5th, 2014</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -59,12 +58,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>

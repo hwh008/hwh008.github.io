@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>写blog的理由</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">写blog的理由</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2013-08-01T16:00:00.000Z">2013-08-02</time>
-  </div>
-  <div class="entry-content"><p>自从不怎么在<a href="http://www.cppblog.com/darkdestiny/">cppblog</a>更新以后，就陆陆续续的在<strong>SAE</strong>建立了几次独立博客，写了几篇文章，然后又停更，停更一段时间后就删掉了。<br>周期性的书写热情，是停更的原因。独立博客几乎不存在的流量和讨论可能性，也进一步浇灭了停更后的热情。同时那段时间<strong>SAE</strong>还收取应用维护费，吓得我赶紧删掉那个无人挂念的站点。</p>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">写blog的理由</h1>
+  <div class="entry-content" itemprop="articleBody"><p>自从不怎么在<a href="http://www.cppblog.com/darkdestiny/">cppblog</a>更新以后，就陆陆续续的在<strong>SAE</strong>建立了几次独立博客，写了几篇文章，然后又停更，停更一段时间后就删掉了。<br>周期性的书写热情，是停更的原因。独立博客几乎不存在的流量和讨论可能性，也进一步浇灭了停更后的热情。同时那段时间<strong>SAE</strong>还收取应用维护费，吓得我赶紧删掉那个无人挂念的站点。</p>
 <p>这一次重来，我决意想清楚我写博客的动机。</p>
 <blockquote>
 <p> 基本的出发点有三个  </p>
@@ -97,10 +95,11 @@
 <hr>
 <p><strong>文章怎么收尾？总感觉意犹未尽 :)</strong></p>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2013-08-01T16:00:00.000Z" itemprop="dateModified">Friday, Aug 2nd, 2013</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -117,12 +116,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>

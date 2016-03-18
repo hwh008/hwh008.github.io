@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>unity3d的纹理尺寸优化</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">unity3d的纹理尺寸优化</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2014-07-25T16:00:00.000Z">2014-07-26</time>
-  </div>
-  <div class="entry-content"><p>如果想减少手游打包的尺寸，第一步要做的是分析找出热点。<br>在console窗口可以右键打开editorlog，里面列举了本次打包编译的所有资源和大小。进行归类和细分，定位哪块内容最占空间。</p>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">unity3d的纹理尺寸优化</h1>
+  <div class="entry-content" itemprop="articleBody"><p>如果想减少手游打包的尺寸，第一步要做的是分析找出热点。<br>在console窗口可以右键打开editorlog，里面列举了本次打包编译的所有资源和大小。进行归类和细分，定位哪块内容最占空间。</p>
 <p>一般情况下，有以下3方面消耗了大量空间。</p>
 <ol>
 <li>UI 素材</li>
@@ -51,10 +49,11 @@
 <p>因为UI素材携带alpha通道，unity在转成android压缩格式时会使用rgba16，这是非常糟糕的压缩格式——低压缩比，高失真。<br>可手工指定android的压缩格式为ETC1，但是ETC1并不包含alpha数据。为了能够显示半透的元素，需要修改shader，传一张alpha通道的纹理进行混合。<br>alpha纹理不需要另外制作，将原图复制一份，设置导入格式为alpha8即可，导入尺寸尽可能缩小到256x256以内。</p>
 <h2 id="压缩场景纹理">压缩场景纹理</h2><p>场景纹理总是选择压缩格式，全部都必须是方形的。<br>更重要的是，要避免alpha通道。如果包含了alpha通道，压缩格式手工改成ETC1，无需额外的alpha通道纹理。</p>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-07-25T16:00:00.000Z" itemprop="dateModified">Saturday, Jul 26th, 2014</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -71,12 +70,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>

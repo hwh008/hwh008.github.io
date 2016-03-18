@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>程序员的自我修养：reloc, PIC, dynsym and PLT</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">程序员的自我修养：reloc, PIC, dynsym and PLT</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2014-05-07T16:00:00.000Z">2014-05-08</time>
-  </div>
-  <div class="entry-content"><h2 id="什么是重定位">什么是重定位</h2><p>我们编译可执行程序的时候，调用的函数只有声明没有实现会出现编译错误。总之是要在编译期间解决的问题。</p>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">程序员的自我修养：reloc, PIC, dynsym and PLT</h1>
+  <div class="entry-content" itemprop="articleBody"><h2 id="什么是重定位">什么是重定位</h2><p>我们编译可执行程序的时候，调用的函数只有声明没有实现会出现编译错误。总之是要在编译期间解决的问题。</p>
 <p>我们编译动态库的时候，调用的函数是可以没有实现的。那么加载动态库后如何正确的执行函数呢？毕竟编译期间根本没有解决这个函数符号。</p>
 <p>编译时不解决，那就记录下来，留到以后解决吧。</p>
 <p><code>objdump -C -R</code>会打印出未解决的符号，和符号被调用时候的地址。比如有个未解决符号是<code>f1</code>。</p>
@@ -87,10 +85,11 @@
 <p>但<code>f1_ptr</code>的默认值是<code>f1@plt</code>的第二条指令，因此继续执行下一条指令，这条指令就是去重定位<code>f1</code>符号，填写到<code>f1_ptr</code>中。</p>
 <p>调用一次后，<code>f1_ptr</code>就存储了<code>f1</code>的绝对地址，不需要再次重定位了。</p>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-05-07T16:00:00.000Z" itemprop="dateModified">Thursday, May 8th, 2014</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -107,12 +106,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>

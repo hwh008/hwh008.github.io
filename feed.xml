@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Magic ABC</title>
-    <link href="./" rel="self" />
-    <link href="./" />
-    <id>./</id>
+    <link href="feed.xml" rel="self" />
+    <link href="" />
+    <id>feed.xml</id>
     <entry>
         <title type="html"><![CDATA[如何才能坚持写日记]]></title>
         <link href="idea/insist-on-writing.html"/>

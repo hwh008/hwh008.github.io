@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>内存分配释放跟踪</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">内存分配释放跟踪</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2014-02-27T16:00:00.000Z">2014-02-28</time>
-  </div>
-  <div class="entry-content"><p>当程序出现类似内存泄露等内存不稳定的问题时，若无法从代码审核角度发现问题，则考虑跟踪内存的分配和释放。</p>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">内存分配释放跟踪</h1>
+  <div class="entry-content" itemprop="articleBody"><p>当程序出现类似内存泄露等内存不稳定的问题时，若无法从代码审核角度发现问题，则考虑跟踪内存的分配和释放。</p>
 <p>从跟踪的数据中得到程序内存的使用分布情况，以及退出时没有释放的内存，可以推断出程序内存开销的热点，以及内存泄露位置，执行相应的改进。</p>
 <h2 id="常规跟踪方法">常规跟踪方法</h2><p>linux下有跟踪内存泄露的工具，但工具操作和数据解读的不习惯，以及DIY内存跟踪的轻易性，实际的使用效果并不理想。</p>
 <p>常规的跟踪方法一般是重载<code>operator new</code> <code>operator delete</code> ，使重载参数中包含文件名和行号，这样new/delete分配时会传递分配的文件位置。</p>
@@ -49,10 +47,11 @@
 <p>gdb调试时，新方法比常规方法计算量更小，也更容易汇总和分类。也不需要被每个源文件包含，并能影响到每个静态库模块 <em>(动态库尚未确认)</em>。</p>
 <p>此外，还可以应用的 <code>malloc_hook</code> 上，需要注意的是hook分配时，不能为每块请求的内存额外分配，管理方式与new不同，易引起崩溃。</p>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-02-27T16:00:00.000Z" itemprop="dateModified">Friday, Feb 28th, 2014</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -69,12 +68,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>

@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>游戏的自动化测试</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">游戏的自动化测试</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2014-04-05T16:00:00.000Z">2014-04-06</time>
-  </div>
-  <div class="entry-content"><p>作为一个懒惰的程序员，要自动化一切，包括游戏测试。</p>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">游戏的自动化测试</h1>
+  <div class="entry-content" itemprop="articleBody"><p>作为一个懒惰的程序员，要自动化一切，包括游戏测试。</p>
 <p>游戏是一个复杂的CS系统，本身的数据流是二进制的，不像网页那样的文本制好解析；画面和UI是基于DX的，也就不能用一些测试通用窗口控件的工具去测试游戏。</p>
 <p>我尝试过一些从各方面借鉴的做法。</p>
 <p><strong>单元测试</strong></p>
@@ -64,10 +62,11 @@ end</pre><p>测试的流程大体是打开商城界面，点击圣甲精华购�
 <p>虽说把UI当黑盒，但窗口的顶层控件作为参数会有利于测试加速。比如 <em>have_content</em> 就是在商城窗口中搜索圣甲精华文字，至于这个文字到底放在哪，则一层层的去搜索商城窗口的子控件去寻找了。</p>
 <p>无视UI的布局细节，尽量从客户端本身的数据中，通过不易改变的名字去查找和验证，就不惧怕程序的频繁调整了。</p>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2014-04-05T16:00:00.000Z" itemprop="dateModified">Sunday, Apr 6th, 2014</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -84,12 +83,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>

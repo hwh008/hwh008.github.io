@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.1">
-    <meta name="theme" content="one 0.1">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
     <title>手游《神偷》设计分析</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
     <link rel="stylesheet" href="../static/one.css" />
-    <link rel="stylesheet" href="../static/syntax.css" />
   </head>
   <body>
-    <div class="navigation" role="navigation">
+    <div class="header">
       <div class="container">
-        <a class="home" href="../">Magic ABC</a>
-        <div class="menu">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
           <a href="/life">生活</a>
           <a href="/idea">好主意</a>
           <a href="/game-art">独立游戏</a>
@@ -23,13 +24,10 @@
         </div>
       </div>
     </div>
-    <div class="document">
-<div class="hentry">
-  <h1 class="entry-title">手游《神偷》设计分析</h1>
-  <div class="entry-meta">
-    <time class="updated" datetime="2015-02-14T16:00:00.000Z">2015-02-15</time>
-  </div>
-  <div class="entry-content"><p><img src="res/thief.jpg" alt="game"></p>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">手游《神偷》设计分析</h1>
+  <div class="entry-content" itemprop="articleBody"><p><img src="res/thief.jpg" alt="game"></p>
 <h2 id="it-is-simple">It is Simple</h2><p>The character is a black squre with eyes.<br>
 It is a tap tap game, the character is controlled by tap. tap to jump, tap to change moving direction when the character touches the wall.</p>
 <h2 id="charge1-player-39-s-design-are-variousness">Charge1: Player&#39;s Design are Variousness</h2><p>Every player get a room as secret base, they can enter other one&#39;s room to steal golds and ruby.<br>
@@ -51,10 +49,11 @@ Ruby合成时需要消耗一定时间，这就留给其他人偷取ruby的机会
 基地中的陷阱是可以通过gold升级的，升级后会对死亡造成更多伤害，更快的降低别人抽到ruby的概率。<br>
 地图上还有很多策划预设的关卡，通过这些预设关卡刷gold，来对基地进行升级。</p>
 </div>
-</div>
- <a>Pay me or Praise me<img src='/pay2d.png' /> </a>
-<!-- Duoshuo Comment BEGIN -->
-<div id="disqus_thread"></div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2015-02-14T16:00:00.000Z" itemprop="dateModified">Sunday, Feb 15th, 2015</time>
+  </div>
+  <img src='/pay2d.png' /><br><div id="disqus_thread"></div>
 <script>
 
 var disqus_config = function () {
@@ -71,12 +70,13 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<!-- Duoshuo Comment END -->
+</div>
+ 
 </div>
     <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.1</p>
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
     </div>
-    <script src="http://static.alipayobjects.com/seajs/1.2.1/sea.js" data-main="../static/one.js"></script>
     <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on Coding</a></div>
+    <script src="../static/one.js"></script>
   </body>
 </html>
