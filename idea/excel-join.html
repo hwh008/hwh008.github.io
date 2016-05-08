@@ -44,7 +44,7 @@
 <p>首先，在sheet1表通过<code>VLOOKUP</code>在sheet3查找K2：</p>
 <pre>=VLOOKUP(K1, sheet3, index for K2)</pre><p>查找后，发现有些结果是<code>N/A</code>，这就需要在sheet1借助KX, KY，在sheet2查找K2：</p>
 <pre>=VLOOKUP(KX, sheet2, index for K2)
-=VLOOKUP(KY, sheet2, index for K2)</pre><p>sheet1新增的三列查找结果，都包含一些<code>N/A</code>，但所幸总算保证每条记录都找到K2。为了把sheet2的数据搬到sheet1的对应位置，现在要想办法把每条记录的<code>N/A</code>，空值，K2合并到一起。这里用到了<code>VLOOKUP</code></p>
+=VLOOKUP(KY, sheet2, index for K2)</pre><p>sheet1新增的三列查找结果，都包含一些<code>N/A</code>，但所幸总算保证每条记录都找到K2。为了把sheet2的数据搬到sheet1的对应位置，现在要想办法把每条记录的<code>N/A</code>，空值，K2合并到一起。这里用到了<code>LOOKUP</code></p>
 <h3 id="tricky">tricky</h3><pre>=LOOKUP(1, 1/(X1:Z1&lt;&gt;&quot;&quot;), X1:Z1)</pre><p>括号里的不等判断返回TRUE,FALSE，所以返回的就是1或者除0，自然能找到结果。</p>
 <p>准确求出K2以后，将sheet2的数据取过来很简单，还是用<code>VLOOKUP</code>，只不过这次是横向填充，因此需要准备一个sheet4用于index递增。另外第一个参数的列位置要锁定，行值则不用。</p>
 <pre>=VLOOKUP($L2,Sheet2!$A$2:$Q$412,Sheet6!A$1,FALSE)</pre></div>
