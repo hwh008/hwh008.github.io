@@ -5,6 +5,18 @@
     <link href="" />
     <id>feed.xml</id>
     <entry>
+        <title type="html"><![CDATA[世界观]]></title>
+        <link href="idea/worldview.html"/>
+        <published>2016-06-16T16:00:00.000Z</published>
+        <updated>2016-06-16T16:00:00.000Z</updated>
+        <id>idea/worldview.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p><img src="http://i.imgur.com/AlF0N6k.png" alt="worldview"></p>
+<p>四项工作领域，择一而入即可。要有好的收入，必须选时间杠杆高的，并且具备规模化效应。</p>
+<p>好好的思考与等待吧。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[Excel 整合报表]]></title>
         <link href="idea/excel-join.html"/>
         <published>2016-05-07T16:00:00.000Z</published>
@@ -180,6 +192,22 @@
 ]]>
         </content>
     </entry><entry>
+        <title type="html"><![CDATA[周记]]></title>
+        <link href="life/20151116-weekly.html"/>
+        <published>2015-11-15T16:00:00.000Z</published>
+        <updated>2015-11-15T16:00:00.000Z</updated>
+        <id>life/20151116-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
+<p>周末实在太懒散了，什么都没有做。</p>
+<h2 id="本周要事">本周要事</h2><ul>
+<li>怕冷，容易感冒</li>
+<li>在处理档案和贷款合同的事情上，容易犯拖延症，怕与人接触。不过据说积极性和注意力一样是一种每日有限资源，如果在一件事情上投入多了，别的事情就会需要反方向的补充。</li>
+<li>唉</li>
+</ul>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[rails小项目的一些分享]]></title>
         <link href="idea/rails-exp.html"/>
         <published>2015-11-15T16:00:00.000Z</published>
@@ -230,22 +258,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 ]]>
         </content>
     </entry><entry>
-        <title type="html"><![CDATA[周记]]></title>
-        <link href="life/20151116-weekly.html"/>
-        <published>2015-11-15T16:00:00.000Z</published>
-        <updated>2015-11-15T16:00:00.000Z</updated>
-        <id>life/20151116-weekly.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
-<p>周末实在太懒散了，什么都没有做。</p>
-<h2 id="本周要事">本周要事</h2><ul>
-<li>怕冷，容易感冒</li>
-<li>在处理档案和贷款合同的事情上，容易犯拖延症，怕与人接触。不过据说积极性和注意力一样是一种每日有限资源，如果在一件事情上投入多了，别的事情就会需要反方向的补充。</li>
-<li>唉</li>
-</ul>
-]]>
-        </content>
-    </entry><entry>
         <title type="html"><![CDATA[周记1111]]></title>
         <link href="life/20151111-weekly.html"/>
         <published>2015-11-10T16:00:00.000Z</published>
@@ -287,26 +299,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 ]]>
         </content>
     </entry><entry>
-        <title type="html"><![CDATA[选择前端框架的想法]]></title>
-        <link href="idea/vuejs.html"/>
-        <published>2015-10-25T16:00:00.000Z</published>
-        <updated>2015-10-25T16:00:00.000Z</updated>
-        <id>idea/vuejs.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
-<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
-<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
-<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
-<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
-<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
-<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
-<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
-<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
-<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
-<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
-]]>
-        </content>
-    </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151026-weekly.html"/>
         <published>2015-10-25T16:00:00.000Z</published>
@@ -328,6 +320,26 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 <li><p>这个月市场还是猜的挺准的，利用A类和创业板ETF反复对冲，喝了点汤水。</p>
 </li>
 </ol>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[选择前端框架的想法]]></title>
+        <link href="idea/vuejs.html"/>
+        <published>2015-10-25T16:00:00.000Z</published>
+        <updated>2015-10-25T16:00:00.000Z</updated>
+        <id>idea/vuejs.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
+<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
+<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
+<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
+<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
+<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
+<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
+<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
+<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
+<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
+<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
 ]]>
         </content>
     </entry><entry>
@@ -469,80 +481,6 @@ Ruby合成时需要消耗一定时间，这就留给其他人偷取ruby的机会
 <h2 id="pve">PVE</h2><p>这里PVE特指不花RMB的功能点。<br>
 基地中的陷阱是可以通过gold升级的，升级后会对死亡造成更多伤害，更快的降低别人抽到ruby的概率。<br>
 地图上还有很多策划预设的关卡，通过这些预设关卡刷gold，来对基地进行升级。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[Minimal UI Elements for Game]]></title>
-        <link href="game-art/minimal-ui-elements.html"/>
-        <published>2015-02-08T16:00:00.000Z</published>
-        <updated>2015-02-08T16:00:00.000Z</updated>
-        <id>game-art/minimal-ui-elements.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="elements-for-game">Elements for Game</h2><ol>
-<li>Banner in first screen</li>
-<li>Button frame</li>
-<li>Window frame</li>
-<li>Next and prev button</li>
-<li>Normal icons: config, close, star, heart, chest, locker, gem, coin, pause</li>
-<li>Progress bar</li>
-<li>Choose level: normal and boss, lock and unlock</li>
-<li>List frame</li>
-<li>Grid frame</li>
-<li>In game background and tiles.</li>
-<li>Poster</li>
-</ol>
-<h2 id="first-screen">First Screen</h2><p>It is composed by 2 things.<br>
-<strong>Background</strong></p>
-<p>It can be the clean color or a drawing. You can translate the drawing repeatly.
-<img src="min-ui/firstscreen1.jpg" alt="firstscreen"></p>
-<p><strong>Title and Characters</strong></p>
-<p>You can show the title with big font only. you can also add some game characters behind the title.
-You can add some float animation to the characters.
-Only 1 thing is dynamic in both background and title&#39;s elements.
-<img src="min-ui/firstscreen2.jpg" alt="firstscreen">
-<img src="min-ui/firstscreen3.jpg" alt="firstscreen"></p>
-<h2 id="button-frame">Button Frame</h2><p>You can draw some delicate button, or just use a clean color box with shadow as your button, but remember it should be enlarged as a frame.</p>
-<h2 id="window-frame">Window Frame</h2><p>Normal border and clean color inside the content area, or try more simple design without border.
-<img src="min-ui/window1.jpg" alt="window"></p>
-<h2 id="choose-level">Choose Level</h2><ul>
-<li>A background which is simple drawing or clean gradient color</li>
-<li>A title as <em>&#39;CHOOSE LEVEL&#39;</em></li>
-<li>Level icons</li>
-<li>Next and prev button to shift level page</li>
-</ul>
-<p>A simple design is showing 5x5 grids for levels of each section, each section use different background.
-<img src="min-ui/chooselevel.jpg" alt="chooselevel"></p>
-<h2 id="list-frame">List Frame</h2><ul>
-<li>Title and description</li>
-<li>Neighbor item must be distinct, you can make this by light/dark color or item border</li>
-<li>Item left is icon</li>
-<li>Item middle is title and description</li>
-<li>Item right is an event button</li>
-<li>If the count of items more than 1 page,  do not use vertical scroll, flip page by next and prev button</li>
-</ul>
-<p><img src="min-ui/listframe.jpg" alt="listframe"></p>
-<h2 id="grid-frame">Grid Frame</h2><ul>
-<li>Clean color as background</li>
-<li>Title on top</li>
-<li>Item icon and selected cursor</li>
-<li>Show description on bottom when item is selected</li>
-<li>Do not use vertical scroll, use flip page</li>
-</ul>
-<p><img src="min-ui/gridframe.jpg" alt="gridframe"></p>
-<h2 id="in-game-background-and-tiles">In Game Background and Tiles</h2><ul>
-<li>Background -1 is a static shade, as paint by brush with clean color, it don&#39;t contain any detail. or you can use a sky drawing by gradient color</li>
-<li>Background 1 is the near sight, it move follow by character</li>
-<li>It must need 2 small tiles and 1 big tiles at least, and shade them with 2 colors, then you get 4+2 tiles</li>
-</ul>
-<p><img src="min-ui/gamescn1.jpg" alt="scn1">
-<img src="min-ui/gamescn2.jpg" alt="scn2"></p>
-<h2 id="poster">Poster</h2><ul>
-<li>Title</li>
-<li>Banner</li>
-<li>Description</li>
-<li>Event button on bottom with different color background</li>
-</ul>
-<p><img src="min-ui/poster.jpg" alt="poster"></p>
 ]]>
         </content>
     </entry>
