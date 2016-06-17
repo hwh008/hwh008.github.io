@@ -5,6 +5,34 @@
     <link href="" />
     <id>feed.xml</id>
     <entry>
+        <title type="html"><![CDATA[电子电路开发之殇]]></title>
+        <link href="idea/electron.html"/>
+        <published>2016-06-17T16:00:00.000Z</published>
+        <updated>2016-06-17T16:00:00.000Z</updated>
+        <id>idea/electron.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="熟悉基本电路图">熟悉基本电路图</h2><p>三极管驱动，上拉电阻，去耦电容等等基本的元电路图应该知道，并且知道单片机的IO口无法做功率驱动。</p>
+<h2 id="电焊手工能力">电焊手工能力</h2><p>一般都是焊接2.x mm的间距，抽风买了1.x mm的，没这个手艺去焊接，来一块毁一块。</p>
+<h2 id="单片机接口协议">单片机接口协议</h2><p>GPIO是最基本的，但是还需要了解IIC,UART,SPI,PWM，ADC等等电路接口协议。如果单片机没有包含相关协议的硬件实现，还要能用GPIO实现，或者买相关的协议硬件模块。</p>
+<h2 id="模块手册">模块手册</h2><p>光有单片机也就能玩玩灯，真要做点有用途的事情，其他模块是不能省的，比如温度、湿度、RF和电机等等。单片机和其他模块命令和数据通信，是基于上节所说的接口协议进行。</p>
+<p>每个模块有自己的特性和命令，还有自己的模式，操作起来就要找手册读一读。</p>
+<p>通信方法一般是命令字 + 设置值，目前硬件方面的操控还是通过读写寄存器进行的，属于逻辑电路范畴。</p>
+<h2 id="开发调试">开发调试</h2><p>好了，现在基本的知识都有了，画画电路草图，买些面包线和面包板，连接单片机、模块和相关元件。然后在不怎么样的IDE上写程序，烧录到IC，运行。</p>
+<p>呵呵，板子怎么不按套路出牌。这时候有几种可能：</p>
+<ol>
+<li>代码问题，可能协议信号不太对啊。怎么办，可能要来个逻辑分析仪。</li>
+<li>模块问题，可能被静电烧了。怎么办？可能得多买几个换着测吧。如果是RF的模块，估计还要抓信号来看吧。</li>
+<li>代码运行过程怎么查？打日志呗，通过串口看，另外别买裸板，买开发板带一堆灯和LCD也能展示个过程。</li>
+</ol>
+<h2 id="pcb产品">PCB产品</h2><p>终于电路也通了，程序也通了，想产品化做小点。如果少量的话可能手工做更便宜点，买来洞洞板和原件，然后焊锡一个个焊好。</p>
+<p>如果想再小点，就要设计PCB了，这个我还没学，因为已经对整个流程很烦躁了。设计好了PCB，淘宝找商家打板就好了。</p>
+<h2 id="你感兴趣你搞定了，成本高，能做什么呢？">你感兴趣你搞定了，成本高，能做什么呢？</h2><p>你有想法，要做点实用的东西，而不仅仅是点个灯测个PM2.5m，比如像我那样打算做个水阀控制，屋顶的水位电路好做，怎么开关电机呢？买个wifi插座也能应付过去，wifi插座的怎么获得信号呢？还有水阀的开关电子阀门，拆装也是有工程量的。</p>
+<p>算一算下来，真实施一套完善的系统，硬件成本就是许多，虽然STC、STM便宜，但是具备基本通信功能的NodeMCU售价20￥。另外设计上还要考虑停电、停网等预案。玩具是没有意义的，但是做得完善又各种成本太高。</p>
+<p>也就是工厂搞无人车间，电气自动化，做单片机有价值，还有所谓的无线通信领域，这也是偏硬多一些。</p>
+<p>至于现在的家庭智能硬件，只会搞搞万能遥控器，wifi开关。真正的家庭智能电器环境，应该是有大主机检测各个传感器状态，并根据客户的作息习惯，自动进行舒适、安全等方面的控制。现在这种什么硬件都wifi到云，通过手机操作和简单定时的方式真是太玩具了。并且各家都极其封闭，根本没有API方便第三方进行大主机的开发。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[世界观]]></title>
         <link href="idea/worldview.html"/>
         <published>2016-06-16T16:00:00.000Z</published>
@@ -451,36 +479,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 <li><p>本周搬了新住处，3户合租的，房子小客厅大，厨房乱糟糟，不能好好做饭了。</p>
 </li>
 </ol>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[手游《神偷》设计分析]]></title>
-        <link href="game-art/thief-game.html"/>
-        <published>2015-02-14T16:00:00.000Z</published>
-        <updated>2015-02-14T16:00:00.000Z</updated>
-        <id>game-art/thief-game.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p><img src="res/thief.jpg" alt="game"></p>
-<h2 id="it-is-simple">It is Simple</h2><p>The character is a black squre with eyes.<br>
-It is a tap tap game, the character is controlled by tap. tap to jump, tap to change moving direction when the character touches the wall.</p>
-<h2 id="charge1-player-39-s-design-are-variousness">Charge1: Player&#39;s Design are Variousness</h2><p>Every player get a room as secret base, they can enter other one&#39;s room to steal golds and ruby.<br>
-You can buy the trap suit from mall and place the them to kill the invaders. different suit includes different traps, the amount of traps are restricted, you are allowed to use 1 suit at 1 time only.<br>
-After you finish designing the room with traps, you must pass these traps 2 turns to prove that you don&#39;t obstruct the whole road, the others have the opportunity to steal something.</p>
-<h2 id="charge2-steal-the-ruby">Charge2: Steal the Ruby</h2><p>When you steal others, you can use props to change the game be easier, such as character copies, slow time and break trap etc, these props are sell in mall.<br>
-After you pass all traps and touch the ruby chest, you have opportunity to steal 1 ruby. the opportunity is decrease along with the times you die, so use props to reduce your death is good choice.<br>
-In case you don&#39;t win the ruby, you can pay for rolling the dice again and again.</p>
-<h2 id="charge3-ruby-combination">Charge3: Ruby Combination</h2><p>The game&#39;s goal is to combine better ruby, 2 ruby can combine to a better quality one.<br>
-Ruby合成时需要消耗一定时间，这就留给其他人偷取ruby的机会。如果你不想合成中的宝石被偷掉，可以花钱立即完成合成进程。</p>
-<h2 id="charge4-cloth-combination">Charge4: Cloth Combination</h2><p>角色的外观是通过材料合成的。材料只有4种，可以从商城购买。<br>
-不直接从商城出售外观成品的原因，主要是可以在PVE中发放部分种类的材料。如果合成配方和角色等级相关，还可以促进玩家在每个等级段的外观消费。</p>
-<h2 id="pvp-revenge">PVP: Revenge</h2><p>游戏的对抗是随机到某一个玩家的基地进行偷取，困难的陷阱会将入侵者杀死多次，这些杀伤数可以给基地增加收益。<br>
-玩家会在上线后收到基地入侵通知，如果ruby被偷取，必然报复性的去偷取对方。假如通关后没有抽中仇人的ruby，由于愤怒和不甘必然消费进行多次抽取。</p>
-<h2 id="game-pace">Game Pace</h2><p>为了控制玩家长时间的连续攻击他人，进入基地偷取前需要用手头的钥匙打开基地的锁。一扇门有很多把锁，玩家一定时间里只有有限的钥匙去试锁，因此玩家偷取次数就被控制了。<br>
-基地的钥匙数量和门上的锁数量都可以通过升级基地提高。<br>
-另外，低保设计，为了让死亡多次的玩家完成偷取，系统会禁用1个陷阱来降低关卡难度，保证不购买道具也可以通关。</p>
-<h2 id="pve">PVE</h2><p>这里PVE特指不花RMB的功能点。<br>
-基地中的陷阱是可以通过gold升级的，升级后会对死亡造成更多伤害，更快的降低别人抽到ruby的概率。<br>
-地图上还有很多策划预设的关卡，通过这些预设关卡刷gold，来对基地进行升级。</p>
 ]]>
         </content>
     </entry>
