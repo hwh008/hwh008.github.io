@@ -7,8 +7,8 @@
     <entry>
         <title type="html"><![CDATA[电子电路开发之殇]]></title>
         <link href="idea/electron.html"/>
-        <published>2016-06-17T16:00:00.000Z</published>
-        <updated>2016-06-17T16:00:00.000Z</updated>
+        <published>2016-06-18T00:00:00.000Z</published>
+        <updated>2016-06-18T00:00:00.000Z</updated>
         <id>idea/electron.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <h2 id="熟悉基本电路图">熟悉基本电路图</h2><p>三极管驱动，上拉电阻，去耦电容等等基本的元电路图应该知道，并且知道单片机的IO口无法做功率驱动。</p>
@@ -35,8 +35,8 @@
     </entry><entry>
         <title type="html"><![CDATA[世界观]]></title>
         <link href="idea/worldview.html"/>
-        <published>2016-06-16T16:00:00.000Z</published>
-        <updated>2016-06-16T16:00:00.000Z</updated>
+        <published>2016-06-17T00:00:00.000Z</published>
+        <updated>2016-06-17T00:00:00.000Z</updated>
         <id>idea/worldview.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p><img src="http://i.imgur.com/AlF0N6k.png" alt="worldview"></p>
@@ -47,8 +47,8 @@
     </entry><entry>
         <title type="html"><![CDATA[Excel 整合报表]]></title>
         <link href="idea/excel-join.html"/>
-        <published>2016-05-07T16:00:00.000Z</published>
-        <updated>2016-05-07T16:00:00.000Z</updated>
+        <published>2016-05-08T00:00:00.000Z</published>
+        <updated>2016-05-08T00:00:00.000Z</updated>
         <id>idea/excel-join.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>我们常常需要从日志，数据库中取大量的数，这些记录常常是离散的，但业务需要将他们根据关键字合并，这项任务都有哪些做法呢？</p>
@@ -76,8 +76,8 @@
     </entry><entry>
         <title type="html"><![CDATA[百度助纣为虐]]></title>
         <link href="idea/baidu-sucks.html"/>
-        <published>2016-05-01T16:00:00.000Z</published>
-        <updated>2016-05-01T16:00:00.000Z</updated>
+        <published>2016-05-02T00:00:00.000Z</published>
+        <updated>2016-05-02T00:00:00.000Z</updated>
         <id>idea/baidu-sucks.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>最近百度又因为良心问题上头条了，当然由于这个企业不认为自己良心有问题，所以类似的事情已经重复过很多次了，而且这一届的人民也很健忘。</p>
@@ -94,8 +94,8 @@
     </entry><entry>
         <title type="html"><![CDATA[我眼中未来的趋势]]></title>
         <link href="idea/thefuture.html"/>
-        <published>2016-03-18T16:00:00.000Z</published>
-        <updated>2016-03-18T16:00:00.000Z</updated>
+        <published>2016-03-19T00:00:00.000Z</published>
+        <updated>2016-03-19T00:00:00.000Z</updated>
         <id>idea/thefuture.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>技术在加速，了解未来的可能性，才能立足在正确的方向上。这个时代的人都说，“我不想逆流而上，我只想找到一块山顶的石头，轻轻一脚”。</p>
@@ -137,8 +137,8 @@
     </entry><entry>
         <title type="html"><![CDATA[如何才能坚持写日记]]></title>
         <link href="idea/insist-on-writing.html"/>
-        <published>2016-03-17T16:00:00.000Z</published>
-        <updated>2016-03-17T16:00:00.000Z</updated>
+        <published>2016-03-18T00:00:00.000Z</published>
+        <updated>2016-03-18T00:00:00.000Z</updated>
         <id>idea/insist-on-writing.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>俗话说的好，做事贵在坚持，学习如此，起床如此，写日记也是如此。</p>
@@ -162,8 +162,8 @@
     </entry><entry>
         <title type="html"><![CDATA[周记2016]]></title>
         <link href="life/2016new.html"/>
-        <published>2016-01-01T16:00:00.000Z</published>
-        <updated>2016-01-01T16:00:00.000Z</updated>
+        <published>2016-01-02T00:00:00.000Z</published>
+        <updated>2016-01-02T00:00:00.000Z</updated>
         <id>life/2016new.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>有一阵子没发周记了，其实都有用软件每日小记一下，虽然不够连续。</p>
@@ -185,8 +185,8 @@
     </entry><entry>
         <title type="html"><![CDATA[周记1206]]></title>
         <link href="life/20151206-weekly.html"/>
-        <published>2015-12-05T16:00:00.000Z</published>
-        <updated>2015-12-05T16:00:00.000Z</updated>
+        <published>2015-12-06T00:00:00.000Z</published>
+        <updated>2015-12-06T00:00:00.000Z</updated>
         <id>life/20151206-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <h2 id="时间">时间</h2><p>Yellow, 34 coins, 低于50 coins每周。最近是需要多努力一点。</p>
@@ -207,8 +207,8 @@
     </entry><entry>
         <title type="html"><![CDATA[周记1123]]></title>
         <link href="life/20151122-weekly.html"/>
-        <published>2015-11-21T16:00:00.000Z</published>
-        <updated>2015-11-21T16:00:00.000Z</updated>
+        <published>2015-11-22T00:00:00.000Z</published>
+        <updated>2015-11-22T00:00:00.000Z</updated>
         <id>life/20151122-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <h2 id="时间">时间</h2><p>Yellow 40<br>Orange 20  </p>
@@ -222,8 +222,8 @@
     </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151116-weekly.html"/>
-        <published>2015-11-15T16:00:00.000Z</published>
-        <updated>2015-11-15T16:00:00.000Z</updated>
+        <published>2015-11-16T00:00:00.000Z</published>
+        <updated>2015-11-16T00:00:00.000Z</updated>
         <id>life/20151116-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
@@ -238,8 +238,8 @@
     </entry><entry>
         <title type="html"><![CDATA[rails小项目的一些分享]]></title>
         <link href="idea/rails-exp.html"/>
-        <published>2015-11-15T16:00:00.000Z</published>
-        <updated>2015-11-15T16:00:00.000Z</updated>
+        <published>2015-11-16T00:00:00.000Z</published>
+        <updated>2015-11-16T00:00:00.000Z</updated>
         <id>idea/rails-exp.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>为了满足自己炒股兴趣的需要，根据<a href="http://www.amazon.com/Little-Book-Still-Beats-Market/dp/0470624159">《神奇公式》</a>，对A股市场做了一个排序系统，既完成了一个对自己有效的需求，也从中学习rails。</p>
@@ -288,8 +288,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[周记1111]]></title>
         <link href="life/20151111-weekly.html"/>
-        <published>2015-11-10T16:00:00.000Z</published>
-        <updated>2015-11-10T16:00:00.000Z</updated>
+        <published>2015-11-11T00:00:00.000Z</published>
+        <updated>2015-11-11T00:00:00.000Z</updated>
         <id>life/20151111-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>橙色：42枚<br>黄色：31枚<br>蓝色：08枚<br>红色：02枚  </p>
@@ -312,8 +312,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151101-weekly.html"/>
-        <published>2015-10-31T16:00:00.000Z</published>
-        <updated>2015-10-31T16:00:00.000Z</updated>
+        <published>2015-11-01T00:00:00.000Z</published>
+        <updated>2015-11-01T00:00:00.000Z</updated>
         <id>life/20151101-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>黄色：040枚<br>橙色：040枚  </p>
@@ -329,8 +329,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151026-weekly.html"/>
-        <published>2015-10-25T16:00:00.000Z</published>
-        <updated>2015-10-25T16:00:00.000Z</updated>
+        <published>2015-10-26T00:00:00.000Z</published>
+        <updated>2015-10-26T00:00:00.000Z</updated>
         <id>life/20151026-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>绿色：100枚<br>黄色：050枚<br>橙色：030枚<br>红色：006枚  </p>
@@ -353,8 +353,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[选择前端框架的想法]]></title>
         <link href="idea/vuejs.html"/>
-        <published>2015-10-25T16:00:00.000Z</published>
-        <updated>2015-10-25T16:00:00.000Z</updated>
+        <published>2015-10-26T00:00:00.000Z</published>
+        <updated>2015-10-26T00:00:00.000Z</updated>
         <id>idea/vuejs.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
@@ -373,8 +373,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151019-weekly.html"/>
-        <published>2015-10-18T16:00:00.000Z</published>
-        <updated>2015-10-18T16:00:00.000Z</updated>
+        <published>2015-10-19T00:00:00.000Z</published>
+        <updated>2015-10-19T00:00:00.000Z</updated>
         <id>life/20151019-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p><strong> 摆酒过门 </strong></p>
@@ -397,8 +397,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20150929-weekly.html"/>
-        <published>2015-09-27T16:00:00.000Z</published>
-        <updated>2015-09-27T16:00:00.000Z</updated>
+        <published>2015-09-28T00:00:00.000Z</published>
+        <updated>2015-09-28T00:00:00.000Z</updated>
         <id>life/20150929-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>绿色：140，67%<br>橙色：032，15%<br>黄色：028，13%<br>红色：009，04%  </p>
@@ -418,8 +418,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20150921-weekly.html"/>
-        <published>2015-09-20T16:00:00.000Z</published>
-        <updated>2015-09-20T16:00:00.000Z</updated>
+        <published>2015-09-21T00:00:00.000Z</published>
+        <updated>2015-09-21T00:00:00.000Z</updated>
         <id>life/20150921-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>绿色: 119, 55.5%<br>黄色：055, 25.5%<br>蓝色：016, 7%<br>橙色：013, 6%<br>红色：003, 1.5%  </p>
@@ -438,8 +438,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20150913-weekly.html"/>
-        <published>2015-09-12T16:00:00.000Z</published>
-        <updated>2015-09-12T16:00:00.000Z</updated>
+        <published>2015-09-13T00:00:00.000Z</published>
+        <updated>2015-09-13T00:00:00.000Z</updated>
         <id>life/20150913-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>绿色：100枚，46%<br>黄色：072枚，33%<br>橙色：026枚，12%<br>蓝色：011枚，5%<br>红色：008枚  </p>
@@ -457,8 +457,8 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
     </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20150906-weekly.html"/>
-        <published>2015-09-05T16:00:00.000Z</published>
-        <updated>2015-09-05T16:00:00.000Z</updated>
+        <published>2015-09-06T00:00:00.000Z</published>
+        <updated>2015-09-06T00:00:00.000Z</updated>
         <id>life/20150906-weekly.html</id>
         <content type="html" xml:base="" xml:lang="en">
             <![CDATA[ <p>绿色：128枚，80%<br>橙色：024枚，13%<br>红色：012枚，06%<br>黄色：004枚，02%  </p>

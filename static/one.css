@@ -297,10 +297,12 @@ html, body {
 /* layout */
 .header {
   font-size: 16px;
-  // font-family: "Optima", "Avenir", "Helvetica Neue", sans-serif;
+  font-family: "Optima", "Avenir", "Helvetica Neue", sans-serif;
   padding: 20px 10px;
 }
-
+.header a {
+  color: #323233;
+}
 .header a:hover {
   opacity: 0.6;
 }
@@ -505,17 +507,4 @@ html, body {
 }
 .tagcloud a:hover {
   opacity: 1;
-}
-
-body, button, input, select, textarea {
-  font: 16px/1.62 "Ubuntu", 'Helvetica Neue', 'Xin Gothic', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'aria', sans-serif;
-  color: #3E4349;
-}
-
-.home {
-    float: left;
-    margin-right: 30px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #ffc38c;
 }
