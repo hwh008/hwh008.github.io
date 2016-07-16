@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
+    <title>2016-07-16</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
+    <link rel="stylesheet" href="../static/one.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
+          <a href="../../../../life/">生活</a>
+          <a href="../../../../idea/">好主意</a>
+          <a href="../../../../game-art/">独立游戏</a>
+          <a href="../../../../gamemaker.html">点子工具</a>
+          <a href="../../../../about.html">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">2016-07-16</h1>
+  <div class="entry-content" itemprop="articleBody"><h2 id="离职，钱">离职，钱</h2><p>我从桂行离职了，入职兴业。原因很简单，就是钱的问题和其他问题，不过都是无聊的问题。下周一就去上班做做点事情了。</p>
+<p>这周一离职以后，就一直是闲置在家里，想不出做什么事情，所以周一还是去上班吧。关于这件事情，我也确实没有什么更多可以描述的了。</p>
+<h2 id="数据存储迁移">数据存储迁移</h2><p>dropbox实在被搞得太卡了，说实话墙真是啥都干，连我这个域名也被墙了，呵呵，真不知道这个域名发表了什么奇怪的言论。</p>
+<p>迁移的方式很简单，整理了一下，一些不是非常保密的资料，就放到百度云上了。至于保密资料，则用bit sync在手机和电脑之间同步好了。</p>
+<h2 id="jenkins发布blog">Jenkins发布blog</h2><p>趁着迁移数据的机会，我就不再把blog存档在云存储上了，这次放到了git coding.net上，然后在服务器搭建Jenkins，轮询coding上的变更，如果有变更，则在本地更新下来，用nico build出来，并自动上传到github page。</p>
+<p>部署Jenkins花费了好几个小时，不过这是值得的，以后我就直接在coding上写blog并存储，然后工具链会自动发布到github page。</p>
+<p>对于一个软件包推广部署这件事情，Java确实做得比其他的好，毕竟一般依赖都打进包里了。python没有一个处理依赖关系的仓库吗？</p>
+</div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2016-07-16T00:00:00.000Z" itemprop="dateModified">Saturday, Jul 16th, 2016</time>
+  </div><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'magicabc';
+  var disqus_title = '2016-07-16';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+</div>
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
+    </div>
+    <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on GitHub</a></div>
+    <script src="../static/one.js"></script>
+  </body>
+</html>
