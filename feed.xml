@@ -5,6 +5,41 @@
     <link href="" />
     <id>feed.xml</id>
     <entry>
+        <title type="html"><![CDATA[MVC, MVP, MVVM, Flux And Redux]]></title>
+        <link href="idea/redux.html"/>
+        <published>2016-07-21T00:00:00.000Z</published>
+        <updated>2016-07-21T00:00:00.000Z</updated>
+        <id>idea/redux.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>界面架构的理念发展的很快，最近主要是由Web技术驱动的，Web技术真是一个日新月异的世界。</p>
+<h2 id="mvc">MVC</h2><p>我真正认识MVC其实是从rails开始的，相见恨晚。以前的认识是建立在MFC上，那套框架只有view和model，当时我搞不清楚controller是什么东西。紧接着使用PHP，PHP真是简单粗暴，完全没听过所谓的MVC，整个网站都是硬写，减少了无关的包装和抽象，反而加深了Web基础的理解。</p>
+<p>从使用rails开始，就真的明白了MVC原来不仅仅是理论，而是可触摸的。用view渲染出的页面，用户操作的request经过router分配到不同的controller，然后调用model进行业务逻辑，并取出model数值交给view渲染出新的界面。完全的如字面意思，而不需要再经过任何适应实际环境的调整。以至于后来我用其他框架的时候，都一定要套到rails的最佳实践和结构来。</p>
+<h2 id="mvp">MVP</h2><p>Web技术沉默了一段时间，移动端崛起了，android, ios等系统开发，又有点回到MFC的老路子，在activity里用一堆的findviewbyid读取和更新控件，并进行业务逻辑。不过这次参与的聪明人比较多，这种糟乱的代码写多了app会爆，于是大家一合计，搞了个MVP，把一个view的所有子控件都封装起来，只有view对象对外提供接口设置相关的显示数据，控件上的操作事件，则交给present提供的接口进行处理，present做为一个中间层，隔离了view和model。</p>
+<h2 id="mvvm">MVVM</h2><p>接下来进入单页应用时代，Web技术爆发开始了。很快的出现了angular和react巨头，基于databind的框架雨后春笋一般的冒出，甚至连移动端都出现了相应的创造，vuejs是我非常喜欢的一个。</p>
+<p>MVVM的理论其实不是很完善，model和databind的数据出现一定的重叠，databind实在做得太好了，但并没有规定业务逻辑应该放置在何处，实际上简单的项目图痛快直接就放到viewmodel里了，不过稍微做大一些就会遇见很多问题，比如数据共享，一个数据更新可能引发多个界面更新等等，这些MVVM都没有给出广泛的标准。</p>
+<h2 id="flux">Flux</h2><p>facebook就搞了个flux理论，去完善MVVM的坑。那flux是怎么回事呢？其实就是增加了一些中间层router，把数据的流动做到类似MVC的模式上去。用户操作产生事件后，生成一个request/action，经过router/dispatch分发给提前注册的controller函数，controller根据具体的action更新model/store后，产生一个通知，也是经过router调用相应的view更新函数。</p>
+<p>这套体系中，通过router/dispatch和request/action，对view/viewmodel, controller和store进行了隔离，store沦为数据容器，controller全权负责更新。数据很明显的在单向流动，并形成一个环。</p>
+<h2 id="redux">Redux</h2><p>很快有人进一步，在flux的基础上搞出一个redux，以函数编程中变量不变的基础，构造出一个store状态可以回溯的理论结构。</p>
+<p>view(viewmodel)产生用户操作后，创建相应的action，action和对应的reducer函数树将会对store状态进行更新，更新后的store再通知所有viewmodel去更新显示。本质和flux差不多，但是通过2个关键点，带来了store状态的变化跟踪。</p>
+<ol>
+<li><p>以函数编程的方式更新store状态，即原状态不变，生成全新的状态对象</p>
+<pre>newstate = fn(store.getState(), action)</pre></li>
+<li><p>reducer函数就是controller函数，负责根据具体的action更新数据状态，用第1点的形式。reducer树是指，一个应用的状态数据，肯定是由多部分组成，每个部分都可以有专门负责这个部分的reducer，而每部分还可以再有子部分已经相应的reducer，这样就构建了一棵reducer树，对整个状态进行分治的更新，最后又逐级将新状态合并到一起。<br>这对应了controller的模块化。</p>
+</li>
+</ol>
+<h2 id="总结">总结</h2><p>从MVC一路发展过来，本质并没有变化过，精髓上还是MVC。</p>
+<p>view的本质就是展现，并且可以直接显示业务变量，无论是服务端的string render还是客户端的viewmodel(databind)，都是为了除去开发人员操作view细节做出的努力。</p>
+<p>model一直是数据的承载，无论是包含逻辑的fat model或者是纯数据的thin model。</p>
+<p>controller则一直是数据变更的入口，无论其只是简单的委托或者包含业务逻辑。若像redux那样做函数编程，则controller则是业务逻辑的本身。</p>
+<p>而这个模式中的的上下承接者，虽然一直在模式LOGO上隐形，却十分重要的router/dispatch，则是一个action到controller的驱动形式。</p>
+<blockquote>
+<p>参考</p>
+</blockquote>
+<p><a href="https://segmentfault.com/a/1190000006016817">https://segmentfault.com/a/1190000006016817</a></p>
+<p><a href="http://www.cnblogs.com/indream/p/3602348.html">http://www.cnblogs.com/indream/p/3602348.html</a></p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[周记2016-07-16]]></title>
         <link href="life/20160716.html"/>
         <published>2016-07-16T00:00:00.000Z</published>
@@ -449,25 +484,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 <li><p>周五少挣了1K，从中学到，止赢比止损更有本事，犹豫有风险。</p>
 </li>
 </ol>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[周记]]></title>
-        <link href="life/20150913-weekly.html"/>
-        <published>2015-09-13T00:00:00.000Z</published>
-        <updated>2015-09-13T00:00:00.000Z</updated>
-        <id>life/20150913-weekly.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>绿色：100枚，46%<br>黄色：072枚，33%<br>橙色：026枚，12%<br>蓝色：011枚，5%<br>红色：008枚  </p>
-<p>总计：209枚</p>
-<p>有进步，黄色时间大量增加了，绿色的和橙色的这两周都差不多。<br>(黄色/4 - 红色/2) 努力产生的奖励时间是必须的，不然这个游戏就没有积极性。</p>
-<p>本周发生的事情：</p>
-<ol>
-<li>hyc找我做个印刷系统的订单管理项目。调研中发现了nativescript，做原生app是好物。reactjs现在还不支持android。</li>
-<li>配了新眼镜，拿到验光数据，视力不过度使用的话，已经不会有什么太大变动了。以后可以凭借这份验光数据在x宝多配几副在几个地方备用。</li>
-<li>发现厉害的大学同班孙胖子是现在coding.net的CTO，我最近一直在公司和家里同步vagrant box，现在直接用coding，就不需要同步了。</li>
-</ol>
-<p>需要找个方式，一天记一事才行。</p>
 ]]>
         </content>
     </entry>
