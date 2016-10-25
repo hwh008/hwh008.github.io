@@ -5,6 +5,20 @@
     <link href="" />
     <id>feed.xml</id>
     <entry>
+        <title type="html"><![CDATA[最近过得有点点艰难的生活]]></title>
+        <link href="life/20161024-weekly.html"/>
+        <published>2016-10-24T00:00:00.000Z</published>
+        <updated>2016-10-24T00:00:00.000Z</updated>
+        <id>life/20161024-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>入职银行一段时间了，下个月就可以拿全工资。这段时间闲得多，忙的少，主要负责GAFE, ATM等模块的维护，每天上班其实很闲，技术没有什么追求了。倒是和业务出去跑了几次，涨了很多见识：存量资金根据分类可以测算收入，银行的各种营销成本都是为了获得客户的存量资金。营销成本并不是贿赂，而是投入很实际的民生中，企业不愿为了部署民生设备掏钱，所以用新系统部署后的资金账户，换取银行方面的投资。</p>
+<p>这段时间LP也从一份无法按时发工资，还需要长期出差的工作中离职了，离职后进入了找2套房的生活。从30W的一居室看起，然后到70多W的两居室，经历了南宁一号线的通车，一号线通车后地铁沿线的房价上涨几万。在9月的某天，我们终于打算买一套68W的两居的时候，来了一套特别好的通透的户型，但是SB的中介和毫无诚意的业主，让我们没有买到所谓的好房子，也错失了68W的那套。</p>
+<p>我很生气总是坚持在某些看着不合适的事情，以及坚持在可以妥协变更方式的事情上，这些坚持一次都没有带来好的结果，却从来不试图修正自己。我很生气，我的内心一直很生气，我想起来就会生气。我此刻觉得累的有点想放弃了，很没劲。</p>
+<p>另一件事情，我开始学习法律，法理基础已经看完，目前在看民法总论。看完法理学基础后，关于社会现象的有关看法，似乎默默的发生了某种变化，常常的想法就是，这事找律师啊，或者是，法律是公平，但朴素的正义感不是法律本身一直能具有的属性。恶法和不完善的法还是常态，但确实法律解释和判例在不断修正和进步。</p>
+<p>我最近主要任务就是完成法律领域的学习，争取能考过司考和律考。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[MVC, MVP, MVVM, Flux And Redux]]></title>
         <link href="idea/redux.html"/>
         <published>2016-07-21T00:00:00.000Z</published>
@@ -271,6 +285,22 @@
 ]]>
         </content>
     </entry><entry>
+        <title type="html"><![CDATA[周记]]></title>
+        <link href="life/20151116-weekly.html"/>
+        <published>2015-11-16T00:00:00.000Z</published>
+        <updated>2015-11-16T00:00:00.000Z</updated>
+        <id>life/20151116-weekly.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
+<p>周末实在太懒散了，什么都没有做。</p>
+<h2 id="本周要事">本周要事</h2><ul>
+<li>怕冷，容易感冒</li>
+<li>在处理档案和贷款合同的事情上，容易犯拖延症，怕与人接触。不过据说积极性和注意力一样是一种每日有限资源，如果在一件事情上投入多了，别的事情就会需要反方向的补充。</li>
+<li>唉</li>
+</ul>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[rails小项目的一些分享]]></title>
         <link href="idea/rails-exp.html"/>
         <published>2015-11-16T00:00:00.000Z</published>
@@ -318,22 +348,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
   end</pre><h2 id="nginx-passenger">nginx + passenger</h2><p>生产部署用的是passenger，很简单，安装就好了。就是环境变量遇上了一些问题，后来通过dotenv-rails解决。</p>
 <h2 id="helper让view漂亮">Helper让View漂亮</h2><p>有两种不漂亮的写法，一种是在view里写表达式，另一种是在action里把表达式算好的结果放到instance var。</p>
 <p>不过erb模版对Helper的支持还是不够漂亮，我比较倾向的是那种管道式的，这样可以把一串helper像羊肉串一样串起来。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[周记]]></title>
-        <link href="life/20151116-weekly.html"/>
-        <published>2015-11-16T00:00:00.000Z</published>
-        <updated>2015-11-16T00:00:00.000Z</updated>
-        <id>life/20151116-weekly.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="统计">统计</h2><p>橙色：22枚<br>黄色：54枚<br>蓝色：32枚  </p>
-<p>周末实在太懒散了，什么都没有做。</p>
-<h2 id="本周要事">本周要事</h2><ul>
-<li>怕冷，容易感冒</li>
-<li>在处理档案和贷款合同的事情上，容易犯拖延症，怕与人接触。不过据说积极性和注意力一样是一种每日有限资源，如果在一件事情上投入多了，别的事情就会需要反方向的补充。</li>
-<li>唉</li>
-</ul>
 ]]>
         </content>
     </entry><entry>
@@ -464,26 +478,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 </li>
 </ol>
 <p>看来本周没有发生积极的事情，遗憾。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[周记]]></title>
-        <link href="life/20150921-weekly.html"/>
-        <published>2015-09-21T00:00:00.000Z</published>
-        <updated>2015-09-21T00:00:00.000Z</updated>
-        <id>life/20150921-weekly.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>绿色: 119, 55.5%<br>黄色：055, 25.5%<br>蓝色：016, 7%<br>橙色：013, 6%<br>红色：003, 1.5%  </p>
-<p>总计：206</p>
-<p>本周发生的事情：</p>
-<ol>
-<li><p>下载了rails guide的git，在火车路上进行阅读，拓展了学习时间。</p>
-</li>
-<li><p>古摄影的产品很垃圾，完全没有后期，我妹子被迫自己成为了PS大神。现在承接婚纱照、写真照精修，100一张，满意为止。</p>
-</li>
-<li><p>周五少挣了1K，从中学到，止赢比止损更有本事，犹豫有风险。</p>
-</li>
-</ol>
 ]]>
         </content>
     </entry>
