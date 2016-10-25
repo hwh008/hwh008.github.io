@@ -5,6 +5,26 @@
     <link href="" />
     <id>feed.xml</id>
     <entry>
+        <title type="html"><![CDATA[房价的逻辑]]></title>
+        <link href="idea/houseprice.html"/>
+        <published>2016-10-25T00:00:00.000Z</published>
+        <updated>2016-10-25T00:00:00.000Z</updated>
+        <id>idea/houseprice.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>我觉得我想明白了房价的逻辑，当然首先想明白了资产的逻辑。</p>
+<p>先说资产的逻辑：<strong>价格=收益×PE</strong> 。</p>
+<p>PE是市盈率，倒数是收益率，即价格除收益。理论上，PE和货币利率相关，银行理财收益能做到4% ~ 5%，那市场的PE应该是20倍到25倍。当市场看好某种资产，高估某种资产的时候，PE就高于25倍，意味着虽然看起来资产收益不如银行理财，但乐观预计的收益多半是比现在能明显算出来的多，超越银行理财的水平。如果没有乐观的预期，资产的PE是不可能长期走高的。</p>
+<p>当某种资产的PE低于20倍的时候，意味着低估。若市场发现实际资产的风险低收益好，超过银行理财，资金会快速涌入，抬高PE，直到接近市场利率水平。</p>
+<p>说说房价，上海张江500w的两居，月租5000，年收益6W，明面上算PE是100倍。这么高的PE，按理说傻瓜才会买呢，500W买理财年收益20W以上。但反过来想，如果市场真的认可这个房价，那说明实际PE应该不是100倍，应该是25倍到30倍的样子才对，哪怕存在高估。按这个设想和公式，则500W的房子的收益应该是16W到20W。多出来的10W收益是从哪来的呢？</p>
+<blockquote>
+<p>政策收益</p>
+</blockquote>
+<p>上海孩子入学分6档，1档户口+学区房，2档户口，3档学区房，其他3档基本没戏。如果在上海定居成家养孩子，那首要的孩子就学的政策收益，应该每年超过1OW吧，毕竟在上海10W的赞读费其实真的挺便宜的。</p>
+<p>大城市欢迎一种人，高收入职业人群，高收入意味着高税收。最好他们还不消耗本地的社会资源，不生不养。其实年轻人、丁克人在北上广，如果可以高收入就业的话，生活非常滋润。</p>
+<p>按这个逻辑怎么降房价呢？当然是降低收益了，增加出租房供应，降低流入人口，减少政策收益。比如出租房供应增加1倍，人口不变，相信房租年收益降至3W。上海学校增加1倍，入学收益是否可降至7W？这样算来房子年收益10W，房价可降至200W吧。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[最近过得有点点艰难的生活]]></title>
         <link href="life/20161024-weekly.html"/>
         <published>2016-10-24T00:00:00.000Z</published>
@@ -392,6 +412,26 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 ]]>
         </content>
     </entry><entry>
+        <title type="html"><![CDATA[选择前端框架的想法]]></title>
+        <link href="idea/vuejs.html"/>
+        <published>2015-10-26T00:00:00.000Z</published>
+        <updated>2015-10-26T00:00:00.000Z</updated>
+        <id>idea/vuejs.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
+<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
+<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
+<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
+<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
+<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
+<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
+<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
+<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
+<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
+<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151026-weekly.html"/>
         <published>2015-10-26T00:00:00.000Z</published>
@@ -416,26 +456,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 ]]>
         </content>
     </entry><entry>
-        <title type="html"><![CDATA[选择前端框架的想法]]></title>
-        <link href="idea/vuejs.html"/>
-        <published>2015-10-26T00:00:00.000Z</published>
-        <updated>2015-10-26T00:00:00.000Z</updated>
-        <id>idea/vuejs.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <h2 id="我接触过的阶段">我接触过的阶段</h2><p>应该是从jquery+div开始第一次接触的，那时候整个前端对非这个方向的人还是很麻烦的，css和布局都不会调整，即使会写脚本随意的操作dom，写出来的界面也是丑陋无比。这个时代想要个好看的动态控件都是靠找javascript库。</p>
-<p>第二个阶段是bootstrap，总算有一个不用靠设计师也能做出对齐标准的css框架了，而且学起来还不难。随后一大片bootstrap like的小网站就纷纷冒出来了，以及更多的css框架也发布出来。虽然一时间也审美疲劳，但是不可否认这种css框架解决了基本的控件样式和对齐问题。</p>
-<p>第三个阶段应该是ember,backbone这种库吧，我没有参与到这个阶段，但感觉上这应该是SPA，rich client的一个过渡阶段。这个阶段的库包含了model,view,controller,router,store等元素，整个就是一个rails的客户端化。这样一个发展方向有些偏激了，库的学习成本高，并且很难和别的库，框架兼容，所以我认为这是一个过渡阶段。</p>
-<p>第四个阶段就是现在，以reactjs,angularjs为代表的组件化和数据绑定阶段。这个阶段基本上屏蔽了dom操作，使得页面标签更具语意和功能，可读性和可维护性都更高。这个阶段的关键技术是指令，filter,组件。</p>
-<h2 id="在组件化和数据绑定时代下的选择">在组件化和数据绑定时代下的选择</h2><p>这是一个比以前都好的时代，从技术上说，各种表现技术越来越完善，门槛越来越低。</p>
-<p>组件化和数据绑定为基础，并以指令和filter相配合，在客户端的model,view层面已经是威力倍增。我认为目前的技术条件下，前端的开发结构以VM(view,model)为一个聚集，styling,router为另一个聚集是合适的。</p>
-<p>styling就是各种css框架，从bootstrap开始，无数的后起之秀，带来了丰富的基本控件和页面结构，以及多种的终端适配，PC的，HTML5的，hybrid app的。特别是介入SPA的内页切换后，内置的router和基本的约定规则势在必行。</p>
-<p>另一块则是view,model，view负责渲染模版，model负责向模版提供数据。特别是数据绑定的概念普及以后，操作dom渐渐被视为异类，这两块已经没有必要再拆分了。view在渲染模版方面则出现了自定义组件的引擎，并配合指令和filter，极大的拓展的页面代码的复用和可理解性。</p>
-<p>基于这一看法，ember等全面的MVC router大框架逐渐淘汰也是必然。大家其实要的是更好的组装性和组件性，而不是在一棵树上吊死。</p>
-<p>在VM库上，除了代表者reactjs和angularjs，还有很多后起之秀，如Vue.js。angularjs我看过，用内置的指令还简单，自己开发新指令文档描述的令人发指。reactjs也看了，我实在不喜欢把组件和代码都写到script标签下。最后选定的还是Vue.js，数据绑定简单明了，新建组件、指令和filter也都是一句话的事情。</p>
-<p>至于Vue.js这样的VM库是否适应所有的web项目，我还是觉得这要考虑项目想做成什么样子，以及server端框架的完善性。如server端是rails，多数情况是没必要用VM库的。但是若开发一个SPA，从服务端取json，那一个适合的css框架和VM库，会让工作事半功倍。</p>
-]]>
-        </content>
-    </entry><entry>
         <title type="html"><![CDATA[周记]]></title>
         <link href="life/20151019-weekly.html"/>
         <published>2015-10-19T00:00:00.000Z</published>
@@ -457,27 +477,6 @@ end</pre><p>函数的输入参数是一个hash obj，qor_cache将参数作为cac
 <li><p>重仓大量分级A，一支股票都没有，就等着股市临时下跌呢。</p>
 </li>
 </ol>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[周记]]></title>
-        <link href="life/20150929-weekly.html"/>
-        <published>2015-09-28T00:00:00.000Z</published>
-        <updated>2015-09-28T00:00:00.000Z</updated>
-        <id>life/20150929-weekly.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>绿色：140，67%<br>橙色：032，15%<br>黄色：028，13%<br>红色：009，04%  </p>
-<p>总计：209<br>奖励：28/4 - 9/2 = 2.5 (一个半小时)</p>
-<p><strong>本周要事</strong></p>
-<ol>
-<li><p>去兴业的事情黄了，也没怎么可惜，毕竟不想分居</p>
-</li>
-<li><p>电商被检测出重置任意用户密码的漏洞，原始的原因竟然是开发公司愚蠢的两次请求的接口写法，框架落后坑自己啊</p>
-</li>
-<li><p>看小说容易沉迷当前的情节，浪费时间</p>
-</li>
-</ol>
-<p>看来本周没有发生积极的事情，遗憾。</p>
 ]]>
         </content>
     </entry>
