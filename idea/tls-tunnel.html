@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
+    <title>TLS安全通信</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
+    <link rel="stylesheet" href="../static/one.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="brand">
+          <a class="home" href="../">Magic ABC</a>
+        </div>
+        <div class="menu" role="navigation">
+          <a href="../../../../life/">生活</a>
+          <a href="../../../../idea/">好主意</a>
+          <a href="../../../../game-art/">独立游戏</a>
+          <a href="../../../../about.html">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">TLS安全通信</h1>
+  <div class="entry-content" itemprop="articleBody"><h2 id="什么是tls">什么是TLS</h2><p>TLS其实是SSL，可能更正式的说法已经不用SSL了。TLS是一套基于非对称加密算法的安全传输协议，更严格来说，TLS先是通过非对称加密方式交换对称加密秘钥，然后采用对称加密算法进行安全传输。</p>
+<p>非对称加密是这样的一把锁，有两把钥匙，任意一把钥匙可以把锁锁上，只有另一把钥匙才能将锁打开。这两把钥匙是成对的，可以互相解密。其中一把是公开的公钥，另一把是服务器持有的私钥。</p>
+<p>任何人都可以用公钥加密一段消息发送给服务器，做到安全发送。另一方面，服务器可以用私钥加密一段消息，将消息明文和密文发送给接收者，以此证明自己的真实身份，这叫做签名。当然，现实中，是对消息的摘要进行签名加密，因为摘要比较小。</p>
+<p><br></p>
+<h2 id="证书和ca">证书和CA</h2><p>TLS的第一步，就是让发送者持有服务器的公钥。通常获得服务器公钥的方式，都是向服务器进行询问，然后由服务器明文发送过来的。为了保证这一步的安全性，确保明文发送过来的公钥没有被串改，我们又发明了证书。</p>
+<p>证书由服务器名称信息和服务器公钥组成，然后加上证书签发机构CA和签发机构对前面信息的签名。改用证书机制后，服务器以明文发送自己的证书信息，使用者用CA的公钥验证证书签名，核对相关的服务器信息，然后就可以信任服务器的公钥了。</p>
+<p>至于CA公钥的传递方式，一般是内置的或者通过实体进行传递。</p>
+<p><br></p>
+<h2 id="单向认证和双向认证">单向认证和双向认证</h2><p>一般服务器是不限制使用者访问的，所以服务器配置了证书和私钥，让发送者能够安全的从第一步开始建立加密通信机制。即使使用者不验证服务器证书，TLS仍旧是以加密方式进行，虽然安全度不是最高，但是屏蔽掉无聊的阿猫阿狗访问已经足够了。</p>
+<p>更进一步，服务器可以配置双向认证，配置CA证书并要求认证使用者的证书。那么使用者在访问前就要配置由CA签发的个人证书和私钥，在第一步开始时把自己的证书和随机签名发过去让服务器进行认证。</p>
+<p>使用双向认证的时候，通信的安全性已经足够高了：消息是加密的，并且不太容易在某个环节被串改，而使用者必须经过服务器用自己的CA签发授权证书后才能访问服务。</p>
+<p><br></p>
+<h2 id="平时如何运用tls">平时如何运用TLS</h2><p>TLS的运用其实应该非常广，只要不是内网服务，而是向不安全的互联网公开的服务，并且在通信上没有使用任何加密手段，也没有特别有效的客户鉴权，都应该使用TLS。</p>
+<p>比如有时候因为某种原因，不得不向互联网暴露mysql，redis或者其他开源软件的服务端口，这种大作死的行为，软件自带的脆弱的客户鉴权机制就跟杂草一样一踩就倒，已经是业界人尽皆知的情形。</p>
+<p>如果能为这些开放的服务端口加上TLS双向认证通信，基本能把侵害排除99%了吧。那如何给这些服务增加TLS安全通信呢？</p>
+<p>首先，<strong>把公开的服务改成内网服务</strong>。</p>
+<p>第二， <strong>在服务器和客户端之间配置TLS tunnel</strong> ，通过tunnel转发客户端和服务器之间流量。有很多TLS tunnel客户端可以使用，这种方式也不会对原系统造成任何改动，所谓各司其职。</p>
+</div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2017-03-31T00:00:00.000Z" itemprop="dateModified">Friday, Mar 31st, 2017</time>
+  </div><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'magicabc';
+  var disqus_title = 'TLS安全通信';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+</div>
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
+    </div>
+    <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on GitHub</a></div>
+    <script src="../static/one.js"></script>
+  </body>
+</html>
