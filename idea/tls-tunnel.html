@@ -1,32 +1,81 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.2">
-    <meta name="theme" content="one 0.2">
-    <title>TLS安全通信</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>TLS安全通信 - Magic ABC</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
-    <link rel="stylesheet" href="../static/one.css" />
+
+    <!-- Bootstrap -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap/css/bootstrap.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/circle.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/otl-theme.css"/>
   </head>
   <body>
-    <div class="header">
-      <div class="container">
-        <div class="brand">
-          <a class="home" href="../">Magic ABC</a>
+
+
+        <div class="container-fluid w960 banner">
+
+                <div class="row w960i logo">
+                    <div class="col-md-offset-1 col-sm-offset-1 col-xs-offset-2">
+                      <h1>Magic ABC</h1>
+                    </div>
+                </div>
+
+                <div class="row w960i banner-sign">
+                  <div class="col-md-11">
+                    <div class="pull-right"><p>ON THE ROAD</p><div class="underline0"></div></div>
+                    <div class="clearfix"></div>
+                    <div class="pull-right"><p>HUANG</p><div class="underline0"></div></div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <nav class="navbar col-md-offset-7 col-sm-offset-6">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#banner-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse row" id="banner-menu">
+                          <div class="col-sm-offset-0 col-xs-offset-10">
+                          <ul class="nav navbar-nav">
+                            <li class=""><a href="../">HOME</a><div class="underline"></div></li>
+                            <li class=""><a href="../page/1.html">BLOG</a><div class="underline"></div></li>
+                            <li class=""><a href="#">WORK</a><div class="underline"></div></li>
+                            <li class=""><a href="../about.html">ABOUT</a><div class="underline"></div></li>
+                          </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
+                </div>
         </div>
-        <div class="menu" role="navigation">
-          <a href="../../../../life/">生活</a>
-          <a href="../../../../idea/">好主意</a>
-          <a href="../../../../game-art/">独立游戏</a>
-          <a href="../../../../about.html">About</a>
-        </div>
-      </div>
-    </div>
-    <div class="document yue">
-<div class="hentry" itemscope itemtype="http://schema.org/Article">
-  <h1 class="entry-title" itemprop="name">TLS安全通信</h1>
-  <div class="entry-content" itemprop="articleBody"><h2 id="什么是tls">什么是TLS</h2><p>TLS其实是SSL，可能更正式的说法已经不用SSL了。TLS是一套基于非对称加密算法的安全传输协议，更严格来说，TLS先是通过非对称加密方式交换对称加密秘钥，然后采用对称加密算法进行安全传输。</p>
+        <div class="container-fluid w960 post">
+                
+                <div class="row">
+                  <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                    <h1>TLS安全通信</h1>
+                    <div class="split-title-1"></div>
+
+                    <div class="post">
+                        <h2 id="什么是tls">什么是TLS</h2><p>TLS其实是SSL，可能更正式的说法已经不用SSL了。TLS是一套基于非对称加密算法的安全传输协议，更严格来说，TLS先是通过非对称加密方式交换对称加密秘钥，然后采用对称加密算法进行安全传输。</p>
 <p>非对称加密是这样的一把锁，有两把钥匙，任意一把钥匙可以把锁锁上，只有另一把钥匙才能将锁打开。这两把钥匙是成对的，可以互相解密。其中一把是公开的公钥，另一把是服务器持有的私钥。</p>
 <p>任何人都可以用公钥加密一段消息发送给服务器，做到安全发送。另一方面，服务器可以用私钥加密一段消息，将消息明文和密文发送给接收者，以此证明自己的真实身份，这叫做签名。当然，现实中，是对消息的摘要进行签名加密，因为摘要比较小。</p>
 <p><br></p>
@@ -43,11 +92,11 @@
 <p>如果能为这些开放的服务端口加上TLS双向认证通信，基本能把侵害排除99%了吧。那如何给这些服务增加TLS安全通信呢？</p>
 <p>首先，<strong>把公开的服务改成内网服务</strong>。</p>
 <p>第二， <strong>在服务器和客户端之间配置TLS tunnel</strong> ，通过tunnel转发客户端和服务器之间流量。有很多TLS tunnel客户端可以使用，这种方式也不会对原系统造成任何改动，所谓各司其职。</p>
-</div>
 
-  <div class="entry-meta">
-    <time class="updated" datetime="2017-03-31T00:00:00.000Z" itemprop="dateModified">Friday, Mar 31st, 2017</time>
-  </div><div id="disqus_thread"></div>
+                    </div>
+
+                    <div class="split-1"></div>
+                    <div class="time">Friday, Mar 31st, 2017</div><div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'magicabc';
   var disqus_title = 'TLS安全通信';
@@ -57,12 +106,44 @@
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
-</div>
-</div>
-    <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
-    </div>
-    <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on GitHub</a></div>
-    <script src="../static/one.js"></script>
+                  </div>
+
+
+                </div>
+        </div>
+
+         
+
+        <div class="container-fluid w960 footer">
+          <div class="row">
+            <div class="col-md-offset-1 col-sm-2 hidden-xs">
+              <span style="color:#9b9b9b">@2017 HUANG</span>
+            </div>
+            <div style=" text-align:center" class="col-xs-12 col-sm-8 col-md-6 center-block">
+              <span>MAGIC</span>&nbsp<span style="color:#FD433E">ABC</span>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <a href="" class="pull-right"><image src="../static/images/twitter.png" ></image></a>
+              <a href="https://coding.net/u/hwh008" class="pull-right" style="margin-right:10px"><image src="../static/images/coding.png" ></image></a>
+            </div>
+          </div>
+
+        </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/slick.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script>
+      $(function(){
+        if(document.getElementById('auth-info')) {
+          var slick = $('#auth-info').slick({
+            autoplay: true,
+            prevArrow: '#auth-info-prev',
+            nextArrow: '#auth-info-next'
+          });
+      }});      
+    </script>
   </body>
 </html>

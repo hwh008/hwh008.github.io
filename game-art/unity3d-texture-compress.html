@@ -1,32 +1,81 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="generator" content="nico 0.5.2">
-    <meta name="theme" content="one 0.2">
-    <title>unity3d的纹理尺寸优化</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>unity3d的纹理尺寸优化 - Magic ABC</title>
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
-    <link rel="stylesheet" href="../static/one.css" />
+
+    <!-- Bootstrap -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap/css/bootstrap.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/circle.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/otl-theme.css"/>
   </head>
   <body>
-    <div class="header">
-      <div class="container">
-        <div class="brand">
-          <a class="home" href="../">Magic ABC</a>
+
+
+        <div class="container-fluid w960 banner">
+
+                <div class="row w960i logo">
+                    <div class="col-md-offset-1 col-sm-offset-1 col-xs-offset-2">
+                      <h1>Magic ABC</h1>
+                    </div>
+                </div>
+
+                <div class="row w960i banner-sign">
+                  <div class="col-md-11">
+                    <div class="pull-right"><p>ON THE ROAD</p><div class="underline0"></div></div>
+                    <div class="clearfix"></div>
+                    <div class="pull-right"><p>HUANG</p><div class="underline0"></div></div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <nav class="navbar col-md-offset-7 col-sm-offset-6">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#banner-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse row" id="banner-menu">
+                          <div class="col-sm-offset-0 col-xs-offset-10">
+                          <ul class="nav navbar-nav">
+                            <li class=""><a href="../">HOME</a><div class="underline"></div></li>
+                            <li class=""><a href="../page/1.html">BLOG</a><div class="underline"></div></li>
+                            <li class=""><a href="#">WORK</a><div class="underline"></div></li>
+                            <li class=""><a href="../about.html">ABOUT</a><div class="underline"></div></li>
+                          </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
+                </div>
         </div>
-        <div class="menu" role="navigation">
-          <a href="../../../../life/">生活</a>
-          <a href="../../../../idea/">好主意</a>
-          <a href="../../../../game-art/">独立游戏</a>
-          <a href="../../../../about.html">About</a>
-        </div>
-      </div>
-    </div>
-    <div class="document yue">
-<div class="hentry" itemscope itemtype="http://schema.org/Article">
-  <h1 class="entry-title" itemprop="name">unity3d的纹理尺寸优化</h1>
-  <div class="entry-content" itemprop="articleBody"><p>如果想减少手游打包的尺寸，第一步要做的是分析找出热点。<br>在console窗口可以右键打开editorlog，里面列举了本次打包编译的所有资源和大小。进行归类和细分，定位哪块内容最占空间。</p>
+        <div class="container-fluid w960 post">
+                
+                <div class="row">
+                  <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                    <h1>unity3d的纹理尺寸优化</h1>
+                    <div class="split-title-1"></div>
+
+                    <div class="post">
+                        <p>如果想减少手游打包的尺寸，第一步要做的是分析找出热点。<br>在console窗口可以右键打开editorlog，里面列举了本次打包编译的所有资源和大小。进行归类和细分，定位哪块内容最占空间。</p>
 <p>一般情况下，有以下3方面消耗了大量空间。</p>
 <ol>
 <li>UI 素材</li>
@@ -47,11 +96,11 @@
 <h2 id="压缩ui素材">压缩UI素材</h2><p>有时候UI素材压缩，会失真，需要尝试看效果是否选择压缩。<br>按钮，边框类的素材一般是不压缩的，因为压缩后容易失真。<br>但如背景类素材，布景类素材压缩后却和原图非常接近。</p>
 <p>因为UI素材携带alpha通道，unity在转成android压缩格式时会使用rgba16，这是非常糟糕的压缩格式——低压缩比，高失真。<br>可手工指定android的压缩格式为ETC1，但是ETC1并不包含alpha数据。为了能够显示半透的元素，需要修改shader，传一张alpha通道的纹理进行混合。<br>alpha纹理不需要另外制作，将原图复制一份，设置导入格式为alpha8即可，导入尺寸尽可能缩小到256x256以内。</p>
 <h2 id="压缩场景纹理">压缩场景纹理</h2><p>场景纹理总是选择压缩格式，全部都必须是方形的。<br>更重要的是，要避免alpha通道。如果包含了alpha通道，压缩格式手工改成ETC1，无需额外的alpha通道纹理。</p>
-</div>
 
-  <div class="entry-meta">
-    <time class="updated" datetime="2014-07-26T00:00:00.000Z" itemprop="dateModified">Saturday, Jul 26th, 2014</time>
-  </div><div id="disqus_thread"></div>
+                    </div>
+
+                    <div class="split-1"></div>
+                    <div class="time">Saturday, Jul 26th, 2014</div><div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'magicabc';
   var disqus_title = 'unity3d的纹理尺寸优化';
@@ -61,12 +110,44 @@
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
-</div>
-</div>
-    <div class="footer">
-      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
-    </div>
-    <div class="github"><a class="github-link" href="https://coding.net/u/hwh008">Fork me on GitHub</a></div>
-    <script src="../static/one.js"></script>
+                  </div>
+
+
+                </div>
+        </div>
+
+         
+
+        <div class="container-fluid w960 footer">
+          <div class="row">
+            <div class="col-md-offset-1 col-sm-2 hidden-xs">
+              <span style="color:#9b9b9b">@2017 HUANG</span>
+            </div>
+            <div style=" text-align:center" class="col-xs-12 col-sm-8 col-md-6 center-block">
+              <span>MAGIC</span>&nbsp<span style="color:#FD433E">ABC</span>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <a href="" class="pull-right"><image src="../static/images/twitter.png" ></image></a>
+              <a href="https://coding.net/u/hwh008" class="pull-right" style="margin-right:10px"><image src="../static/images/coding.png" ></image></a>
+            </div>
+          </div>
+
+        </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/slick.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script>
+      $(function(){
+        if(document.getElementById('auth-info')) {
+          var slick = $('#auth-info').slick({
+            autoplay: true,
+            prevArrow: '#auth-info-prev',
+            nextArrow: '#auth-info-next'
+          });
+      }});      
+    </script>
   </body>
 </html>
