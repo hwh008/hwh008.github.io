@@ -5,6 +5,35 @@
     <link href="" />
     <id>feed.xml</id>
     <entry>
+        <title type="html"><![CDATA[穷爸爸富爸爸的财商]]></title>
+        <link href="idea/richdadpoordad.html"/>
+        <published>2018-09-11T00:00:00.000Z</published>
+        <updated>2018-09-11T00:00:00.000Z</updated>
+        <id>idea/richdadpoordad.html</id>
+        <content type="html" xml:base="" xml:lang="en">
+            <![CDATA[ <p>最近受影响重读了《穷爸爸富爸爸》，重读确实带来了新的感悟。</p>
+<p>作者提出财商的概念，传统的工作无法获得财富自由，因为单一收入和消费主义的叠加矛盾，使得工薪阶层永远陷入忙碌和负债的泥潭。培养财商，做出正确的行动，才能跳出老鼠赛道。</p>
+<p>那什么是财商，财商就是一些个人经济原则和个人经济观念，以及最重要的：创造现金流入的能力。</p>
+<ul>
+<li><p>资产可以产生现金流入，负债则会导致现金流出。</p>
+</li>
+<li><p>现金流入使人富有，现金流出使人贫穷。避免负债，缩减不必要的支出。</p>
+</li>
+<li><p>不为钱工作。上班工作无法获得财富自由，发挥财商，通过建立公司事业和购买资产建立现金流入。</p>
+</li>
+<li><p>让钱为你工作。不上班的情况下，现金流入大于现金流出，则财富自由。</p>
+</li>
+</ul>
+<p>作者编了个从小开始的虚拟故事，他和他的朋友无偿的在富爸爸的杂货铺当小工。在无偿工作之前，他曾经为了低薪而抱怨，为了高薪而满足，像一头追着胡萝卜的驴。</p>
+<p>日复一日的无偿工作，直到他发现可以把杂货铺过期图书，以无偿的方式盘下来开图书预览室，并收取门票费用，建立了事业。借此他从财商第一课毕业，不为钱工作，以其他形式挣钱，并且是空手套。</p>
+<p>长大后，依旧是以空手套的形式，发现了房地产交易事业的挣钱途径。通过支出现金进行培训和学习，学会定金购买清算房产的能力，并立即转手给真正需求方，以获取多年的贷款收益。</p>
+<p>所以财商是什么，前面的路是建立概念和原则，后面的路则是创造能力，不上班却能创造现金流的能力。</p>
+<h2 id="现实">现实</h2><p>今年的股票很惨，遇上了贸易战，政治独裁也愈来愈烈，市场普遍悲观。两年下来，年化复合收益率4%。好在这是股权，比起货基之类的希望还是有的。</p>
+<p>通过股票创造的现金流很少，盈利仍旧是依赖于市场的估值，所给出的高于买入价格的卖出价格。</p>
+<p>至于建立事业，购买资产之类的操作，想不出来。所谓听过很多道理却依然过不好这一生，其实就是只能走出前面的路，后面的路却不知道怎么才能走出来，甚至不知道后面还有路。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[两个方向]]></title>
         <link href="idea/direction.html"/>
         <published>2018-06-24T00:00:00.000Z</published>
@@ -520,35 +549,6 @@
 <p>四项工作领域，择一而入即可。要有好的收入，必须选时间杠杆高的，并且具备规模化效应。</p>
 <p>好好的思考与等待吧。</p>
 ]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[Excel 整合报表]]></title>
-        <link href="idea/excel-join.html"/>
-        <published>2016-05-08T00:00:00.000Z</published>
-        <updated>2016-05-08T00:00:00.000Z</updated>
-        <id>idea/excel-join.html</id>
-        <content type="html" xml:base="" xml:lang="en">
-            <![CDATA[ <p>我们常常需要从日志，数据库中取大量的数，这些记录常常是离散的，但业务需要将他们根据关键字合并，这项任务都有哪些做法呢？</p>
-<ol>
-<li>SQL join，不是一直都有这样的机会。</li>
-<li>join，bash 的 join 命令。</li>
-<li>写一段python 处理。</li>
-<li>Excel处理。</li>
-</ol>
-<p>join操作或者join命令只能处理比较理想的情形，比如当join key缺失的时候，比如需要从多个key到不同列的尝试匹配。</p>
-<p>在整合报表的时候，是一个反复尝试、预览的过程，这个时候命令行需要重复调整参数，并不比GUI更高效，不好调试，也容易遗漏。</p>
-<p>Python是万能的，若每次遇到问题都从open,readline,split开始，不停的针对业务写脚本，并逐步抽取成一套工具集，为什么不直接 <strong>Find One</strong> 呢。</p>
-<h2 id="excel很棒">Excel很棒</h2><p>Excel是非常棒的工具，除非要处理的是一个超大的表格。</p>
-<p>Excel用于整合报表的函数主要是 <code>VLOOKUP</code> <code>LOOKUP</code>，且听我一一道来。</p>
-<p>首先，我们的案例是sheet1 和 sheet2 通过 sheet3 连接，说人话大概是<strong>表1</strong>有关键字K1，数据KX，KY，<strong>表2</strong>有关键字K2，数据KX，KY，<strong>表3</strong>有K1、K2的关系。在这里通过K1,K2,KX,KY都不一定能在sheet1找到sheet2的对应。</p>
-<p>以上是我之前处理的一个问题的简化，已经算复杂到不想用join了吧，每次写脚本呢又觉得很麻烦，其实看似问题清晰，但写程序的工作非常繁琐，涉及到搜索资料，调试排错，重构等等时间开销，一次性的开发，性价比并不高。</p>
-<p>首先，在sheet1表通过<code>VLOOKUP</code>在sheet3查找K2：</p>
-<pre>=VLOOKUP(K1, sheet3, index for K2)</pre><p>查找后，发现有些结果是<code>N/A</code>，这就需要在sheet1借助KX, KY，在sheet2查找K2：</p>
-<pre>=VLOOKUP(KX, sheet2, index for K2)
-=VLOOKUP(KY, sheet2, index for K2)</pre><p>sheet1新增的三列查找结果，都包含一些<code>N/A</code>，但所幸总算保证每条记录都找到K2。为了把sheet2的数据搬到sheet1的对应位置，现在要想办法把每条记录的<code>N/A</code>，空值，K2合并到一起。这里用到了<code>LOOKUP</code></p>
-<h3 id="tricky">tricky</h3><pre>=LOOKUP(1, 1/(X1:Z1&lt;&gt;&quot;&quot;), X1:Z1)</pre><p>括号里的不等判断返回TRUE,FALSE，所以返回的就是1或者除0，自然能找到结果。</p>
-<p>准确求出K2以后，将sheet2的数据取过来很简单，还是用<code>VLOOKUP</code>，只不过这次是横向填充，因此需要准备一个sheet4用于index递增。另外第一个参数的列位置要锁定，行值则不用。</p>
-<pre>=VLOOKUP($L2,Sheet2!$A$2:$Q$412,Sheet6!A$1,FALSE)</pre>]]>
         </content>
     </entry>
 </feed>
