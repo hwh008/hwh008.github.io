@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-hwh008.github.io
-=================
 
 ## jekyll-theme-H2O
 
@@ -460,4 +457,3 @@ Jekyll-Theme-H2O is licensed under [MIT](https://github.com/kaeyleo/jekyll-theme
 =======
 hwh008.github.io
 ================
->>>>>>> 81aee4b68e4ffc5c47380be59666e01a7f8bd268
