@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>git rebase 实践 - Magic ABC</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
+
+    <!-- Bootstrap -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap/css/bootstrap.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/circle.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/otl-theme.css"/>
+  </head>
+  <body>
+
+
+        <div class="container-fluid w960 banner">
+
+                <div class="row w960i logo">
+                    <div class="col-md-offset-1 col-sm-offset-1 col-xs-offset-2">
+                      <h1>Magic ABC</h1>
+                    </div>
+                </div>
+
+                <div class="row w960i banner-sign">
+                  <div class="col-md-11">
+                    <div class="pull-right"><p>ON THE ROAD</p><div class="underline0"></div></div>
+                    <div class="clearfix"></div>
+                    <div class="pull-right"><p>HUANG</p><div class="underline0"></div></div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <nav class="navbar col-md-offset-7 col-sm-offset-6">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#banner-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse row" id="banner-menu">
+                          <div class="col-sm-offset-0 col-xs-offset-10">
+                          <ul class="nav navbar-nav">
+                            <li class=""><a href="../">HOME</a><div class="underline"></div></li>
+                            <li class=""><a href="../page/1.html">BLOG</a><div class="underline"></div></li>
+                            <li class=""><a href="#">WORK</a><div class="underline"></div></li>
+                            <li class=""><a href="../about.html">ABOUT</a><div class="underline"></div></li>
+                          </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
+                </div>
+        </div>
+        <div class="container-fluid w960 post">
+                
+                <div class="row">
+                  <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                    <h1>git rebase 实践</h1>
+                    <div class="split-title-1"></div>
+
+                    <div class="post">
+                        <p>rebase可以这么理解，之前创建分支后做了很多提交，现在尝试根据最新的主干重新创建分支，然后提交相同的内容。
+这么做的好处是，保持主干提交的连贯性，方便其他人进行merge。</p>
+<p>ladder-web拥有两个分支：</p>
+<ol>
+<li>master</li>
+<li>create-pac</li>
+</ol>
+<p>现在的任务是将<em>create-pac</em>分支rebase后，merge到<em>master</em>并提交。</p>
+<p>首先确保<em>master</em>分支最新：
+<code>git checkout master</code>
+<code>git fetch</code>
+<code>git merge origin/master</code></p>
+<p>然后开始rebase：
+<code>git checkout create-pac</code>
+<code>git rebase master</code></p>
+<p>在这里我遇上了好几次冲突，主要是db/schema.rb的。因为我知道schema可以重新生成，所以当时选择了<em>rebase --skip</em>。
+我以为skip是忽略冲突的意思，没想到结果是直接放弃了这个提交，导致rebase完成后，缺少了好几个文件，测试也无法通过。</p>
+<p>麻烦大了，怎么修复？祭出reset神器。
+<code>git reflog</code>
+<code>git reset HEAD@{10}</code>
+<code>git clean -df</code></p>
+<p>reflog指令是查看git的提交记录，找到rebase开始前的那个节点，然后将HEAD指针reset回去。
+reset后，工作目录下可能会残留一些rebase加进来的unchecked文件，用clean指令删除。</p>
+<p>从这个问题学到两点：</p>
+<ol>
+<li>rebase处理冲突的时候，不要使用skip，除非真的无法解决冲突</li>
+<li>db/schema.rb不需要加入版本管理，完全可以重新生成</li>
+</ol>
+<p>重新执行rebase指令，解决所有冲突后，成功。然后需要跑测试校验一下：
+<code>rake db:drop</code>
+<code>rake db:migrate</code>
+<code>rake test:prepare</code>
+<code>rake spec</code></p>
+<p>最后merge到主干并提交
+<code>git checkout master</code>
+<code>git merge create-pac</code>
+<code>git branch -d create-pac</code>
+<code>git push</code></p>
+<p>在merge到主干后，同样需要跑一次测试。</p>
+
+                    </div>
+
+                    <div class="split-1"></div>
+                    <div class="time">Tuesday, Apr 29th, 2014</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'magicabc';
+  var disqus_title = 'git rebase 实践';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+                  </div>
+
+
+                </div>
+        </div>
+
+         
+
+        <div class="container-fluid w960 footer">
+          <div class="row">
+            <div class="col-md-offset-1 col-sm-2 hidden-xs">
+              <span style="color:#9b9b9b">@2017 HUANG</span>
+            </div>
+            <div style=" text-align:center" class="col-xs-12 col-sm-8 col-md-6 center-block">
+              <span>MAGIC</span>&nbsp<span style="color:#FD433E">ABC</span>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <a href="https://twitter.com/bjtugun" class="pull-right"><image src="../static/images/twitter.png" ></image></a>
+              <a href="https://coding.net/u/hwh008" class="pull-right" style="margin-right:10px"><image src="../static/images/coding.png" ></image></a>
+            </div>
+          </div>
+
+        </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/slick.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script>
+      $(function(){
+        if(document.getElementById('auth-info')) {
+          var slick = $('#auth-info').slick({
+            autoplay: true,
+            prevArrow: '#auth-info-prev',
+            nextArrow: '#auth-info-next'
+          });
+      }});      
+    </script>
+  </body>
+</html>

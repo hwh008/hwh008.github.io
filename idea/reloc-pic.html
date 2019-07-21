@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>程序员的自我修养：reloc, PIC, dynsym and PLT - Magic ABC</title>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Magic ABC" />
+
+    <!-- Bootstrap -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap/css/bootstrap.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/circle.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/otl-theme.css"/>
+  </head>
+  <body>
+
+
+        <div class="container-fluid w960 banner">
+
+                <div class="row w960i logo">
+                    <div class="col-md-offset-1 col-sm-offset-1 col-xs-offset-2">
+                      <h1>Magic ABC</h1>
+                    </div>
+                </div>
+
+                <div class="row w960i banner-sign">
+                  <div class="col-md-11">
+                    <div class="pull-right"><p>ON THE ROAD</p><div class="underline0"></div></div>
+                    <div class="clearfix"></div>
+                    <div class="pull-right"><p>HUANG</p><div class="underline0"></div></div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <nav class="navbar col-md-offset-7 col-sm-offset-6">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#banner-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse row" id="banner-menu">
+                          <div class="col-sm-offset-0 col-xs-offset-10">
+                          <ul class="nav navbar-nav">
+                            <li class=""><a href="../">HOME</a><div class="underline"></div></li>
+                            <li class=""><a href="../page/1.html">BLOG</a><div class="underline"></div></li>
+                            <li class=""><a href="#">WORK</a><div class="underline"></div></li>
+                            <li class=""><a href="../about.html">ABOUT</a><div class="underline"></div></li>
+                          </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </nav>
+                </div>
+        </div>
+        <div class="container-fluid w960 post">
+                
+                <div class="row">
+                  <div class="col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">
+                    <h1>程序员的自我修养：reloc, PIC, dynsym and PLT</h1>
+                    <div class="split-title-1"></div>
+
+                    <div class="post">
+                        <h2 id="什么是重定位">什么是重定位</h2><p>我们编译可执行程序的时候，调用的函数只有声明没有实现会出现编译错误。总之是要在编译期间解决的问题。</p>
+<p>我们编译动态库的时候，调用的函数是可以没有实现的。那么加载动态库后如何正确的执行函数呢？毕竟编译期间根本没有解决这个函数符号。</p>
+<p>编译时不解决，那就记录下来，留到以后解决吧。</p>
+<p><code>objdump -C -R</code>会打印出未解决的符号，和符号被调用时候的地址。比如有个未解决符号是<code>f1</code>。</p>
+<blockquote>
+<p>0x80abcde4----------f1</p>
+</blockquote>
+<p>用<code>objdump -C -d</code>查看调用<code>f1</code>的代码，可能如下：</p>
+<blockquote>
+<p>0x80abcde0-----call 0x80abcde4</p>
+</blockquote>
+<p>执行到<em>0x80abcde0</em>，代码就是call后4个字节的内容，我们假设call指令占用4个字节的话。正好是<em>0x80abcde4</em>。我们等着<em>0x80abcde4</em>被填上<code>f1</code>的真正地址。</p>
+<p>程序启动后，会记录他所加载的符号和符号地址，无论是来自可执行文件还是动态链接库。</p>
+<p>当它加载到那个还没有解决<code>f1</code>符号的动态链接库的时候，程序会尝试从所记录的符号表中查找<code>f1</code>，如果能找到，嗯，就把动态链接库中所有调用<code>f1</code>的位置都填上正确的值。比如<em>0x80abcde4</em>。</p>
+<p>我所说的只是重定位中的一种，称为动态链接。实际上静态链接的时候也有重定位过程。</p>
+<h2 id="什么是pic">什么是PIC</h2><p>PIC是地址无关代码，由gcc编译时指定选项<code>-fPIC</code>开启。</p>
+<p>首先说什么是地址相关代码，当程序调用函数<code>f1</code>的时候，实际汇编代码是这样的：</p>
+<blockquote>
+<p><code>call 0x80abcde4</code></p>
+</blockquote>
+<p>这个<em>0x80abcde4</em>就是<code>f1</code>的函数绝对地址。</p>
+<p>为了调用<code>f1</code>而将它的绝对地址编译到调用中的做法，叫做地址相关代码。</p>
+<p>地址无关代码恰好相反，编译器增加一个符号<code>f1_ptr</code>，存储函数地址。实际上是等价于增加了指向函数地址的全局指针变量。</p>
+<p>那么调用<code>f1</code>的时候，是这么调用的：</p>
+<blockquote>
+<p><code>call *(0x80123456)</code></p>
+</blockquote>
+<p><em>0x80123456</em>是<code>f1_ptr</code>的地址，存储的是<code>f1</code>的函数绝对地址值。这个值在程序运行期间是可以修改的，那么调用的时候实际就跟<code>f1</code>的绝对地址无关了。</p>
+<p><code>f1_ptr</code>的地址是相对的，这就是地址无关代码。</p>
+<p>当然编译器并没有真的增加一个名称是<code>f1_ptr</code>的符号，但确实增加了一个匿名全局变量，保存<code>f1</code>的函数地址，重定位的时候，只需要修改这个变量值。</p>
+<h2 id="地址无关代码的收益">地址无关代码的收益</h2><p>当程序要为某个动态库重定位未解决的符号的时候，如果是地址相关代码，那么重定位需要修改动态库的代码。</p>
+<p>若有多个程序同时使用这个动态库，系统不得不加载多份代码到内存中，因为每一份代码都要被修改。</p>
+<p>地址无关的动态库在共享方面则不会有这个问题，系统只加载一份代码，每个程序都有一份<code>f1_ptr</code>变量，修改这份变量同样达到重定位的效果。</p>
+<h2 id="什么是导出符号">什么是导出符号</h2><p>重定位过程中提到程序会记录所加载的符号和符号地址。那么什么符号才会被记录呢？是整个程序所有的符号吗？</p>
+<p>符号是导出符号的超集，符号记录在<code>.sym</code>中，导出符号记录在<code>.dynsmy</code>中。只有导出符号才能用来供重定位过程查找。</p>
+<p>可以通过<code>objdump -C -T</code>查看动态符号。</p>
+<p>程序启动后，首先加载自身的导出符号，然后挨个加载动态库的导出符号，然后用链表串联起来。</p>
+<p>重定位查找一个符号的时候，从链表头开始查找，第一次找到符号为止。因此即使后面的模块有定义这个符号，也等价于被隐藏起来了。</p>
+<h2 id="总是重定位，总是导出符号">总是重定位，总是导出符号</h2><p>事实上，动态链接库不仅仅需要重定位未解决的符号，他把所有调用过函数都编译成重定位的形式。这就形成了很有趣的用法，比如替换分配器，测试和性能收集。</p>
+<p>动态链接库只导出他自身实现的符号，而可执行文件则不导出符号。</p>
+<p>gcc编译时指定<code>-rdynamic</code>选项，可执行文件会导出所有他自身以及静态库所实现的符号。这样可执行程序本身就可以为它所依赖的动态链接库本身提供实现，真是挺奇葩的。</p>
+<h2 id="什么是plt">什么是PLT</h2><p>PTL是<code>.plt</code>段，用来在重定位过程中对符号的真实地址进行惰性求值。仅限于PIC代码。</p>
+<p>因为动态链接库将所有调用的函数都编译成重定位的形式，数量十分巨大。如果程序在加载动态链接库的时候就重定位所有符号，比较耗时间。</p>
+<p>因此第一次调用的时候才去查找符号的绝对地址就比较划算。实际上PIC代码调用一个函数的时候，并不像上面所说的直接</p>
+<blockquote>
+<p>call *(f1_ptr)</p>
+</blockquote>
+<p>而是调用一个PLT函数</p>
+<blockquote>
+<p>call f1@plt</p>
+</blockquote>
+<p><code>f1@plt</code>的第一条指令是</p>
+<blockquote>
+<p>jmp f1_ptr</p>
+</blockquote>
+<p>但<code>f1_ptr</code>的默认值是<code>f1@plt</code>的第二条指令，因此继续执行下一条指令，这条指令就是去重定位<code>f1</code>符号，填写到<code>f1_ptr</code>中。</p>
+<p>调用一次后，<code>f1_ptr</code>就存储了<code>f1</code>的绝对地址，不需要再次重定位了。</p>
+
+                    </div>
+
+                    <div class="split-1"></div>
+                    <div class="time">Thursday, May 8th, 2014</div><div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'magicabc';
+  var disqus_title = '程序员的自我修养：reloc, PIC, dynsym and PLT';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+                  </div>
+
+
+                </div>
+        </div>
+
+         
+
+        <div class="container-fluid w960 footer">
+          <div class="row">
+            <div class="col-md-offset-1 col-sm-2 hidden-xs">
+              <span style="color:#9b9b9b">@2017 HUANG</span>
+            </div>
+            <div style=" text-align:center" class="col-xs-12 col-sm-8 col-md-6 center-block">
+              <span>MAGIC</span>&nbsp<span style="color:#FD433E">ABC</span>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+              <a href="https://twitter.com/bjtugun" class="pull-right"><image src="../static/images/twitter.png" ></image></a>
+              <a href="https://coding.net/u/hwh008" class="pull-right" style="margin-right:10px"><image src="../static/images/coding.png" ></image></a>
+            </div>
+          </div>
+
+        </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/slick.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script>
+      $(function(){
+        if(document.getElementById('auth-info')) {
+          var slick = $('#auth-info').slick({
+            autoplay: true,
+            prevArrow: '#auth-info-prev',
+            nextArrow: '#auth-info-next'
+          });
+      }});      
+    </script>
+  </body>
+</html>
