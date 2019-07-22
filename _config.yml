@@ -26,8 +26,8 @@ footer:
 # Author 配置博主信息
 author: ''
 nickname: ''
-bio: 'On The Road'
-avatar: '/assets/img/profile.png'
+bio: 'Huang'
+avatar: '/static/images/avata.jpg'
 
 # Search
 search: true
@@ -37,8 +37,8 @@ nightMode: true
 
 # Comments 评论功能
 comments:
-  disqus: false
-  disqus_url: 'https://liaokeyu.disqus.com/embed.js'
+  disqus: true
+  disqus_url: 'https://magicabc.disqus.com/embed.js'
 
 # MathJax 公式支持 by Ray-Eldath
 mathjax: true
