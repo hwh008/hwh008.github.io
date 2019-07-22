@@ -1,7 +1,11 @@
-# 创业就是卖出去 #
-
-
------------------------------
+---
+layout: post
+title: '创业就是卖出去'
+date: 2013-11-21
+author: huang
+cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
+tags: 理想
+---
 
 
 网站改进
