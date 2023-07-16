@@ -6,6 +6,7 @@ date: 2023-07-16
 author: huang
 cover: 'http://placeimg.com/1300/400'
 tags: time manage, mental fulfilled
+
 -----------------------------------
 
 i believe that our time can be divide into four classifications ( this idea isn't new, check out this book [ Five Types of Time ( on Douban ) ](https://book.douban.com/subject/35234117/) ).
