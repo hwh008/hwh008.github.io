@@ -5,7 +5,7 @@ title: 'How to Make the Most of Your Time and Feel Fulfilled'
 date: 2023-07-16
 author: huang
 cover: 'http://placeimg.com/1300/400'
-tags: time manage, mental fulfilled
+tags: time-manage mental-fulfilled
 
 ---
 
