@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'How I Improve English Skill After ChatGPT Era'
-date: 2023-07-17
+date: 2023-07-15
 author: huang
 cover: 'https://loremflickr.com/1300/400/learning'
 tags: english-learning
