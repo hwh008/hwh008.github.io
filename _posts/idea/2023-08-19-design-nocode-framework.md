@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ‘Design of nocode/low-code framework’
+title: Design of nocode/low-code framework
 date: 2023-08-19
 author: huang
 cover: 'http://placeimg.com/1300/400'
