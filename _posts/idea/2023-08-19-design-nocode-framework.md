@@ -1,10 +1,12 @@
 ---
+
 layout: post
-title: Design of nocode/low-code framework
+title: 'Design of nocode/low-code framework'
 date: 2023-08-19
 author: huang
 cover: 'http://placeimg.com/1300/400'
-tags: nocode, lowcode
+tags: nocode lowcode
+
 ---
 
 Nocode, in my opinion, is a user interface gateway that provides the ability to create pages for manipulating data tables, to establish workflow processes, and to trigger true business functions in the backend, all without the need for coding.
