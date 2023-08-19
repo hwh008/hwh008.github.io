@@ -4,7 +4,7 @@ layout: post
 title: 'Design of nocode/low-code framework'
 date: 2023-08-19
 author: huang
-cover: 'http://placeimg.com/1300/400'
+cover: 'https://loremflickr.com/320/100/nocode'
 tags: nocode lowcode
 
 ---
