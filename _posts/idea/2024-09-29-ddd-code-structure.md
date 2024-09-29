@@ -3,7 +3,7 @@ layout: post
 title: ‘DDD code structure'
 date: 2024-09-29
 author: huang
-cover: 'http://placeimg.com/1300/400/code'
+cover: 'https://loremflickr.com/320/100/code'
 tags: ddd
 ---
 
