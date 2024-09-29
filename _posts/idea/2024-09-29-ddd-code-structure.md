@@ -1,9 +1,9 @@
 ---
 layout: post
-title: ‘DDD code structure'
+title: 'DDD code structure'
 date: 2024-09-29
 author: huang
-cover: 'https://loremflickr.com/320/100/code'
+cover: 'https://loremflickr.com/320/100/ddd'
 tags: ddd
 ---
 
