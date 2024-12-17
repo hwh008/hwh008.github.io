@@ -7,10 +7,9 @@ cover: 'https://loremflickr.com/320/100/bigtech'
 tags: tech
 ---
 
+Most big companies and major websites ban external links.
 
 ## i
-
-Most big companies and major websites ban external links.
 
 It's understandable. Even though the WWW was built upon links and the digital world was initially free-flowing, now the giants have emerged. Giants try to dominate you, the people,  whether in digital or physical realm. They fence you in, restrict you and your possessions, in order to exploit your labour, attention, thoughts and what ever.
 
