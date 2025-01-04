@@ -10,12 +10,12 @@ layout: default
 </div>
 
 <main class="tags-content">
-    <ul class="tags-list">
-        <li>
-            <span class="tag-name">「TECH Posts」</span>
+    <ul class="tags-list" style="text-align: left;">
+        <li style="text-align: left;">
+            <span class="tag-name" style="text-align: left;">「TECH Posts」</span>
             {% for post in site.posts %}
                 {% if post.path contains '_posts/tech/' %}
-                    <a class="tag-post" href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title }}</a>
+                    <a class="tag-post" style="text-align: left; display: block;" href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title }}</a>
                 {% endif %}
             {% endfor %}
         </li>
