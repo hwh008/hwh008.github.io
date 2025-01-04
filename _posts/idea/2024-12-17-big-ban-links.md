@@ -3,7 +3,6 @@ layout: post
 title: 'Big Ban External Links'
 date: 2024-12-17
 author: huang
-cover: 'https://loremflickr.com/320/100/bigtech'
 tags: tech
 ---
 

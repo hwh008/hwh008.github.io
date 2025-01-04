@@ -4,7 +4,6 @@ layout: post
 title: 'How to Make the Most of Your Time and Feel Fulfilled'
 date: 2023-07-16
 author: huang
-cover: 'https://loremflickr.com/320/100/mental'
 tags: time-manage mental-fulfilled
 
 ---
