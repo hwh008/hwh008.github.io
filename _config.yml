@@ -17,9 +17,9 @@ baseurl: ''
 # Navigation links
 nav:
   home: '/'
-  tags: '/tags.html'
   idea: '/cat_idea.html'
   tech: '/cat_tech.html'
+  tags: '/tags.html'
 
 # Footer
 footer:
