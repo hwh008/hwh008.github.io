@@ -1,0 +1,25 @@
+---
+title: IDEA
+layout: default
+---
+
+{% include header.html %}
+
+<div class="g-banner tag-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
+    <h2>IDEA</h2>
+</div>
+
+<main class="tags-content">
+    <ul class="tags-list">
+        <li>
+            <span class="tag-name">「IDEA Posts」</span>
+            {% for post in site.posts %}
+                {% if post.path contains '_posts/idea/' %}
+                    <a class="tag-post" href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title }}</a>
+                {% endif %}
+            {% endfor %}
+        </li>
+    </ul>
+</main>
+
+{% include footer.html %} 

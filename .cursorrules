@@ -1,0 +1,10 @@
+
+这是一个基于Jekyll的博客主题模板。博客部署在github上，由github提供自动化的页面生成和访问服务。
+
+#目录结构
+_layouts # 布局模板
+_includes # 页面组件方便重用
+_posts # 这里放文章
+index.html # 模板首页
+tags.html # 标签页面
+_config.yml # 配置文件

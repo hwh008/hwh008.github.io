@@ -18,6 +18,8 @@ baseurl: ''
 nav:
   home: '/'
   tags: '/tags.html'
+  idea: '/cat_idea.html'
+  tech: '/cat_tech.html'
 
 # Footer
 footer:
