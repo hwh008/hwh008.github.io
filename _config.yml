@@ -1,6 +1,6 @@
 # Site settings 配置站点
 title: 'MAGIC ABC'
-description: '做一个有魔法的普通人，一直在路上'
+description: '做一个有魔法的普通人'
 keyword: '想法'
 url: '' # your host
 
@@ -27,7 +27,7 @@ footer:
 author: ''
 nickname: ''
 bio: 'Huang'
-avatar: '/static/images/avata.jpg'
+avatar: '/static/images/coding.png'
 
 # Search
 search: true
