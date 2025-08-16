@@ -27,7 +27,8 @@ tags: tech
 2. Write the page: We just write down the key business elements and refer to the component name. Less is clearer, less is better.
 
 ```html
- <!-- Set the `h-tmpl` attribute to the component name we want to refer to. The 3 inner elements are the parameters when the component makes the template. -->
+ <!-- Set the `h-tmpl` attribute to the component name we want to refer to. 
+  The 3 inner elements are the parameters when the component makes the template. -->
 <div h-tmpl="BaseDialog" x-show="showDialog">
       <p>HELLO HTEMPLATE</p>
       <input class="input input-param1" type="text" x-model="param1" placeholder="input something">
@@ -41,7 +42,8 @@ tags: tech
 3. Write the component template: We write more code in the template to make the page more colorful, with better styles and tags.
 
 ```html
-<!--We write an experience dialog component copied from bulma.css. The `h-slot` specifies that its customized child elements are found from the reference-node[2] using a CSS query.
+<!--We write an experience dialog component copied from bulma.css. 
+The `h-slot` specifies that its customized child elements are found from the reference-node[2] using a CSS query.
 -->
 <template id="BaseDialog">
         <div class="modal is-active">
