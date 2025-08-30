@@ -13,19 +13,19 @@ A business domain package includes a group of cohesive classes.
 
 ### 1. model
 
-I create a sub - directory named “model” to hold the model classes (like POJO in Java) and related model - utility classes, e.g., User.class and UserUtil.class. Utility classes are merely for Java and they introduce business and database operation functions.
+I create a sub-directory named “model” to hold the model classes (like POJO in Java) and related model - utility classes, e.g., User.class and UserUtil.class. Utility classes are merely for Java and they introduce business and database operation functions.
 
 ### 2. util
 
-An “util” sub - directory contains utility classes and primitive classes. Primitive classes are immutable. E.g., StrUtil.class and Address.class.
+An “util” sub-directory contains utility classes and primitive classes. Primitive classes are immutable. E.g., StrUtil.class and Address.class.
 
 ### 3. gateway
 
-The “gateway” sub - directory houses anti-corruption interfaces and their implementation classes, and also has API client classes that have a one - to - one correspondence with API functions. E.g., PaymentService.class and SomeVendorPaymentClient.class.
+The “gateway” sub-directory houses anti-corruption interfaces and their implementation classes, and also has API client classes that have a one - to - one correspondence with API functions. E.g., PaymentService.class and SomeVendorPaymentClient.class.
 
 ### 4. dto
 
-All DTO classes are loaded in a “dto” sub - directory.
+All DTO classes are loaded in a “dto” sub-directory.
 
 ### 5. app-service
 
