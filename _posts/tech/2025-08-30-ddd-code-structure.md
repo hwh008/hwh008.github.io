@@ -13,7 +13,7 @@ A business domain package includes a group of cohesive classes.
 
 ### 1. model
 
-I create a sub-directory named “model” to hold the model classes (like POJO in Java) and related model - utility classes, e.g., User.class and UserUtil.class. Utility classes are merely for Java and they introduce business and database operation functions.
+I create a sub-directory named “model” to hold the model classes (like POJO in Java) and related model-utility classes, e.g., User.class and UserUtil.class. Utility classes are merely for Java and they introduce business and database operation functions.
 
 ### 2. util
 
