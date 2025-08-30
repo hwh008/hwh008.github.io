@@ -7,7 +7,7 @@ cover: 'https://loremflickr.com/320/100/bigtech'
 tags: tech
 ---
 
-**htemplate** is a very distinctive HTML template engine. It's an alternative. It uses pure markup to build web templates and components. We only use basic HTML knowledge. There's no need to write JavaScript.
+(**htemplate**)[https://github.com/hwh008/htemplate] is a very distinctive HTML template engine. It's an alternative. It uses pure markup to build web templates and components. We only use basic HTML knowledge. There's no need to write JavaScript.
 
 
 **htemplate** only employs HTML includes `<template>` `<iframe>` markup, and `h-tmpl`, `h-slot`, `h-import` attributes. It depends on these 5 little keywords to provide a component system for front-end web development. It can make the page structure easier. There's no need for a heavy compile process like Vue or React, and no need for server - side rendering. It supports previewing on a static page.html file.
